@@ -5,8 +5,10 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/tangi/Desktop/crafty/CraftyEditor/CraftyEditor/Content/../Assets/Tilesets/test.png</File>
+    <File>C:/Users/tangi/Desktop/crafty/CraftyEditor/CraftyEditor/Content/defaultFont.spritefont</File>
   </SourceFiles>
   <DestFiles>
     <File>Tilesets/test.png</File>
+    <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

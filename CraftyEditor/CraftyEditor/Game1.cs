@@ -25,6 +25,7 @@ namespace CraftyEditor
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
+            this.Components.Add(new UIControls(this));
 
             //...
 

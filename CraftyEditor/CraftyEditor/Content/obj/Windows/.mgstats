@@ -1,2 +1,3 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/tangi/Desktop/crafty/CraftyEditor/CraftyEditor/Content/../Assets/Tilesets/test.png","C:/Users/tangi/Desktop/crafty/CraftyEditor/CraftyEditor/Content/bin/Windows/Tilesets/test.xnb","TextureProcessor","Texture2DContent",533,230485,0,1340304
+"C:/Users/tangi/Desktop/crafty/CraftyEditor/CraftyEditor/Content/../Assets/Tilesets/test.png","C:/Users/tangi/Desktop/crafty/CraftyEditor/CraftyEditor/Content/bin/Windows/Tilesets/test.xnb","TextureProcessor","Texture2DContent",533,230485,0,1380313
+"C:/Users/tangi/Desktop/crafty/CraftyEditor/CraftyEditor/Content/defaultFont.spritefont","C:/Users/tangi/Desktop/crafty/CraftyEditor/CraftyEditor/Content/bin/Windows/defaultFont.xnb","FontDescriptionProcessor","SpriteFontContent",2010,37905,0,2555406
