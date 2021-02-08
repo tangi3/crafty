@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftyEditor", "CraftyEditor\CraftyEditor.csproj", "{ACB892C2-A9FD-406F-B45C-86938755BCA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACB892C2-A9FD-406F-B45C-86938755BCA5}.Debug|x86.ActiveCfg = Debug|x86
+		{ACB892C2-A9FD-406F-B45C-86938755BCA5}.Debug|x86.Build.0 = Debug|x86
+		{ACB892C2-A9FD-406F-B45C-86938755BCA5}.Release|x86.ActiveCfg = Release|x86
+		{ACB892C2-A9FD-406F-B45C-86938755BCA5}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E6F76C6D-753C-4292-A4E5-78D962D2C3AE}
+	EndGlobalSection
+EndGlobal
