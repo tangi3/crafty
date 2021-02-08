@@ -24,9 +24,16 @@ namespace CraftyEditor
 
         protected override void Initialize()
         {
-            Tileset test = new Tileset(0, 32, 32);
+            this.IsMouseVisible = true;
+
+            //...
 
             base.Initialize();
+        }
+
+        private void Drawing()
+        {
+            //...
         }
 
         protected override void LoadContent()
@@ -56,7 +63,11 @@ namespace CraftyEditor
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            Drawing();
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

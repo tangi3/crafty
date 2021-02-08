@@ -21,3 +21,4 @@ C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\obj\x86\Debug\CraftyEdit
 C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\obj\x86\Debug\CraftyEditor.csproj.CopyComplete
 C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\obj\x86\Debug\CraftyEditor.exe
 C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\obj\x86\Debug\CraftyEditor.pdb
+C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\bin\Windows\x86\Debug\Content\Tilesets\test.xnb
