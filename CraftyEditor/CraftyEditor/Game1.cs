@@ -13,8 +13,6 @@ namespace CraftyEditor
         public const int screen_width = 1400;
         public const int screen_height = 800;
 
-        public Test test = new Test();
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -28,12 +26,7 @@ namespace CraftyEditor
         {
             this.IsMouseVisible = true;
 
-            test.Add(new Node());
-            test.Add(new Test());
-            test.Add(new Test());
-            test.Add(new Test());
-
-            test.Get<Test>(1).debug();
+            //...
 
             base.Initialize();
         }

@@ -4,14 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class Test : Node
+public class Test : Node2D
 {
     public Test() : base()
     {
         //...
     }
 
-    public T Get<T>(int key){ return (T)base.childs[key]; }
 
     public void debug() { print("Hello world !"); }
 }
+
+/* how to use Node2D
+test.Add(new Node2D());
+test.Add(new Test());
+test.Add(new Test());
+test.Add(new Test());
+
+test.broadcast("test");
+Console.WriteLine(test.Get<Node2D>(0).data[0]);
+ */
