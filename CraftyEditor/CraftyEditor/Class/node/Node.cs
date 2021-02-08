@@ -6,14 +6,14 @@ using System.Collections.Generic;
 
 public class Node
 {
-	public int id;
+	public int id, Z;
 
 	//can receive data from parents
 	//always as string. Can be parsed if needed.
 	private Dictionary<int, string> requests;
 
 	//childs
-	private Dictionary<int, Node> childs;
+	public Dictionary<int, Node> childs;
 
 	public Vector2 position = new Vector2(0, 0);
 
@@ -26,9 +26,9 @@ public class Node
 
 	//every node can be drawn
 	public Texture2D texture;
-	Rectangle destination;
-	Rectangle part;
-	Color[] data;
+	public Rectangle destination;
+	public Rectangle part;
+	public Color[] data;
 
 	public Node(int ID)
 	{
@@ -74,7 +74,16 @@ public class Node
 
 	//load texture from monogame content pipeline
 	public void loadFromPipeline(ContentManager content, string path) { texture = content.Load<Texture2D>(path); }
-	
+
+	//Draw the whole image
+	public void Draw(ref SpriteBatch spriteBatch)
+	{
+		destination.X = (int)position.X;
+		destination.Y = (int)position.Y;
+
+		spriteBatch.Draw(texture, destination, Color.White);
+	}
+
 	//Draw the whole image
 	public void Draw(ref SpriteBatch spriteBatch, int width, int height)
 	{
@@ -131,4 +140,11 @@ public class Node
 		texture.SetData<Color>(data);
 		return texture;
 	}
+
+	virtual public void _update(Node parent)
+	{
+		//code that need to be executed in game update function
+	}
+
+	virtual public void _set(float x, float y, int width, int height) { }
 }
