@@ -13,6 +13,8 @@ namespace CraftyEditor
         public const int screen_width = 1400;
         public const int screen_height = 800;
 
+        Node2D test = new Node2D();
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -34,10 +36,13 @@ namespace CraftyEditor
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            test.loadFromPipeline(Content, "Tileset", "test", 240, 240);
         }
 
         private void Drawing()
         {
+            test.draw(ref spriteBatch);
             //...
         }
 
