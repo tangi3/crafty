@@ -74,6 +74,9 @@ public class Node2D : Node
 
     public void blit(ref SpriteBatch spriteBatch, int x, int y, int width, int height)
     {
+        rect.Width = width;
+        rect.Height = height;
+
         part.X = x;
         part.Y = y;
         part.Width = width;

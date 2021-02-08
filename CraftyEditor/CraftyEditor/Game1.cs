@@ -42,7 +42,7 @@ namespace CraftyEditor
 
         private void Drawing()
         {
-            test.draw(ref spriteBatch);
+            test.blit(ref spriteBatch, 64, 0, 32, 32);
             //...
         }
 
