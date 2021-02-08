@@ -13,9 +13,7 @@ namespace CraftyEditor
         public const int screen_width = 1400;
         public const int screen_height = 800;
 
-        UIManager ui = new UIManager(screen_width, screen_height);
-
-        Tileset tileset = new Tileset(0, 240, 240, 32);
+        public Test test = new Test();
 
         public Game1()
         {
@@ -30,9 +28,12 @@ namespace CraftyEditor
         {
             this.IsMouseVisible = true;
 
-            ui.color = Color.DarkCyan;
-            //ui.containers.Add(0, new Container(0, 0, 0, 240, 240));
-            //...
+            test.Add(new Node());
+            test.Add(new Test());
+            test.Add(new Test());
+            test.Add(new Test());
+
+            test.Get<Test>(1).debug();
 
             base.Initialize();
         }
@@ -40,19 +41,11 @@ namespace CraftyEditor
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            tileset.loadFromPipeline(Content, "Tilesets/test");
         }
 
         private void Drawing()
         {
-            ui.RenderSelf(graphics.GraphicsDevice, spriteBatch);
-
-            tileset.Draw(ref spriteBatch, 240, 240);
-
             //...
-
-            ui.RenderUI(graphics.GraphicsDevice, spriteBatch);
         }
 
         protected override void UnloadContent()
@@ -64,8 +57,6 @@ namespace CraftyEditor
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-            ui.UpdateUI();
 
             //...
 

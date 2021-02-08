@@ -1,3 +1,7 @@
+C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\obj\x86\Debug\CraftyEditor.csprojAssemblyReference.cache
+C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\obj\x86\Debug\CraftyEditor.csproj.CoreCompileInputs.cache
+C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\bin\Windows\x86\Debug\Content\Tilesets\test.xnb
+C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\bin\Windows\x86\Debug\Content\defaultFont.xnb
 C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\bin\Windows\x86\Debug\CraftyEditor.exe
 C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\bin\Windows\x86\Debug\CraftyEditor.pdb
 C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\bin\Windows\x86\Debug\MonoGame.Framework.dll
@@ -16,10 +20,6 @@ C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\bin\Windows\x86\Debug\Sh
 C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
 C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\bin\Windows\x86\Debug\SharpDX.XInput.xml
-C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\obj\x86\Debug\CraftyEditor.csprojAssemblyReference.cache
-C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\obj\x86\Debug\CraftyEditor.csproj.CoreCompileInputs.cache
 C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\obj\x86\Debug\CraftyEditor.csproj.CopyComplete
 C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\obj\x86\Debug\CraftyEditor.exe
 C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\obj\x86\Debug\CraftyEditor.pdb
-C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\bin\Windows\x86\Debug\Content\Tilesets\test.xnb
-C:\Users\tangi\Desktop\crafty\CraftyEditor\CraftyEditor\bin\Windows\x86\Debug\Content\defaultFont.xnb
