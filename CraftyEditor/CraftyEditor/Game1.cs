@@ -10,24 +10,30 @@ namespace CraftyEditor
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        public const int screen_width = 1400;
-        public const int screen_height = 800;
+        public const int width = 1400;
+        public const int height = 800;
 
-        Node2D test = new Node2D();
+        private UIManager gui;
+
+        public Container test;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferWidth = screen_width;
-            graphics.PreferredBackBufferHeight = screen_height;
+            graphics.PreferredBackBufferWidth = width;
+            graphics.PreferredBackBufferHeight = height;
+
+            gui = new UIManager();
         }
 
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
 
+            //gui.Add(new Container());
+            test = new Container(graphics);
             //...
 
             base.Initialize();
@@ -37,13 +43,17 @@ namespace CraftyEditor
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            test.loadFromPipeline(Content, "Tileset", "test", 240, 240);
+            //...
         }
 
         private void Drawing()
         {
-            test.blit(ref spriteBatch, 64, 0, 32, 32);
+            gui.renderBackground(spriteBatch);
+
+            test.render(spriteBatch);
             //...
+
+            gui.Render(spriteBatch);
         }
 
         protected override void UnloadContent()
@@ -56,6 +66,7 @@ namespace CraftyEditor
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            gui.Update();
             //...
 
             base.Update(gameTime);

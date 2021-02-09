@@ -11,7 +11,7 @@ public class Node2D : Node
 {
     private Texture2D texture;
 
-    private Rectangle rect;
+    public Rectangle rect;
     private Rectangle part;
 
     private Color color;
