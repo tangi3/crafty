@@ -14,7 +14,8 @@ namespace CraftyEditor
         public const int height = 800;
         
         Node2D test;
-        
+        Node2D test2;
+
         //...
 
         public Game1()
@@ -34,7 +35,14 @@ namespace CraftyEditor
             test.resize(graphics, 100, 100);
             test.position.X = 100;
             test.position.Y = 10;
-            
+            test.color = Color.DarkRed;
+
+            test2 = new Node2D(graphics);
+            test2.resize(graphics, 300, 120);
+            test2.position.X = 300;
+            test2.position.Y = 100;
+            test.color = Color.DarkBlue;
+
             //...
 
             base.Initialize();
@@ -55,6 +63,7 @@ namespace CraftyEditor
                 Exit();
 
             test.update(ref mouseState);
+            test2.update(ref mouseState);
 
             //...
 
@@ -64,6 +73,7 @@ namespace CraftyEditor
         private void Drawing()
         {
             test.draw(ref spriteBatch);
+            test2.draw(ref spriteBatch);
 
             //...
         }

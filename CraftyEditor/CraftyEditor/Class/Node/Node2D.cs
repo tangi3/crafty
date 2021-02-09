@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 public class Node2D : Node
 {
     public Texture2D texture;
+
     public Vector2 position;
 
     private Rectangle rect;
@@ -17,15 +18,19 @@ public class Node2D : Node
     public Color[] colorData;
     public Color color;
 
+    public int corner_size;
+
     public bool allow_user_move;
     public bool allow_user_resize;
+
+    private bool _is_corner_top_left_colliding, _is_corner_top_right_colliding, _is_corner_bot_left_colliding, _is_corner_bot_right_colliding;
 
     private int mouseX, mouseY, previous_frame_mouse_x, previous_frame_mouse_y;
 
     private int mouseX_to_rectX_distance, mouseY_to_rectY_distance;
     private int mouse_x_speed, mouse_y_speed;
 
-    private bool is_being_drag;
+    private bool is_being_drag, is_being_resized;
 
     private bool mouseCollideOnX, mouseCollideOnY;
 
@@ -33,6 +38,8 @@ public class Node2D : Node
     {
         position.X = 0;
         position.Y = 0;
+
+        corner_size = 10;
 
         color = Color.White;
 
@@ -44,7 +51,13 @@ public class Node2D : Node
         allow_user_move = true;
         allow_user_resize = true;
 
+        _is_corner_top_left_colliding = false;
+        _is_corner_top_right_colliding = false;
+        _is_corner_bot_left_colliding = false;
+        _is_corner_bot_right_colliding = false;
+
         is_being_drag = false;
+        is_being_resized = false;
 
         _update(graphics);
     }
@@ -105,6 +118,34 @@ public class Node2D : Node
 
     private bool _left_click_pressed_on(ref MouseState mouseState) { return mouseState.LeftButton == ButtonState.Pressed && _mouse_collide(); }
 
+    private bool _resize(ref MouseState mouseState)
+    {
+        if (allow_user_resize)
+        {
+            if (_left_click_pressed_on(ref mouseState) && _mouse_moved())
+            {
+                if (mouseX >= position.X && mouseX <= position.X + corner_size && mouseY >= position.Y && mouseY <= position.Y + corner_size) _is_corner_top_left_colliding = true;
+                else _is_corner_top_left_colliding = false;
+
+                if (mouseX >= position.X + rect.Width - corner_size && mouseX <= position.X + rect.Width && mouseY >= position.Y && mouseY <= position.Y + corner_size) _is_corner_top_right_colliding = true;
+                else _is_corner_top_right_colliding = false;
+
+                if (mouseX >= position.X && mouseX <= position.X + corner_size && mouseY >= position.Y + rect.Height - corner_size && mouseY <= position.Y + rect.Height) _is_corner_bot_left_colliding = true;
+                else _is_corner_bot_left_colliding = false;
+
+                if (mouseX >= position.X + rect.Width - corner_size && mouseX <= position.X + rect.Width && mouseY >= position.Y + rect.Height - corner_size && mouseY <= position.Y + rect.Height) _is_corner_bot_right_colliding = true;
+                else _is_corner_bot_right_colliding = false;
+
+                is_being_resized = _is_corner_top_left_colliding | _is_corner_top_right_colliding | _is_corner_bot_left_colliding | _is_corner_bot_right_colliding;
+            }
+
+            if (mouseState.LeftButton == ButtonState.Released && is_being_resized) is_being_resized = false;
+        }
+        else is_being_resized = false;
+
+        return is_being_resized;
+    }
+
     private bool _drag(ref MouseState mouseState)
     {
         if (allow_user_move)
@@ -119,6 +160,26 @@ public class Node2D : Node
 
     private void _mouse_events(ref MouseState mouseState)
     {
+        if (_resize(ref mouseState))
+        {
+            if (_is_corner_top_left_colliding)
+            {
+                Console.WriteLine("resizing from top left corner");
+            }
+            else if (_is_corner_top_right_colliding)
+            {
+                Console.WriteLine("resizing from top right corner");
+            }
+            else if (_is_corner_bot_left_colliding)
+            {
+                Console.WriteLine("resizing from bot left corner");
+            }
+            else if (_is_corner_bot_right_colliding)
+            {
+                Console.WriteLine("resizing from top left corner");
+            }
+        }
+
         if (_drag(ref mouseState))
         {
             position.X = mouseX - mouseX_to_rectX_distance;
