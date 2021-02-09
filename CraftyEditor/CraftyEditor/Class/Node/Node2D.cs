@@ -3,10 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 public class Node2D : Node
 {
@@ -40,6 +36,8 @@ public class Node2D : Node
     private int mouse_x_speed, mouse_y_speed;
 
     private bool is_being_drag, is_being_resized, _drag_on_hold, _resize_on_hold;
+
+    private int new_width, new_height;
 
     private bool mouseCollideOnX, mouseCollideOnY;
 
@@ -80,7 +78,7 @@ public class Node2D : Node
         _update(graphics);
     }
 
-    public void update(ref MouseState mouseState)
+    public void update(ref GraphicsDeviceManager graphics, ref MouseState mouseState)
     {
         mouseX = mouseState.X;
         mouseY = mouseState.Y;
@@ -91,7 +89,7 @@ public class Node2D : Node
         mouseX_to_rectX_distance = previous_frame_mouse_x - (int)position.X;
         mouseY_to_rectY_distance = previous_frame_mouse_y - (int)position.Y;
 
-        if(sleep == false) _mouse_events(ref mouseState);
+        if(sleep == false) _mouse_events(graphics, ref mouseState);
 
         previous_frame_mouse_x = mouseX;
         previous_frame_mouse_y = mouseY;
@@ -180,7 +178,7 @@ public class Node2D : Node
         }
         else is_being_resized = false;
 
-        return is_being_resized;
+        return is_being_resized | _resize_on_hold;
     }
 
     private bool _drag(ref MouseState mouseState)
@@ -202,26 +200,42 @@ public class Node2D : Node
 
     private bool _mouse_out_of_boundaries() { return mouseX < 0 | mouseY > Game1.height | mouseY < 0 | mouseX > Game1.width; }
 
-    private void _mouse_events(ref MouseState mouseState)
+    private void _mouse_events(GraphicsDeviceManager graphics, ref MouseState mouseState)
     {
         if (_resize(ref mouseState))
         {
+            new_width = rect.Width;
+            new_height = rect.Height;
+
             if (_is_corner_top_left_colliding && allow_top_left_resize)
             {
-                Console.WriteLine("resizing from top left corner");
+                new_width = rect.Width + (previous_frame_mouse_x - mouseX);
+                new_height = rect.Height + (previous_frame_mouse_y - mouseY);
+
+                position.X -= new_width - rect.Width;
+                position.Y -= new_height - rect.Height;
             }
             else if (_is_corner_top_right_colliding && allow_top_right_resize)
             {
-                Console.WriteLine("resizing from top right corner");
+                new_width = rect.Width + ((previous_frame_mouse_x - mouseX)*-1);
+                new_height = rect.Height + (previous_frame_mouse_y - mouseY);
+
+                position.Y += (new_height - rect.Height) * -1;
             }
             else if (_is_corner_bot_left_colliding && allow_bot_left_resize)
             {
-                Console.WriteLine("resizing from bot left corner");
+                new_width = rect.Width + (previous_frame_mouse_x - mouseX);
+                new_height = rect.Height - (previous_frame_mouse_y - mouseY);
+
+                position.X -= new_width - rect.Width;
             }
             else if (_is_corner_bot_right_colliding && allow_bot_right_resize)
             {
-                Console.WriteLine("resizing from top left corner");
+                new_width = rect.Width - (previous_frame_mouse_x - mouseX);
+                new_height = rect.Height - (previous_frame_mouse_y - mouseY);
             }
+
+            if (new_width > 0 && new_height > 0) resize(graphics, new_width, new_height);
         }
 
         if (_drag(ref mouseState))

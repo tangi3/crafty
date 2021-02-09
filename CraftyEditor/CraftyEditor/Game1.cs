@@ -63,8 +63,8 @@ namespace CraftyEditor
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            test.update(ref mouseState);
-            test2.update(ref mouseState);
+            test.update(ref graphics, ref mouseState);
+            test2.update(ref graphics, ref mouseState);
 
             //...
 
