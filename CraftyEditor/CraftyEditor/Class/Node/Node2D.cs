@@ -38,6 +38,7 @@ public class Node2D : Node
     private bool is_being_drag, is_being_resized, _drag_on_hold, _resize_on_hold;
 
     private int new_width, new_height;
+    private int resize_width_min, resize_width_max, resize_height_min, resize_height_max;
 
     private bool mouseCollideOnX, mouseCollideOnY;
 
@@ -51,6 +52,12 @@ public class Node2D : Node
         color = Color.White;
 
         rect = new Rectangle(0, 0, 1, 1);
+
+        resize_width_min = 0;
+        resize_width_max = Game1.width;
+
+        resize_height_min = 0;
+        resize_height_max = Game1.height;
 
         mouseCollideOnX = false;
         mouseCollideOnY = false;
@@ -244,7 +251,11 @@ public class Node2D : Node
                 new_height = rect.Height - (previous_frame_mouse_y - mouseY);
             }
 
-            if (new_width > 0 && new_height > 0) resize(graphics, new_width, new_height);
+            if (new_width > 0 && new_height > 0)
+            {
+                if(new_width > resize_width_min && new_width < resize_width_max && new_height > resize_height_min && new_height < resize_height_max) { resize(graphics, new_width, new_height); }
+            }
+            
         }
 
         if (_drag(ref mouseState))
