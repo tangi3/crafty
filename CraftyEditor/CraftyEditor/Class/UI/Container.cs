@@ -29,11 +29,13 @@ public class Container : Node2D
     public bool border_bottom_visible = true;
 
     public int left_split = 1;
-    public int right_split = 3;
+    public int right_split = 4;
+
     private int leftRowWidth = 0;
     private int rightRowWidth = 0;
+    private int rowLeftOffset = 0;
 
-    private int tmp, countBuffer;
+    private int countBuffer;
 
     public Container(GraphicsDeviceManager graphics, Node2D parent) : base()
     {
@@ -84,19 +86,25 @@ public class Container : Node2D
     {
         draw(ref spriteBatch);
 
-        if (border_thickness > 0)
-        {
-            if (border_left_visible) { Get<Node2D>(0).draw(ref spriteBatch); }
-            if (border_right_visible) { Get<Node2D>(1).draw(ref spriteBatch); }
-            if (border_top_visible) { Get<Node2D>(2).draw(ref spriteBatch); }
-            if (border_bottom_visible) { Get<Node2D>(3).draw(ref spriteBatch); }
+        if (border_thickness > 0) { renderBorders(spriteBatch); }
+
+        for (int i = 0; i < left_split; i++){
+            Get<Row>(countBuffer + i).draw(ref spriteBatch);
+            Get<Row>(countBuffer + i).renderBorders(spriteBatch);
         }
 
-        for (int i = 0; i < left_split; i++) { Get<Node2D>(tmp).draw(ref spriteBatch); tmp += i; }
+        for (int i = 0; i < right_split; i++) {
+            Get<Row>(countBuffer + i).draw(ref spriteBatch);
+            Get<Row>(countBuffer + i).renderBorders(spriteBatch);
+        }
+    }
 
-        for (int i = 0; i < right_split; i++) { Get<Node2D>(tmp + i).draw(ref spriteBatch); tmp += i; }
-
-        tmp = countBuffer;
+    public void renderBorders(SpriteBatch spriteBatch)
+    {
+        if (border_left_visible) { Get<Node2D>(0).draw(ref spriteBatch); }
+        if (border_right_visible) { Get<Node2D>(1).draw(ref spriteBatch); }
+        if (border_top_visible) { Get<Node2D>(2).draw(ref spriteBatch); }
+        if (border_bottom_visible) { Get<Node2D>(3).draw(ref spriteBatch); }
     }
 
     public void update_parent()
@@ -146,8 +154,7 @@ public class Container : Node2D
 
         set_border(graphics);
 
-        countBuffer = Count - 1;
-        tmp = countBuffer;
+        countBuffer = Count;
     }
 
     public void Fill(GraphicsDeviceManager graphics)
@@ -158,9 +165,19 @@ public class Container : Node2D
         leftRowWidth = (parent_width / 2) / left_split;
         rightRowWidth = (parent_width / 2) / right_split;
 
-        for (int i = 0; i < left_split; i++) { Add(new Row(this, graphics, leftRowWidth, rect.Height, i, new Color(237, 28, 36))); }
+        rowLeftOffset = 0;
 
-        for (int i = 0; i < right_split; i++) { Add(new Row(this, graphics, rightRowWidth, rect.Height, i, new Color(0, 162, 232))); }
+        for (int i = 0; i < left_split; i++)
+        {
+            Add(new Row(this, graphics, leftRowWidth, rect.Height - (border_thickness * 2), i, new Color(237, 28, 36)));
+            rowLeftOffset += leftRowWidth + border_thickness;
+        }
+
+        for (int i = 0; i < right_split; i++)
+        {
+            Add(new Row(this, graphics, rightRowWidth, rect.Height - (border_thickness * 2), i, new Color(0, 162, 232), rowLeftOffset));
+            rowLeftOffset += rightRowWidth + border_thickness;
+        }
 
         //...
     }
