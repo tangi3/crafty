@@ -86,17 +86,12 @@ public class Container : Node2D
     {
         draw(ref spriteBatch);
 
+        for (int i = 0; i < left_split + right_split; i++){
+            Get<Row>(countBuffer + i).draw(ref spriteBatch);
+            Get<Row>(countBuffer + i).renderBorders(spriteBatch);
+        }
+
         if (border_thickness > 0) { renderBorders(spriteBatch); }
-
-        for (int i = 0; i < left_split; i++){
-            Get<Row>(countBuffer + i).draw(ref spriteBatch);
-            Get<Row>(countBuffer + i).renderBorders(spriteBatch);
-        }
-
-        for (int i = 0; i < right_split; i++) {
-            Get<Row>(countBuffer + i).draw(ref spriteBatch);
-            Get<Row>(countBuffer + i).renderBorders(spriteBatch);
-        }
     }
 
     public void renderBorders(SpriteBatch spriteBatch)
@@ -162,23 +157,37 @@ public class Container : Node2D
         resize(parent_width, parent_height);
         fill(graphics);
 
-        leftRowWidth = (parent_width / 2) / left_split;
-        rightRowWidth = (parent_width / 2) / right_split;
+        init_rows(graphics);
+    }
 
-        rowLeftOffset = 0;
+    public void init_rows(GraphicsDeviceManager graphics, bool horizontal = true)
+    {
+        //TO DO : when already added
 
-        for (int i = 0; i < left_split; i++)
+        if(left_split > 0 && right_split > 0)
         {
-            Add(new Row(this, graphics, leftRowWidth, rect.Height - (border_thickness * 2), i, new Color(237, 28, 36)));
-            rowLeftOffset += leftRowWidth + border_thickness;
-        }
+            leftRowWidth = (parent_width / 2) / left_split;
+            rightRowWidth = (parent_width / 2) / right_split;
+            rowLeftOffset = 0;
 
-        for (int i = 0; i < right_split; i++)
-        {
-            Add(new Row(this, graphics, rightRowWidth, rect.Height - (border_thickness * 2), i, new Color(0, 162, 232), rowLeftOffset));
-            rowLeftOffset += rightRowWidth + border_thickness;
-        }
+            if (horizontal)
+            {
+                for (int i = 0; i < left_split; i++)
+                {
+                    Add(new Row(this, graphics, leftRowWidth, rect.Height - (border_thickness * 2), i, new Color(237, 28, 36)));
+                    rowLeftOffset += leftRowWidth + border_thickness;
+                }
 
-        //...
+                for (int i = 0; i < right_split; i++)
+                {
+                    Add(new Row(this, graphics, rightRowWidth, rect.Height - (border_thickness * 2), i, new Color(0, 162, 232), rowLeftOffset));
+                    rowLeftOffset += rightRowWidth + border_thickness;
+                }
+            }
+            else
+            {
+                    //...
+            }
+        }
     }
 }
