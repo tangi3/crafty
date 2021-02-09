@@ -55,10 +55,10 @@ public class Node2D : Node
         mouseY = mouseState.Y;
 
         mouse_x_speed = previous_frame_mouse_x - mouseX;
-        mouse_y_speed = previous_frame_mouse_x - mouseX;
+        mouse_y_speed = previous_frame_mouse_y - mouseY;
 
-        mouseX_to_rectX_distance = (int)position.X - mouseX;
-        mouseY_to_rectY_distance = (int)position.Y - mouseY;
+        mouseX_to_rectX_distance = previous_frame_mouse_x - (int)position.X;
+        mouseY_to_rectY_distance = previous_frame_mouse_y - (int)position.Y;
 
         _mouse_events(ref mouseState);
 
@@ -121,8 +121,8 @@ public class Node2D : Node
     {
         if (_drag(ref mouseState))
         {
-            position.X = mouseX;
-            position.Y = mouseY;
+            position.X = mouseX - mouseX_to_rectX_distance;
+            position.Y = mouseY - mouseY_to_rectY_distance;
         }
     }
 }
