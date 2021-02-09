@@ -146,7 +146,11 @@ public class Node2D : Node
     {
         if (allow_user_resize)
         {
-            if (_left_click_pressed_on(ref mouseState) && _mouse_moved())
+            if (_resize_on_hold)
+            {
+                is_being_resized = true;
+            }
+            else if (_left_click_pressed_on(ref mouseState) && _mouse_moved())
             {
                 if (mouseX >= position.X && mouseX <= position.X + corner_size && mouseY >= position.Y && mouseY <= position.Y + corner_size) _is_corner_top_left_colliding = true;
                 else _is_corner_top_left_colliding = false;
@@ -172,11 +176,16 @@ public class Node2D : Node
             if (mouseState.LeftButton == ButtonState.Released && is_being_resized)
             {
                 is_being_resized = false;
-                allow_user_move = true;
                 _resize_on_hold = false;
+                allow_user_move = true;
             }
         }
-        else is_being_resized = false;
+        else
+        {
+            is_being_resized = false;
+            _resize_on_hold = false;
+            allow_user_move = true;
+        }
 
         return is_being_resized | _resize_on_hold;
     }
@@ -246,8 +255,6 @@ public class Node2D : Node
 
         if (_mouse_out_of_boundaries())
         {
-            is_being_drag = false;
-            is_being_resized = false;
             _drag_on_hold = false;
             _resize_on_hold = false;
         }
