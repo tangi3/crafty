@@ -9,24 +9,70 @@ using System.Threading.Tasks;
 
 public class Container : Node2D
 {
-    private int parent_x, parent_y, parent_width, parent_height;
+    public int parent_x, parent_y, parent_width, parent_height;
 
-    private int border_thickness;
-    private Color border_color = Color.Gray;
+    public int border_thickness = 2;
+    public Color border_color = Color.Gray;
+
+    /* private int previousWidth = 0;
+    private int previousHeight = 0;
+
+    private int previousOffsetX = 0;
+    private int previousOffsetY = 0;*/
+
+    public int offsetX = 0;
+    public int offsetY = 0;
+
+    public bool border_left_visible = true;
+    public bool border_right_visible = true;
+    public bool border_top_visible = true; 
+    public bool border_bottom_visible = true;
+
+    public int left_split = 1;
+    public int right_split = 3;
+    private int leftRowWidth = 0;
+    private int rightRowWidth = 0;
+
+    private int tmp, countBuffer;
 
     public Container(GraphicsDeviceManager graphics, Node2D parent) : base()
     {
-        update_parent(parent);
-        init_border(graphics, 4);
+        update_parent(parent); 
+        init_border(graphics);
         Fill(graphics);
     }
 
     public Container(GraphicsDeviceManager graphics) : base()
     {
         update_parent();
-        init_border(graphics, 4);
+        init_border(graphics);
         Fill(graphics);
     }
+    public Container(bool ignore) : base() { }
+
+    /* public void updateChanges(GraphicsDeviceManager graphics)
+    {
+        init_border(graphics);
+
+        if (offsetX != previousOffsetX)
+        {
+            rect.X = rect.X + offsetX;
+            rect.Y = rect.Y = offsetY;
+            previousOffsetX = offsetX;
+            previousOffsetY = offsetY;
+        }
+
+        if (rect.Width != previousWidth)
+        {
+            parent_width = rect.Width;
+            parent_height = rect.Height;
+            previousWidth = rect.Height;
+            previousHeight = rect.Width;
+
+            Fill(graphics);
+            set_border(graphics);
+        }
+    }*/
 
     public void update()
     {
@@ -38,17 +84,19 @@ public class Container : Node2D
     {
         draw(ref spriteBatch);
 
-        //...
-        //render all childs..
-        //...
-
         if (border_thickness > 0)
         {
-            Get<Node2D>(0).draw(ref spriteBatch);
-            Get<Node2D>(1).draw(ref spriteBatch);
-            Get<Node2D>(2).draw(ref spriteBatch);
-            Get<Node2D>(3).draw(ref spriteBatch);
+            if (border_left_visible) { Get<Node2D>(0).draw(ref spriteBatch); }
+            if (border_right_visible) { Get<Node2D>(1).draw(ref spriteBatch); }
+            if (border_top_visible) { Get<Node2D>(2).draw(ref spriteBatch); }
+            if (border_bottom_visible) { Get<Node2D>(3).draw(ref spriteBatch); }
         }
+
+        for (int i = 0; i < left_split; i++) { Get<Node2D>(tmp).draw(ref spriteBatch); tmp += i; }
+
+        for (int i = 0; i < right_split; i++) { Get<Node2D>(tmp + i).draw(ref spriteBatch); tmp += i; }
+
+        tmp = countBuffer;
     }
 
     public void update_parent()
@@ -64,46 +112,56 @@ public class Container : Node2D
         parent_x = parent.rect.X;
         parent_y = parent.rect.Y;
         parent_width = parent.rect.Width;
-        parent_height = parent.rect.Width;
+        parent_height = parent.rect.Height;
     }
 
-    public void set_border(GraphicsDeviceManager graphics, int thickness)
+    public void set_border(GraphicsDeviceManager graphics)
     {
-        border_thickness = thickness;
-
         if (border_thickness > 0)
         {
+            Get<Node2D>(0).move(parent_x + offsetX, parent_y + offsetY);
             Get<Node2D>(0).resize(parent_width, border_thickness);
-            Get<Node2D>(0).move(parent_x, parent_y);
             Get<Node2D>(0).fill(graphics, border_color);
 
+            Get<Node2D>(1).move(parent_x + offsetX, parent_y + offsetY);
             Get<Node2D>(1).resize(border_thickness, parent_height);
-            Get<Node2D>(1).move(parent_x, parent_y);
             Get<Node2D>(1).fill(graphics, border_color);
 
+            Get<Node2D>(2).move(parent_x + offsetX + parent_width - border_thickness, parent_y + offsetY);
             Get<Node2D>(2).resize(border_thickness, parent_height);
-            Get<Node2D>(2).move(parent_x + parent_width - border_thickness, parent_y);
             Get<Node2D>(2).fill(graphics, border_color);
 
+            Get<Node2D>(3).move(parent_x + offsetX, parent_y + offsetY + parent_height - border_thickness);
             Get<Node2D>(3).resize(parent_width, border_thickness);
-            Get<Node2D>(3).move(parent_x, parent_y + parent_height - border_thickness);
             Get<Node2D>(3).fill(graphics, border_color);
         }
     }
 
-    private void init_border(GraphicsDeviceManager graphics, int thickness)
+    public void init_border(GraphicsDeviceManager graphics)
     {
         Add(new Node2D());//TOP    : 0
         Add(new Node2D());//LEFT   : 1
         Add(new Node2D());//RIGHT  : 2
         Add(new Node2D());//BOTTOM : 3
 
-        set_border(graphics, thickness);
+        set_border(graphics);
+
+        countBuffer = Count - 1;
+        tmp = countBuffer;
     }
 
-    private void Fill(GraphicsDeviceManager graphics)
+    public void Fill(GraphicsDeviceManager graphics)
     {
         resize(parent_width, parent_height);
         fill(graphics);
+
+        leftRowWidth = (parent_width / 2) / left_split;
+        rightRowWidth = (parent_width / 2) / right_split;
+
+        for (int i = 0; i < left_split; i++) { Add(new Row(this, graphics, leftRowWidth, rect.Height, i, new Color(237, 28, 36))); }
+
+        for (int i = 0; i < right_split; i++) { Add(new Row(this, graphics, rightRowWidth, rect.Height, i, new Color(0, 162, 232))); }
+
+        //...
     }
 }

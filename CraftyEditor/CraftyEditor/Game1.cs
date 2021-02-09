@@ -13,9 +13,7 @@ namespace CraftyEditor
         public const int width = 1400;
         public const int height = 800;
 
-        private UIManager gui;
-
-        public Container test;
+        public Container mainContainer;
 
         public Game1()
         {
@@ -24,16 +22,13 @@ namespace CraftyEditor
 
             graphics.PreferredBackBufferWidth = width;
             graphics.PreferredBackBufferHeight = height;
-
-            gui = new UIManager();
         }
 
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
 
-            //gui.Add(new Container());
-            test = new Container(graphics);
+            mainContainer = new Container(graphics);
             //...
 
             base.Initialize();
@@ -48,12 +43,8 @@ namespace CraftyEditor
 
         private void Drawing()
         {
-            gui.renderBackground(spriteBatch);
-
-            test.render(spriteBatch);
+            mainContainer.render(spriteBatch);
             //...
-
-            gui.Render(spriteBatch);
         }
 
         protected override void UnloadContent()
@@ -66,7 +57,7 @@ namespace CraftyEditor
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            gui.Update();
+            mainContainer.update();
             //...
 
             base.Update(gameTime);

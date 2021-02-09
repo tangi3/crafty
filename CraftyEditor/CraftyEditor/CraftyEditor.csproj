@@ -44,7 +44,7 @@
     <Compile Include="Class\debug\Test.cs" />
     <Compile Include="Class\Node.cs" />
     <Compile Include="Class\Node2D.cs" />
-    <Compile Include="Class\UI\UIManager.cs" />
+    <Compile Include="Class\UI\Row.cs" />
     <Compile Include="Class\UI\Container.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />

@@ -14,7 +14,7 @@ public class Node2D : Node
     public Rectangle rect;
     private Rectangle part;
 
-    private Color color;
+    public Color color;
     private Color[] colorData;
 
     public Node2D() : base()
@@ -46,6 +46,7 @@ public class Node2D : Node
     {
         rect.Width = width;
         rect.Height = height;
+        colorData = new Color[rect.Width * rect.Height];
     }
 
     public void loadFromPipeline(ContentManager content, string type, string path, int width, int height)
@@ -57,7 +58,6 @@ public class Node2D : Node
     public void fill(GraphicsDeviceManager graphics)
     {
         texture = new Texture2D(graphics.GraphicsDevice, rect.Width, rect.Height);
-        colorData = new Color[rect.Width * rect.Height];
         for (int i = 0; i < colorData.Length; i++) colorData[i] = color;
         texture.SetData(colorData);
     }
@@ -65,7 +65,6 @@ public class Node2D : Node
     {
         color = c;
         texture = new Texture2D(graphics.GraphicsDevice, rect.Width, rect.Height);
-        colorData = new Color[rect.Width * rect.Height];
         for (int i = 0; i < colorData.Length; i++) colorData[i] = color;
         texture.SetData(colorData);
     }
