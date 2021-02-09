@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using CraftyEditor;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -20,8 +21,16 @@ public class Node2D : Node
 
     public int corner_size;
 
+    //when the UI do not have focus
+    public bool sleep;
+
     public bool allow_user_move;
     public bool allow_user_resize;
+
+    public bool allow_top_left_resize;
+    public bool allow_top_right_resize;
+    public bool allow_bot_left_resize;
+    public bool allow_bot_right_resize;
 
     private bool _is_corner_top_left_colliding, _is_corner_top_right_colliding, _is_corner_bot_left_colliding, _is_corner_bot_right_colliding;
 
@@ -30,7 +39,7 @@ public class Node2D : Node
     private int mouseX_to_rectX_distance, mouseY_to_rectY_distance;
     private int mouse_x_speed, mouse_y_speed;
 
-    private bool is_being_drag, is_being_resized;
+    private bool is_being_drag, is_being_resized, _drag_on_hold, _resize_on_hold;
 
     private bool mouseCollideOnX, mouseCollideOnY;
 
@@ -48,8 +57,15 @@ public class Node2D : Node
         mouseCollideOnX = false;
         mouseCollideOnY = false;
 
+        sleep = false;
+
         allow_user_move = true;
         allow_user_resize = true;
+
+        allow_top_left_resize = true;
+        allow_top_right_resize = true;
+        allow_bot_left_resize = true;
+        allow_bot_right_resize = true;
 
         _is_corner_top_left_colliding = false;
         _is_corner_top_right_colliding = false;
@@ -58,6 +74,8 @@ public class Node2D : Node
 
         is_being_drag = false;
         is_being_resized = false;
+        _drag_on_hold = false;
+        _resize_on_hold = false;
 
         _update(graphics);
     }
@@ -73,7 +91,7 @@ public class Node2D : Node
         mouseX_to_rectX_distance = previous_frame_mouse_x - (int)position.X;
         mouseY_to_rectY_distance = previous_frame_mouse_y - (int)position.Y;
 
-        _mouse_events(ref mouseState);
+        if(sleep == false) _mouse_events(ref mouseState);
 
         previous_frame_mouse_x = mouseX;
         previous_frame_mouse_y = mouseY;
@@ -94,6 +112,14 @@ public class Node2D : Node
 
         _update(graphics);
     }
+
+    public bool click_on_top_left_corner(ref MouseState mouseState) { return _left_click_pressed_on(ref mouseState) && _is_corner_top_left_colliding; }
+    
+    public bool click_on_top_right_corner(ref MouseState mouseState) { return _left_click_pressed_on(ref mouseState) && _is_corner_top_right_colliding; }
+    
+    public bool click_on_bot_left_corner(ref MouseState mouseState) { return _left_click_pressed_on(ref mouseState) && _is_corner_bot_left_colliding; }
+    
+    public bool click_on_bot_right_corner(ref MouseState mouseState) { return _left_click_pressed_on(ref mouseState) && _is_corner_bot_right_colliding; }
 
     private void _update(GraphicsDeviceManager graphics)
     {
@@ -136,10 +162,21 @@ public class Node2D : Node
                 if (mouseX >= position.X + rect.Width - corner_size && mouseX <= position.X + rect.Width && mouseY >= position.Y + rect.Height - corner_size && mouseY <= position.Y + rect.Height) _is_corner_bot_right_colliding = true;
                 else _is_corner_bot_right_colliding = false;
 
-                is_being_resized = _is_corner_top_left_colliding | _is_corner_top_right_colliding | _is_corner_bot_left_colliding | _is_corner_bot_right_colliding;
+                is_being_resized = _is_corner_top_left_colliding | _is_corner_top_right_colliding | _is_corner_bot_left_colliding | _is_corner_bot_right_colliding | _resize_on_hold;
+            
+                if (is_being_resized)
+                {
+                    _resize_on_hold = true;
+                    allow_user_move = false;
+                }
             }
 
-            if (mouseState.LeftButton == ButtonState.Released && is_being_resized) is_being_resized = false;
+            if (mouseState.LeftButton == ButtonState.Released && is_being_resized)
+            {
+                is_being_resized = false;
+                allow_user_move = true;
+                _resize_on_hold = false;
+            }
         }
         else is_being_resized = false;
 
@@ -151,30 +188,37 @@ public class Node2D : Node
         if (allow_user_move)
         {
             if (_left_click_pressed_on(ref mouseState) && _mouse_moved()) is_being_drag = true;
-            if (mouseState.LeftButton == ButtonState.Released && is_being_drag) is_being_drag = false;
+            if (is_being_drag) _drag_on_hold = true;
+            if (mouseState.LeftButton == ButtonState.Released && is_being_drag)
+            {
+                is_being_drag = false;
+                _drag_on_hold = false;
+            }
         }
         else is_being_drag = false;
 
-        return is_being_drag;
+        return is_being_drag | _drag_on_hold;
     }
+
+    private bool _mouse_out_of_boundaries() { return mouseX < 0 | mouseY > Game1.height | mouseY < 0 | mouseX > Game1.width; }
 
     private void _mouse_events(ref MouseState mouseState)
     {
         if (_resize(ref mouseState))
         {
-            if (_is_corner_top_left_colliding)
+            if (_is_corner_top_left_colliding && allow_top_left_resize)
             {
                 Console.WriteLine("resizing from top left corner");
             }
-            else if (_is_corner_top_right_colliding)
+            else if (_is_corner_top_right_colliding && allow_top_right_resize)
             {
                 Console.WriteLine("resizing from top right corner");
             }
-            else if (_is_corner_bot_left_colliding)
+            else if (_is_corner_bot_left_colliding && allow_bot_left_resize)
             {
                 Console.WriteLine("resizing from bot left corner");
             }
-            else if (_is_corner_bot_right_colliding)
+            else if (_is_corner_bot_right_colliding && allow_bot_right_resize)
             {
                 Console.WriteLine("resizing from top left corner");
             }
@@ -184,6 +228,14 @@ public class Node2D : Node
         {
             position.X = mouseX - mouseX_to_rectX_distance;
             position.Y = mouseY - mouseY_to_rectY_distance;
+        }
+
+        if (_mouse_out_of_boundaries())
+        {
+            is_being_drag = false;
+            is_being_resized = false;
+            _drag_on_hold = false;
+            _resize_on_hold = false;
         }
     }
 }

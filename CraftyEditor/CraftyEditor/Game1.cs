@@ -41,7 +41,8 @@ namespace CraftyEditor
             test2.resize(graphics, 300, 120);
             test2.position.X = 300;
             test2.position.Y = 100;
-            test.color = Color.DarkBlue;
+            test2.color = Color.DarkBlue;
+
 
             //...
 
