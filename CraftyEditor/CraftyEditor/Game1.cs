@@ -12,8 +12,10 @@ namespace CraftyEditor
 
         public const int width = 1400;
         public const int height = 800;
-
-        public Container mainContainer;
+        
+        Node2D test;
+        
+        //...
 
         public Game1()
         {
@@ -27,8 +29,12 @@ namespace CraftyEditor
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
-
-            mainContainer = new Container(graphics);
+            
+            test = new Node2D(graphics);
+            test.resize(graphics, 100, 100);
+            test.position.X = 100;
+            test.position.Y = 10;
+            
             //...
 
             base.Initialize();
@@ -41,26 +47,30 @@ namespace CraftyEditor
             //...
         }
 
+        protected override void Update(GameTime gameTime)
+        {
+            MouseState mouseState = Mouse.GetState();
+
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+
+            test.update(ref mouseState);
+
+            //...
+
+            base.Update(gameTime);
+        }
+
         private void Drawing()
         {
-            mainContainer.render(spriteBatch);
+            test.draw(ref spriteBatch);
+
             //...
         }
 
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
-        }
-
-        protected override void Update(GameTime gameTime)
-        {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            mainContainer.update();
-            //...
-
-            base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)

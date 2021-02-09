@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class Node
+public class BaseNode
 {
     public int Count = 0;
     public Object[] childs;
@@ -14,7 +14,7 @@ public class Node
     public delegate void afterReceiveDelegate();
     public afterReceiveDelegate callback_receive;
 
-    public Node()
+    public BaseNode()
     {
         childs = new Object[] { };
 
@@ -48,6 +48,4 @@ public class Node
     {
         //...
     }
-
-    public void print(string msg) { Console.WriteLine(msg); }
 }
