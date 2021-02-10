@@ -28,16 +28,11 @@ namespace CraftyEditor
         {
             this.IsMouseVisible = true;
 
-            test = new NodeUI(ref graphics);
-            test.Add(new NodeUI(ref graphics));
-
-            test.resize(ref graphics, 500, 500);
-
+            test = new NodeUI(ref graphics, Content, "test");
+            test.border = false;
+            test.resize(ref graphics, 480, 480);
             test.x = 100;
             test.y = 100;
-
-            test.Get<UI>(0).color = Color.DarkRed;
-            test.Get<UI>(0).resize(ref graphics, 200, 200);
 
             //...
 
@@ -58,7 +53,7 @@ namespace CraftyEditor
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            test.update(ref graphics, ref mouseState);
+            test.update(ref graphics, ref mouseState, 0);
 
             //...
 
@@ -67,7 +62,7 @@ namespace CraftyEditor
 
         private void Drawing()
         {
-            test.draw(ref spriteBatch);
+            test.render(ref spriteBatch);
 
             //...
         }

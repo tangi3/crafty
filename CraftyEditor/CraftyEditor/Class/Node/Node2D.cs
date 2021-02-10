@@ -55,8 +55,8 @@ public class Node2D : Node
         part.Width = unit;
         part.Height = unit;
 
-        part.Y = (int)Math.Floor((decimal)((i / (int)texture_size.Y / unit)));
-        part.X = (i - part.Y) - 1;
+        part.Y = (int)Math.Floor(i / ((texture_size.X/ 10) / unit));
+        part.X = (int)(i - (part.Y * ((texture_size.X / 10) / unit)));
 
         part.X *= unit;
         part.Y *= unit;
@@ -88,10 +88,10 @@ public class Node2D : Node
             texture.SetData(colorData);
         }
     }
-    public void load(ref GraphicsDeviceManager graphics, ContentManager content, string type, string path, int width, int height)
+    public void load(ref GraphicsDeviceManager graphics, ContentManager content, string path, int width, int height)
     {
         _is_rectangle = false;
-        texture = content.Load<Texture2D>(type + "s/" + path);
+        texture = content.Load<Texture2D>(path);
 
         resize(ref graphics, width, height);
     }

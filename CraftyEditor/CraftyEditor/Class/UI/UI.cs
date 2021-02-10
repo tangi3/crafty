@@ -29,8 +29,8 @@ public class UI : BaseUI
     private int previous_frame_mouse_x, previous_frame_mouse_y;
     private int mouseX_to_rectX_distance, mouseY_to_rectY_distance;
 
-    private bool full;
-    private int reduced_width, reduced_height;
+    public bool full;
+    public int reduced_width, reduced_height;
 
     public UI(ref GraphicsDeviceManager graphics) : base(ref graphics)
     {
@@ -56,7 +56,7 @@ public class UI : BaseUI
         full = true;
     }
 
-    public void update(ref GraphicsDeviceManager graphics, ref MouseState mouseState, UI parent = null)
+    public void update(ref GraphicsDeviceManager graphics, ref MouseState mouseState, int reduce_offset, UI parent = null)
     {
         mouseX_to_rectX_distance = previous_frame_mouse_x - x;
         mouseY_to_rectY_distance = previous_frame_mouse_y - y;
@@ -82,7 +82,7 @@ public class UI : BaseUI
         if (mouse_move && left_click) on_drag = true;
         else on_drag = false;
 
-        listen(ref graphics, ref mouseState, parent);
+        listen(ref graphics, ref mouseState, reduce_offset, parent);
         base.update(ref mouseState);
 
         if (parent != null)
@@ -116,7 +116,7 @@ public class UI : BaseUI
         base.resize(ref graphics, width, height);
     }
 
-    public void listen(ref GraphicsDeviceManager graphics, ref MouseState mouseState, UI parent = null)
+    public void listen(ref GraphicsDeviceManager graphics, ref MouseState mouseState, int reduce_offset, UI parent = null)
     {
         if (mouse_hover) giveFocus(ref mouseState);
         if (on_drag_hold == false && mouse_hover == false) unfocus();
@@ -125,7 +125,7 @@ public class UI : BaseUI
         {
             drag(ref mouseState);
 
-            reduce(ref graphics, ref mouseState, parent);
+            reduce(ref graphics, ref mouseState, reduce_offset, parent);
 
             enlarge(ref graphics, ref mouseState);
 
@@ -153,7 +153,7 @@ public class UI : BaseUI
 
     private void quit(ref MouseState mouseState) { if (left_click && collide_button_3(ref mouseState)) _quit(); }
 
-    private void reduce(ref GraphicsDeviceManager graphics, ref MouseState mouseState, UI parent = null)
+    private void reduce(ref GraphicsDeviceManager graphics, ref MouseState mouseState, int reduce_offset, UI parent = null)
     {
         if (left_click && collide_button_2(ref mouseState) && full)
         {
@@ -171,13 +171,13 @@ public class UI : BaseUI
 
             if (parent != null)
             {
-                x = parent.x;
+                x = parent.x + reduce_offset;
                 y = parent.y + (int)parent.real_size.Y - reduced_height;
                 reduced_width = (int)parent.real_size.X / 10;
             }
             else
             {
-                x = 0;
+                x = reduce_offset;
                 y = Game1.height - reduced_height;
                 reduced_width = Game1.width / 10;
             }
