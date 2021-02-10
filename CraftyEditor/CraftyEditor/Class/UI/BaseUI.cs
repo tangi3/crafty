@@ -11,9 +11,8 @@ public class BaseUI : Node2D
     public int x, y;
 
     public StateMachine state;
-    private Dictionary<string, bool> events;
 
-    private Vector2 base_size;
+    public Vector2 base_size;
     public Vector2 real_size;
 
     public bool toolbar, border;
@@ -29,7 +28,6 @@ public class BaseUI : Node2D
         y = 0;
 
         state = new StateMachine();
-        events = new Dictionary<string, bool>();
 
         toolbar = true;
         border = true;
@@ -63,12 +61,8 @@ public class BaseUI : Node2D
         base.update();
     }
 
-    public void AddEvent(string evt) { events.Add(evt, false); }
-
     //this need to be overrided : you will handle all events here :
     public void _listen() { }
-
-    public bool is_(string evt) { return events[evt]; }
 
     public new void resize(ref GraphicsDeviceManager graphics, int width, int height)
     {
@@ -125,6 +119,6 @@ public class BaseUI : Node2D
     public bool collide_corner_bot_left(ref MouseState mouseState) { return mouseState.X >= x + border_thickness && mouseState.X <= x + border_thickness + toolbar_thickness && mouseState.Y >= y + real_size.Y - border_thickness - toolbar_thickness && mouseState.Y <= y + real_size.Y - border_thickness; }
     public bool collide_corner_bot_right(ref MouseState mouseState) { return mouseState.X >= x + real_size.X - border_thickness - toolbar_thickness && mouseState.X <= x + real_size.X + border_thickness && mouseState.Y >= y + real_size.Y - border_thickness && mouseState.Y <= y + real_size.Y - toolbar_thickness - border_thickness; }
     public bool collide_button_1(ref MouseState mouseState) { return mouseState.X >= x + real_size.X - border_thickness - toolbar_thickness - toolbar_thickness && mouseState.X <= x + real_size.X - border_thickness - (toolbar_thickness*2) && mouseState.Y >= y + border_thickness - (toolbar_thickness * 2) && mouseState.Y <= y + toolbar_thickness + border_thickness - (toolbar_thickness * 2); }
-    public bool collide_button_2(ref MouseState mouseState) { return mouseState.X >= x + real_size.X - border_thickness - toolbar_thickness - toolbar_thickness && mouseState.X <= x + real_size.X - border_thickness - toolbar_thickness && mouseState.Y >= y + border_thickness - toolbar_thickness && mouseState.Y <= y + toolbar_thickness + border_thickness - toolbar_thickness; }
+    public bool collide_button_2(ref MouseState mouseState) { return mouseState.X >= x + real_size.X - border_thickness - toolbar_thickness - toolbar_thickness && mouseState.X <= x + real_size.X - border_thickness - toolbar_thickness && mouseState.Y >= y + border_thickness && mouseState.Y <= y + toolbar_thickness + border_thickness; }
     public bool collide_button_3(ref MouseState mouseState) { return mouseState.X >= x + real_size.X - border_thickness - toolbar_thickness && mouseState.X <= x + real_size.X - border_thickness && mouseState.Y >= y + border_thickness && mouseState.Y <= y + toolbar_thickness + border_thickness; }
 }

@@ -13,7 +13,7 @@ namespace CraftyEditor
         public const int width = 1400;
         public const int height = 800;
 
-        public UI test;
+        public NodeUI test;
 
         public Game1()
         {
@@ -28,8 +28,8 @@ namespace CraftyEditor
         {
             this.IsMouseVisible = true;
 
-            test = new UI(ref graphics);
-            test.Add(new UI(ref graphics));
+            test = new NodeUI(ref graphics);
+            test.Add(new NodeUI(ref graphics));
 
             test.resize(ref graphics, 500, 500);
 
@@ -58,7 +58,7 @@ namespace CraftyEditor
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            test.update(ref mouseState);
+            test.update(ref graphics, ref mouseState);
 
             //...
 
