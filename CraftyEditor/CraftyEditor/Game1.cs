@@ -7,14 +7,11 @@ namespace CraftyEditor
 {
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
 
         public const int width = 1400;
         public const int height = 800;
-        
-        Node2D test;
-        Node2D test2;
 
         //...
 
@@ -30,19 +27,6 @@ namespace CraftyEditor
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
-            
-            test = new Node2D(graphics);
-            test.resize(graphics, 100, 100);
-            test.position.X = 100;
-            test.position.Y = 10;
-            test.color = Color.DarkRed;
-
-            test2 = new Node2D(graphics);
-            test2.resize(graphics, 300, 120);
-            test2.position.X = 300;
-            test2.position.Y = 100;
-            test2.color = Color.DarkBlue;
-
 
             //...
 
@@ -63,9 +47,6 @@ namespace CraftyEditor
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            test.update(ref graphics, ref mouseState);
-            test2.update(ref graphics, ref mouseState);
-
             //...
 
             base.Update(gameTime);
@@ -73,9 +54,6 @@ namespace CraftyEditor
 
         private void Drawing()
         {
-            test.draw(ref spriteBatch);
-            test2.draw(ref spriteBatch);
-
             //...
         }
 
