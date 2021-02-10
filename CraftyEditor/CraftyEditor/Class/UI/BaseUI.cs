@@ -14,12 +14,12 @@ public class BaseUI : Node2D
     private Dictionary<string, bool> events;
 
     private Vector2 base_size;
-    private Vector2 real_size;
+    public Vector2 real_size;
 
     public bool toolbar, border;
     public int toolbar_thickness, border_thickness;
 
-    private int available_space_offset_X, available_space_offset_Y;//will contain child related offsets
+    public int available_space_offset_X, available_space_offset_Y;//will contain child related offsets
 
     public Rectangle toolbar_collision, available_space_collision;
 
@@ -48,10 +48,15 @@ public class BaseUI : Node2D
     public void giveFocus(Node2D obj) { if (state.state == StateMachine.inactive && collide(obj)) state.Next(); }
     public void giveFocus(ref MouseState mouseState) { if (state.state == StateMachine.inactive && collide(ref mouseState)) state.Next(); }
 
-    public new void update()
+    public void unfocus() { state.state = StateMachine.inactive; }
+
+    public void update(ref MouseState mouseState)
     {
         position.X = x;
         position.Y = y;
+
+        if (toolbar == false) toolbar_thickness = 0;
+        if (border == false) border_thickness = 0;
 
         _listen();
 
@@ -84,14 +89,14 @@ public class BaseUI : Node2D
             real_size.X = base_size.X;
             real_size.Y = (int)base_size.Y + toolbar_thickness + (border_thickness * 2);
         }
-        else if(toolbar && border == false)
+        else if (toolbar && border == false)
         {
             available_space_collision.Y = (int)position.Y + toolbar_thickness;
 
             real_size.X = base_size.X;
             real_size.Y = (int)base_size.Y + toolbar_thickness;
         }
-        else if(toolbar == false && border)
+        else if (toolbar == false && border)
         {
             available_space_collision.Y = (int)position.Y + border_thickness;
 
@@ -115,4 +120,11 @@ public class BaseUI : Node2D
     public bool collide(Node2D obj) { return obj.position.X >= x && obj.position.X <= x + real_size.X && obj.position.Y >= y && obj.position.Y <= y + real_size.Y; }
 
     public bool collide(ref MouseState mouseState) { return mouseState.X >= x && mouseState.X <= x + real_size.X && mouseState.Y >= y && mouseState.Y <= y + real_size.Y; }
+
+    public bool collide_corner_top_left(ref MouseState mouseState){ return mouseState.X >= x + border_thickness && mouseState.X <= x + border_thickness + toolbar_thickness && mouseState.Y >= y+ border_thickness && mouseState.Y <= y + border_thickness + toolbar_thickness; }
+    public bool collide_corner_bot_left(ref MouseState mouseState) { return mouseState.X >= x + border_thickness && mouseState.X <= x + border_thickness + toolbar_thickness && mouseState.Y >= y + real_size.Y - border_thickness - toolbar_thickness && mouseState.Y <= y + real_size.Y - border_thickness; }
+    public bool collide_corner_bot_right(ref MouseState mouseState) { return mouseState.X >= x + real_size.X - border_thickness - toolbar_thickness && mouseState.X <= x + real_size.X + border_thickness && mouseState.Y >= y + real_size.Y - border_thickness && mouseState.Y <= y + real_size.Y - toolbar_thickness - border_thickness; }
+    public bool collide_button_1(ref MouseState mouseState) { return mouseState.X >= x + real_size.X - border_thickness - toolbar_thickness - toolbar_thickness && mouseState.X <= x + real_size.X - border_thickness - (toolbar_thickness*2) && mouseState.Y >= y + border_thickness - (toolbar_thickness * 2) && mouseState.Y <= y + toolbar_thickness + border_thickness - (toolbar_thickness * 2); }
+    public bool collide_button_2(ref MouseState mouseState) { return mouseState.X >= x + real_size.X - border_thickness - toolbar_thickness - toolbar_thickness && mouseState.X <= x + real_size.X - border_thickness - toolbar_thickness && mouseState.Y >= y + border_thickness - toolbar_thickness && mouseState.Y <= y + toolbar_thickness + border_thickness - toolbar_thickness; }
+    public bool collide_button_3(ref MouseState mouseState) { return mouseState.X >= x + real_size.X - border_thickness - toolbar_thickness && mouseState.X <= x + real_size.X - border_thickness && mouseState.Y >= y + border_thickness && mouseState.Y <= y + toolbar_thickness + border_thickness; }
 }

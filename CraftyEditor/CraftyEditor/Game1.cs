@@ -29,11 +29,15 @@ namespace CraftyEditor
             this.IsMouseVisible = true;
 
             test = new UI(ref graphics);
+            test.Add(new UI(ref graphics));
 
             test.resize(ref graphics, 500, 500);
 
             test.x = 100;
             test.y = 100;
+
+            test.Get<UI>(0).color = Color.DarkRed;
+            test.Get<UI>(0).resize(ref graphics, 200, 200);
 
             //...
 
@@ -54,7 +58,7 @@ namespace CraftyEditor
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            test.update();
+            test.update(ref mouseState);
 
             //...
 

@@ -14,7 +14,7 @@ public class Node2D : Node
     public int unit;
     private Rectangle part;
 
-    private Color color;
+    public Color color;
     private Color[] colorData;
 
     private bool _is_rectangle;
@@ -78,7 +78,7 @@ public class Node2D : Node
         fill(ref graphics);
     }
 
-    private void fill(ref GraphicsDeviceManager graphics)
+    public void fill(ref GraphicsDeviceManager graphics)
     {
         if (_is_rectangle)
         {
