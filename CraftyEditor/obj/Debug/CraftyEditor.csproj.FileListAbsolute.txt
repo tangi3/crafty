@@ -1,0 +1,15 @@
+C:\Users\tangi\Desktop\crafty\CraftyEditor\bin\Debug\CraftyEditor.exe.config
+C:\Users\tangi\Desktop\crafty\CraftyEditor\bin\Debug\CraftyEditor.exe
+C:\Users\tangi\Desktop\crafty\CraftyEditor\bin\Debug\CraftyEditor.pdb
+C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\CraftyEditor.csprojAssemblyReference.cache
+C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\MainWindow.g.cs
+C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\App.g.cs
+C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\CraftyEditor_MarkupCompile.cache
+C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\CraftyEditor_MarkupCompile.lref
+C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\MainWindow.baml
+C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\CraftyEditor.g.resources
+C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\CraftyEditor.Properties.Resources.resources
+C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\CraftyEditor.csproj.GenerateResource.cache
+C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\CraftyEditor.csproj.CoreCompileInputs.cache
+C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\CraftyEditor.exe
+C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\CraftyEditor.pdb
