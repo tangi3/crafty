@@ -21,7 +21,9 @@ namespace CraftyEditor
     /// </summary>
     public partial class MainWindow : Window
     {
+        //load from database :
         private Dictionary<int, Tile> tiles;
+
         private AddTile AddTileForm;
 
         public MainWindow()
@@ -30,12 +32,16 @@ namespace CraftyEditor
 
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
+            this.MouseDown += (s, e) => DragMove();
+
             tiles = new Dictionary<int, Tile>();
 
             AddTileForm = new AddTile(this);
 
             AddTileForm.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
+
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) { Application.Current.Shutdown(); }
 
         private void AddTileButton_Click(object sender, RoutedEventArgs e)
         {
