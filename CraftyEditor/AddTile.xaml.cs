@@ -26,7 +26,7 @@ namespace CraftyEditor
         {
             InitializeComponent();
 
-            this.MouseDown += (s, e) => DragMove();
+           // this.MouseDown += (s, e) => DragMove();
             this.Topmost = true;
 
             unit = 32;

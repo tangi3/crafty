@@ -6,13 +6,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CraftyEditor"
         mc:Ignorable="d"
-        Title="Add a tile to your library" Height="339.287" Width="504.182"
+        Title="Add a tile to your library" Height="469.287" Width="504.182"
         ResizeMode="NoResize" Background="{x:Null}" FontSize="24" WindowStyle="None">
-    <Grid x:Name = "content" Background="#FFE3ECF1">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
-        </Grid.ColumnDefinitions>
+    <Grid x:Name = "content" Background="#FFE3ECF1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
         <Label Content="Tileset" HorizontalAlignment="Left" Height="42" Margin="20,10,0,0" VerticalAlignment="Top" Width="464"/>
         <TextBox TextChanged="tileset_TextChanged" x:Name = "tileset" HorizontalAlignment="Left" Height="43" Margin="20,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="464"/>
         <Label Content="Tile coordinates" HorizontalAlignment="Left" Height="42" Margin="20,120,0,0" VerticalAlignment="Top" Width="464"/>
@@ -20,10 +16,18 @@
         <Label Content="x" HorizontalAlignment="Left" Height="42" Margin="20,177,0,0" VerticalAlignment="Top" Width="38"/>
         <TextBox TextChanged="y_TextChanged" PreviewTextInput="y_PreviewTextInput" x:Name = "ytext" HorizontalAlignment="Left" Height="36" Margin="286,183,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="141" HorizontalContentAlignment="Center"/>
         <Label Content="y" HorizontalAlignment="Left" Height="42" Margin="243,177,0,0" VerticalAlignment="Top" Width="38"/>
-        <Button x:Name = "AddTileConfirm" Content="Add" HorizontalAlignment="Left" Height="54" Margin="138,261,0,0" VerticalAlignment="Top" Width="289" Click="AddTileConfirm_Click" BorderBrush="#00707070" Background="#FF55A6D4" Foreground="White"/>
-        <Rectangle Fill="#FFF1F1F1" HorizontalAlignment="Left" Height="32" Margin="46,266,0,0" Stroke="#FF55A6D4" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0.56,0.452"/>
-        <Image x:Name ="tile_image"  HorizontalAlignment="Left" Height="32" Margin="46,266,0,0" VerticalAlignment="Top" Width="32" OpacityMask="LightGray" />
+        <Button x:Name = "AddTileConfirm" Content="Add" HorizontalAlignment="Left" Height="54" Margin="20,378,0,0" VerticalAlignment="Top" Width="464" Click="AddTileConfirm_Click" BorderBrush="#00707070" Background="#FF55A6D4" Foreground="White"/>
+        <Rectangle Fill="#FFF1F1F1" HorizontalAlignment="Left" Height="32" Margin="233,130,0,0" Stroke="#FF55A6D4" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0.56,0.452"/>
+        <Image x:Name ="tile_image"  HorizontalAlignment="Left" Height="32" Margin="233,130,0,0" VerticalAlignment="Top" Width="32" OpacityMask="LightGray" />
         <Label Content="(only 32*32 tiles are supported in this current version)" HorizontalAlignment="Left" Margin="100,20,0,0" VerticalAlignment="Top" FontSize="12" Height="37" Width="298"/>
         <Button x:Name = "CloseButton" Content="X" HorizontalAlignment="Left" Height="41" Margin="453,0,0,0" VerticalAlignment="Top" Width="51" Click="AddTileClose_Click" BorderBrush="#00707070" Background="#FF55A6D4" Foreground="White"/>
+        <TextBox x:Name = "CX" HorizontalAlignment="Left" Height="36" Margin="63,246,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="141" HorizontalContentAlignment="Center"/>
+        <Label Content="CX" HorizontalAlignment="Left" Height="42" Margin="20,240,0,0" VerticalAlignment="Top" Width="38"/>
+        <TextBox  x:Name = "CY" HorizontalAlignment="Left" Height="36" Margin="286,246,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="141" HorizontalContentAlignment="Center"/>
+        <Label Content="CY" HorizontalAlignment="Left" Height="42" Margin="243,240,0,0" VerticalAlignment="Top" Width="38"/>
+        <TextBox x:Name = "CW" HorizontalAlignment="Left" Height="36" Margin="63,305,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="141" HorizontalContentAlignment="Center"/>
+        <Label Content="CW" HorizontalAlignment="Left" Height="42" Margin="10,299,0,0" VerticalAlignment="Top" Width="48"/>
+        <TextBox  x:Name = "CH" HorizontalAlignment="Left" Height="36" Margin="286,305,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="141" HorizontalContentAlignment="Center"/>
+        <Label Content="CH" HorizontalAlignment="Left" Height="42" Margin="233,299,0,0" VerticalAlignment="Top" Width="48"/>
     </Grid>
 </Window>

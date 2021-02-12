@@ -34,7 +34,7 @@ namespace CraftyEditor
 
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            this.MouseDown += (s, e) => DragMove();
+            //this.MouseDown += (s, e) => DragMove();
 
             tiles = new Dictionary<int, Tile>();
         }

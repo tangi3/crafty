@@ -7,12 +7,13 @@
         <Grid HorizontalAlignment="Stretch" Height="52" VerticalAlignment="Top" Background="#FF337BA4">
             <Button x:Name="CloseButton" Content="X" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="92" BorderBrush="#00000000" Foreground="White" Background="#FF55A6D4" FontSize="25" Margin="1435,1,0,0" Click="Button_Click"/>
             <Button x:Name="EditMode" Content="🛠" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="56" BorderBrush="#00000000" Foreground="#FF184549" Background="#FFD4DCE0" FontSize="25" Margin="183,0,0,0"/>
-            <Button x:Name="TileTool" Content="🏾" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="56" BorderBrush="#00000000" Foreground="#FFE6E8FF" Background="#FF002538" FontSize="25" Margin="305,0,0,0"/>
+            <Button x:Name="TileTool" Content="🏾" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="56" BorderBrush="#00000000" Foreground="#FFE6E8FF" Background="#FF002538" FontSize="25" Margin="378,0,0,0"/>
             <Button x:Name="CurrentLayer" Content="0" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="56" BorderBrush="#00000000" Foreground="#FF184549" Background="#FFD4DCE0" FontSize="25" Margin="244,0,0,0"/>
-            <Button x:Name="ExtrudeTool" Content="⛰" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="56" BorderBrush="#00000000" Foreground="#FFE6E8FF" Background="#FF002538" FontSize="25" Margin="366,0,0,0"/>
+            <Button x:Name="ExtrudeTool" Content="⛰" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="56" BorderBrush="#00000000" Foreground="#FFE6E8FF" Background="#FF002538" FontSize="25" Margin="440,0,0,0"/>
             <Button x:Name="CreateCO" Content="🧊" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="56" BorderBrush="#00000000" Foreground="#FFDAFFE4" Background="#FF073618" FontSize="25" Margin="122,1,0,0"/>
             <Button x:Name="AddTile" Content="🏾" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="56" BorderBrush="#00000000" Foreground="#FFDAFFE4" Background="#FF073618" FontSize="25" Margin="61,0,0,0" Click="AddTile_Click"/>
             <Button x:Name="Login" Content="👨🏻‍💼" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="56" BorderBrush="#00000000" Foreground="#FFDAFFE4" Background="#FF073618" FontSize="25" Click="Login_Click"/>
+            <Button x:Name="xPos" Content="(0, 0)" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="67" BorderBrush="#00000000" Foreground="#FF184549" Background="#FFDFE0D4" FontSize="14" Margin="305,0,0,0"/>
         </Grid>
 
     </Grid>
