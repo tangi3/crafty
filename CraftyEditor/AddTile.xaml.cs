@@ -57,10 +57,7 @@ namespace CraftyEditor
             //...
         }
 
-        private void AddTileClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Visibility = Visibility.Hidden;
-        }
+        private void AddTileClose_Click(object sender, RoutedEventArgs e) { this.Visibility = Visibility.Hidden; }
 
         private void cropImage()
         {
@@ -68,8 +65,11 @@ namespace CraftyEditor
 
             if (File.Exists(getTilesetPath()))
             {
-                bitmapimage = new BitmapImage(new Uri(getTilesetPath()));
-                tile_image.Source = new CroppedBitmap(bitmapimage, new Int32Rect(xValue, yValue, unit, unit));
+                if(int.TryParse(xText, out _) && int.TryParse(yText, out _))
+                {
+                    bitmapimage = new BitmapImage(new Uri(getTilesetPath()));
+                    tile_image.Source = new CroppedBitmap(bitmapimage, new Int32Rect(xValue, yValue, unit, unit));
+                }
             }
 
         }
