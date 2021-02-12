@@ -21,6 +21,12 @@ namespace CraftyEditor
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Datable database;
+        public string host = "localhost";
+        public string username = "root";
+        public string password = "";
+        public string dtb = "crafty";
+
         //load from database :
         private Dictionary<int, Tile> tiles;
 
@@ -31,6 +37,8 @@ namespace CraftyEditor
         public MainWindow()
         {
             InitializeComponent();
+
+            database = new Datable(host, username, password, dtb);
 
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
@@ -62,7 +70,7 @@ namespace CraftyEditor
 
             LoginForm = new Login(this);
             LoginForm.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            LoginForm.Show();
+            LoginForm.Show(ref database);
         }
 
         private void AddTile_Click(object sender, RoutedEventArgs e) { OpenAddTile(); }

@@ -1,19 +1,25 @@
-﻿using System.Windows;
+﻿using CraftyEditor.Class;
+using System.Windows;
 using System.Windows.Input;
-using MySql.Data.MySqlClient;
 
 namespace CraftyEditor
 {
     public partial class Login : Window
     {
         private Window parent;
+        private Datable database;
 
         public Login(MainWindow prt)
         {
             InitializeComponent();
+
+            /*Request(string host, string username, string password, string database, string query, string sortBy)*/
+
             this.Topmost = true;
             parent = prt;
         }
+
+        public void Show(ref Datable dtb) { base.Show(); database = dtb; }
 
         private void username_PreviewTextInput(object sender, TextCompositionEventArgs e) { }
 
@@ -32,6 +38,12 @@ namespace CraftyEditor
         private bool connexion()
         {
             //...
+
+            database.request("select * from users where username = \"" + username.Text + "\" and password = \"" + password.Text + "\"");
+            MessageBox.Show(database.fetch().ToString());
+
+            //...
+
             return false;
         }
     }
