@@ -65,8 +65,8 @@ namespace CraftyEditor
             LoginForm.Show();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e) { OpenLogin(); }
+        private void AddTile_Click(object sender, RoutedEventArgs e) { OpenAddTile(); }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e) { OpenAddTile(); }
+        private void Login_Click(object sender, RoutedEventArgs e) { OpenLogin(); }
     }
 }
