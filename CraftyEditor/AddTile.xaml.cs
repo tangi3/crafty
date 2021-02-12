@@ -17,8 +17,6 @@ namespace CraftyEditor
 
         private BitmapImage bitmapimage;
 
-        private System.Drawing.Rectangle source, dest;
-
         private int unit;
 
         private int xValue, yValue;
@@ -29,6 +27,7 @@ namespace CraftyEditor
             InitializeComponent();
 
             this.MouseDown += (s, e) => DragMove();
+            this.Topmost = true;
 
             unit = 32;
 
@@ -57,7 +56,7 @@ namespace CraftyEditor
             //...
         }
 
-        private void AddTileClose_Click(object sender, RoutedEventArgs e) { this.Visibility = Visibility.Hidden; }
+        private void AddTileClose_Click(object sender, RoutedEventArgs e) { this.Close(); }
 
         private void cropImage()
         {

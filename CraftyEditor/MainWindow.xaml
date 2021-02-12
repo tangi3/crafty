@@ -4,12 +4,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Width="1400" Height="800" ResizeMode="NoResize" WindowStyle="None" Background="#FFFCFDFF">
     <Grid x:Name="main_grid">
-        <DockPanel x:Name="menubar" HorizontalAlignment="Left" Height="56" LastChildFill="False" VerticalAlignment="Top" Width="1400" Background="#FF55A6D4">
-            <Menu>
-                <MenuItem x:Name="ConnexionButton" Header = "Connexion" Width="226" FontSize="24" Foreground="#FDFFFFFF" Background="#FF55A6D4" />
-                <MenuItem x:Name="AddTileButton" Header = "Add tile to library" Height="56" Width="225" FontSize="24" Background="#FF55A6D4" Foreground="White" Click="AddTileButton_Click" />
-            </Menu>
-        </DockPanel>
-        <Button Content="X" HorizontalAlignment="Left" Height="56" Margin="1332,0,0,0" VerticalAlignment="Top" Width="68" Background="#00DDDDDD" BorderBrush="#00707070" FontSize="34" Foreground="White" Click="Button_Click"/>
+        <Rectangle Fill="#FF347EA8" HorizontalAlignment="Left" Height="42" Stroke="#00000000" VerticalAlignment="Top" Width="1400"/>
+        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="274" BorderBrush="#00000000" Foreground="White" Background="#FF55A6D4" FontSize="25" Click="Button_Click_1"/>
+        <Button x:Name="AddTileButton" Content="Add a tile" HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="274" BorderBrush="#00000000" Foreground="White" Background="#FF55A6D4" FontSize="25" Margin="279,0,0,0" Click="Button_Click_2"/>
+        <Button x:Name="CloseButton" Content="X" HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="92" BorderBrush="#00000000" Foreground="White" Background="#FF55A6D4" FontSize="25" Margin="1308,0,0,0" Click="Button_Click"/>
+
     </Grid>
 </Window>

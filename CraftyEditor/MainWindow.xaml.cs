@@ -26,6 +26,8 @@ namespace CraftyEditor
 
         private AddTile AddTileForm;
 
+        private Login LoginForm;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,22 +37,36 @@ namespace CraftyEditor
             this.MouseDown += (s, e) => DragMove();
 
             tiles = new Dictionary<int, Tile>();
-
-            AddTileForm = new AddTile(this);
-
-            AddTileForm.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) { Application.Current.Shutdown(); }
 
-        private void AddTileButton_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e) { this.Close(); }
+
+        private void OpenAddTile()
         {
-            AddTileForm.Visibility = Visibility.Visible;
+            if (AddTileForm != null) { AddTileForm.Close(); AddTileForm = null; }
+
+            if (LoginForm != null) { LoginForm.Close(); LoginForm = null; }
+
+            AddTileForm = new AddTile(this);
+            AddTileForm.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            AddTileForm.Show();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OpenLogin()
         {
-            this.Close();
+            if(LoginForm != null) { LoginForm.Close(); LoginForm = null; }
+
+            if(AddTileForm != null) { AddTileForm.Close(); AddTileForm = null; }
+
+            LoginForm = new Login(this);
+            LoginForm.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            LoginForm.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e) { OpenLogin(); }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e) { OpenAddTile(); }
     }
 }

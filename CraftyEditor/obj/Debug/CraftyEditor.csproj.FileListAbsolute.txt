@@ -22,3 +22,7 @@ C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\CraftyEditor.csproj.CopyCom
 C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\AddTile.g.cs
 C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\CraftyEditor_MarkupCompile.lref
 C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\AddTile.baml
+C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\Login.g.cs
+C:\Users\tangi\Desktop\crafty\CraftyEditor\obj\Debug\Login.baml
+C:\Users\tangi\Desktop\crafty\CraftyEditor\bin\Debug\Fare.dll
+C:\Users\tangi\Desktop\crafty\CraftyEditor\bin\Debug\Fare.xml
