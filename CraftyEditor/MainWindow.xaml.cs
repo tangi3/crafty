@@ -12,6 +12,7 @@ namespace CraftyEditor
     public partial class MainWindow : Window
     {
         public Datable database;
+
         public string host = "localhost";
         public string username = "root";
         public string password = "";
@@ -35,6 +36,8 @@ namespace CraftyEditor
             //this.MouseDown += (s, e) => DragMove();
 
             tiles = new Dictionary<int, Tile>();
+
+            if (database.logged == false) { OpenLogin(); }
         }
 
         private void GlRender(object sender, System.EventArgs e)
@@ -68,7 +71,7 @@ namespace CraftyEditor
             LoginForm.Show(ref database);
         }
 
-        private void AddTile_Click(object sender, RoutedEventArgs e) { OpenAddTile(); }
+        private void AddTile_Click(object sender, RoutedEventArgs e) { if (database.logged) OpenAddTile(); }
 
         private void Login_Click(object sender, RoutedEventArgs e) { OpenLogin(); }
     }

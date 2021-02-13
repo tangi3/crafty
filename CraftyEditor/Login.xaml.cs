@@ -24,7 +24,7 @@ namespace CraftyEditor
         private void username_PreviewTextInput(object sender, TextCompositionEventArgs e) { }
 
         private void LoginClose_Click(object sender, System.ComponentModel.CancelEventArgs e) {  }
-        private void LoginClose_Click(object sender, RoutedEventArgs e) { this.Close();  }
+        private void LoginClose_Click(object sender, RoutedEventArgs e) { if(database.logged) this.Close();  }
 
         private void LoginConfirm_Click(object sender, RoutedEventArgs e)
         {
@@ -37,11 +37,6 @@ namespace CraftyEditor
 
         private bool connexion()
         {
-            //...
-
-            database.request("select * from users where username = \"" + username.Text + "\" and password = \"" + password.Text + "\"");
-            MessageBox.Show(database.fetch().ToString());
-
             //...
 
             return false;

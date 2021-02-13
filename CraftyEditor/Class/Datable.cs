@@ -11,6 +11,8 @@ namespace CraftyEditor.Class
         private MySqlDataAdapter adapter;
         private DataTable data;
 
+        public bool logged;
+
         private string host, username, password, database;
 
         private string cstring;
@@ -21,9 +23,17 @@ namespace CraftyEditor.Class
             username = usr;
             password = pwd;
             database = dtb;
+
+            logged = false;
         }
 
-        public void request(string query, string sortBy = "")
+        public void connect()
+        {
+            //...
+            logged = true;
+        }
+
+        private void request(string query, string sortBy = "")
         {
             try
             {
