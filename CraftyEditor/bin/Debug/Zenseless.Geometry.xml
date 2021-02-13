@@ -1,0 +1,2292 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Zenseless.Geometry</name>
+    </assembly>
+    <members>
+        <member name="T:Zenseless.Geometry.MeshAttribute">
+            <summary>
+            A class that encapsulates a single mesh attribute.
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.MeshAttribute.#ctor(System.Collections.IList,System.Type,System.Int32,System.Func{System.Array})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.MeshAttribute"/> class. Use <seealso cref="M:Zenseless.Geometry.MeshAttribute.Create``1"/> instead.
+            </summary>
+            <param name="list">The list of elements.</param>
+            <param name="baseType">The base type.</param>
+            <param name="baseTypeCount">The base type count.</param>
+            <param name="toArray">To array functor.</param>
+            <exception cref="T:System.ArgumentNullException" />
+        </member>
+        <member name="M:Zenseless.Geometry.MeshAttribute.Create``1">
+            <summary>
+            Creates an instance of a <seealso cref="T:Zenseless.Geometry.MeshAttribute"/> class.
+            </summary>
+            <typeparam name="ELEMENT_TYPE">The element type.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:Zenseless.Geometry.MeshAttribute.BaseTypeCount">
+            <summary>
+            Gets the base type count. Element types used for attributes are made up of multiple base types like for instance Vector3 is made up of 3 floats. So for Vector3 the base type count is 3.
+            </summary>
+            <value>
+            The base type count.
+            </value>
+        </member>
+        <member name="M:Zenseless.Geometry.MeshAttribute.ToArray">
+            <summary>
+            Copy the attribute elements into an array.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Zenseless.Geometry.MeshAttribute.BaseType">
+            <summary>
+            Element types used for attributes are made up of multiple base types like for instance Vector3 is made up of 3 floats. So for Vector3 the base type is float.
+            </summary>
+            <value>
+            The base type.
+            </value>
+        </member>
+        <member name="M:Zenseless.Geometry.MeshAttribute.GetList``1">
+            <summary>
+            Gets the internal list of elements.
+            </summary>
+            <typeparam name="ELEMENT_TYPE">The type of the lement type.</typeparam>
+            <returns></returns>
+            <exception cref="T:System.InvalidCastException"></exception>
+        </member>
+        <member name="M:Zenseless.Geometry.MeshAttribute.GetBaseTypeCount(System.Type)">
+            <summary>
+            Element types used for attributes are made up of multiple base types like for instance Vector3 is made up of 3 floats. So for Vector3 the base type count is 3.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The base type count.</returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:Zenseless.Geometry.Camera`2">
+            <summary>
+            A generic camera class
+            </summary>
+            <typeparam name="VIEW">The type of the view.</typeparam>
+            <typeparam name="PROJECTION">The type of the projection.</typeparam>
+        </member>
+        <member name="M:Zenseless.Geometry.Camera`2.#ctor(`0,`1)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Camera`2"/> class.
+            </summary>
+            <param name="view">The view.</param>
+            <param name="projection">The projection.</param>
+        </member>
+        <member name="P:Zenseless.Geometry.Camera`2.Matrix">
+            <summary>
+            Gets the model-view-projection matrix in row-major style.
+            </summary>
+            <value>
+            The matrix.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Camera`2.Projection">
+            <summary>
+            Gets the projection transformation.
+            </summary>
+            <value>
+            The projection.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Camera`2.View">
+            <summary>
+            Gets the view transformation.
+            </summary>
+            <value>
+            The view.
+            </value>
+        </member>
+        <member name="T:Zenseless.Geometry.Box3D">
+            <summary>
+            Represents a 3D mutable axis-aligned bounding box
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.Box3D.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Box3D"/> class.
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <param name="z">The z.</param>
+            <param name="sizeX">The size x.</param>
+            <param name="sizeY">The size y.</param>
+            <param name="sizeZ">The size z.</param>
+        </member>
+        <member name="M:Zenseless.Geometry.Box3D.#ctor(Zenseless.Geometry.Box3D)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Box3D"/> class.
+            </summary>
+            <param name="box">The box.</param>
+        </member>
+        <member name="P:Zenseless.Geometry.Box3D.SizeX">
+            <summary>
+            Gets or sets the size x.
+            </summary>
+            <value>
+            The size x.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Box3D.SizeY">
+            <summary>
+            Gets or sets the size y.
+            </summary>
+            <value>
+            The size y.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Box3D.SizeZ">
+            <summary>
+            Gets or sets the size z.
+            </summary>
+            <value>
+            The size z.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Box3D.X">
+            <summary>
+            Gets or sets the x.
+            </summary>
+            <value>
+            The x.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Box3D.Y">
+            <summary>
+            Gets or sets the y.
+            </summary>
+            <value>
+            The y.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Box3D.Z">
+            <summary>
+            Gets or sets the z.
+            </summary>
+            <value>
+            The z.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Box3D.CenterX">
+            <summary>
+            Gets or sets the center x.
+            </summary>
+            <value>
+            The center x.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Box3D.CenterY">
+            <summary>
+            Gets or sets the center y.
+            </summary>
+            <value>
+            The center y.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Box3D.CenterZ">
+            <summary>
+            Gets or sets the center z.
+            </summary>
+            <value>
+            The center z.
+            </value>
+        </member>
+        <member name="M:Zenseless.Geometry.Box3D.Intersects(Zenseless.Geometry.Box3D)">
+            <summary>
+            Intersects es the specified box.
+            </summary>
+            <param name="box">The box.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box3D.Contains(System.Single,System.Single,System.Single)">
+            <summary>
+            Determines whether [contains] [the specified x].
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <param name="z">The z.</param>
+            <returns>
+              <c>true</c> if [contains] [the specified x]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box3D.Contains(Zenseless.Geometry.Box3D)">
+            <summary>
+            Determines whether [contains] [the specified box].
+            </summary>
+            <param name="box">The box.</param>
+            <returns>
+              <c>true</c> if [contains] [the specified box]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="P:Zenseless.Geometry.Box3D.MaxX">
+            <summary>
+            Gets or sets the maximum x.
+            </summary>
+            <value>
+            The maximum x.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Box3D.MaxY">
+            <summary>
+            Gets or sets the maximum y.
+            </summary>
+            <value>
+            The maximum y.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Box3D.MaxZ">
+            <summary>
+            Gets or sets the maximum z.
+            </summary>
+            <value>
+            The maximum z.
+            </value>
+        </member>
+        <member name="M:Zenseless.Geometry.Box3D.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Zenseless.Geometry.Box2D">
+            <summary>
+            This class represents a mutable 2D axis aligned bounding box. 
+            It is a class, because Microsoft recommends structures to be immutable 
+            and this class will be often used as a function parameter, so less
+            copying is necessary.
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2D.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates an 2D axis aligned bounding box
+            </summary>
+            <param name="minX">minimal x-coordinate</param>
+            <param name="minY">minimal y-coordinate</param>
+            <param name="sizeX">width</param>
+            <param name="sizeY">height</param>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2D.#ctor(Zenseless.Geometry.IReadOnlyBox2D)">
+            <summary>
+            Creates an 2D axis aligned bounding box.
+            </summary>
+            <param name="rectangle">Source rectangle to copy.</param>
+        </member>
+        <member name="F:Zenseless.Geometry.Box2D.BOX01">
+            <summary>
+            Box from coordinates [0,0] to [1,1].
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.Box2D.CenterX">
+            <summary>
+            X-coordinate of the center of the box. Setting the value will move the box, while to size will not change.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.Box2D.CenterY">
+            <summary>
+            Y-coordinate of the center of the box. Setting the value will move the box, while to size will not change.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.Box2D.MaxX">
+            <summary>
+            Maximal x coordinate. Setting the value will change the size of the box, while MinX and MinY will stay the same.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.Box2D.MaxY">
+            <summary>
+            Maximal y coordinate. Setting the value will change the size of the box, 
+            while <see cref="P:Zenseless.Geometry.Box2D.MinX"/> and <see cref="P:Zenseless.Geometry.Box2D.MinY"/> will stay the same.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.Box2D.MinX">
+            <summary>
+            Minimal x coordinate. Setting the value will move the box, while to size will not change.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.Box2D.MinY">
+            <summary>
+            Minimal y coordinate. Setting the value will move the box, while to size will not change.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.Box2D.SizeX">
+            <summary>
+            Size of the box in x-direction. Setting the value will change the size of the box, 
+            while <see cref="P:Zenseless.Geometry.Box2D.MinX"/> and <see cref="P:Zenseless.Geometry.Box2D.MinY"/> will stay the same.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.Box2D.SizeY">
+            <summary>
+            Size of the box in y-direction. Setting the value will change the size of the box, 
+            while <see cref="P:Zenseless.Geometry.Box2D.MinX"/> and <see cref="P:Zenseless.Geometry.Box2D.MinY"/> will stay the same.
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2D.op_Equality(Zenseless.Geometry.Box2D,Zenseless.Geometry.Box2D)">
+            <summary>
+            Compare two rectangles for equal size and position
+            </summary>
+            <param name="a">First rectangle to compare</param>
+            <param name="b">Second rectangle to compare</param>
+            <returns>true when size and position are the same</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2D.op_Inequality(Zenseless.Geometry.Box2D,Zenseless.Geometry.Box2D)">
+            <summary>
+            Compare two rectangles for equal size and position
+            </summary>
+            <param name="a">First rectangle to compare</param>
+            <param name="b">Second rectangle to compare</param>
+            <returns>false when size and position are the same</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2D.Equals(Zenseless.Geometry.IReadOnlyBox2D)">
+            <summary>
+            Tests two rectangles for equal size and position
+            </summary>
+            <param name="other">second rectangle</param>
+            <returns>False if not a rectangle</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2D.Equals(System.Object)">
+            <summary>
+            Test if two rectangles have equal position and size
+            </summary>
+            <param name="other">rectangle to compare to</param>
+            <returns>False if not a rectangle</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2D.GetHashCode">
+            <summary>
+            A hash code produced out of hash codes of <see cref="P:Zenseless.Geometry.Box2D.MinX"/>, <see cref="P:Zenseless.Geometry.Box2D.MinY"/>, <see cref="P:Zenseless.Geometry.Box2D.SizeX"/>, <see cref="P:Zenseless.Geometry.Box2D.SizeY"/>.
+            </summary>
+            <returns>A hash code produced out of hash codes of <see cref="P:Zenseless.Geometry.Box2D.MinX"/>, <see cref="P:Zenseless.Geometry.Box2D.MinY"/>, <see cref="P:Zenseless.Geometry.Box2D.SizeX"/>, <see cref="P:Zenseless.Geometry.Box2D.SizeY"/>.</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2D.ToString">
+            <summary>
+            Returns a string of format (<see cref = "P:Zenseless.Geometry.Box2D.MinX" />;<see cref = "P:Zenseless.Geometry.Box2D.MinY" />;
+            <see cref = "P:Zenseless.Geometry.Box2D.SizeX" />;<see cref = "P:Zenseless.Geometry.Box2D.SizeY" />)
+            </summary>
+            <returns>
+            String of format (<see cref = "P:Zenseless.Geometry.Box2D.MinX" />;<see cref = "P:Zenseless.Geometry.Box2D.MinY" />;
+            <see cref = "P:Zenseless.Geometry.Box2D.SizeX" />;<see cref = "P:Zenseless.Geometry.Box2D.SizeY" />)
+            </returns>
+        </member>
+        <member name="T:Zenseless.Geometry.Box2DExtensions">
+            <summary>
+            This class contains static extension methods for Box2D.
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2DExtensions.CreateFromMinMax(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Create a Box2D from min and max coordinates (calculates the size on creation)
+            </summary>
+            <param name="minX">Minimal X</param>
+            <param name="minY">Minimal Y</param>
+            <param name="maxX">Maximal X</param>
+            <param name="maxY">Maximal Y</param>
+            <returns>A new Box2D instance</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2DExtensions.CreateFromMinMax(System.Numerics.Vector2@,System.Numerics.Vector2@)">
+            <summary>
+            Create a Box2D from min and max coordinates (calculates the size on creation)
+            </summary>
+            <param name="min">Minimal point</param>
+            <param name="max">Maximal point</param>
+            <returns>A new Box2D instance</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2DExtensions.CreateFromPoints(System.Collections.Generic.IEnumerable{System.Numerics.Vector2}@)">
+            <summary>
+            Creates an axis aligned box that contains all input points.
+            </summary>
+            <param name="points">Input points</param>
+            <returns>A box containing the points.</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2DExtensions.CreateFromCenterSize(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Create a <seealso cref="T:Zenseless.Geometry.Box2D"/> from its center and size (calculates the min coordinates on creation)
+            </summary>
+            <param name="centerX">Center x</param>
+            <param name="centerY">Center y</param>
+            <param name="sizeX">Size x</param>
+            <param name="sizeY">Size y</param>
+            <returns>A new Box2D instance</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2DExtensions.CreateFromCircle(Zenseless.Geometry.IReadOnlyCircle@)">
+            <summary>
+            Creates a <seealso cref="T:Zenseless.Geometry.Box2D"/> from a circle.
+            </summary>
+            <param name="circle">The circle.</param>
+            <returns>A new Box2D instance</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2DExtensions.CreateFromMinSize(System.Numerics.Vector2,System.Numerics.Vector2)">
+            <summary>
+            Create a <seealso cref="T:Zenseless.Geometry.Box2D"/> from its minimal corner and size
+            </summary>
+            <param name="min">The minimal corner.</param>
+            <param name="size">The size.</param>
+            <returns>A new Box2D instance</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2DExtensions.Merge(Zenseless.Geometry.Box2D,Zenseless.Geometry.Box2D)">
+            <summary>
+            Merges the specified boxes.
+            </summary>
+            <param name="boxA">The box a.</param>
+            <param name="boxB">The box b.</param>
+            <returns>A box that contains boxA and boxB.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            boxA
+            or
+            boxB
+            </exception>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2DExtensions.PushXRangeInside(Zenseless.Geometry.Box2D,Zenseless.Geometry.IReadOnlyBox2D)">
+            <summary>
+            Pushes rectangleA inside rectangleB, but only in regards to the x-direction
+            </summary>
+            <param name="rectangleA">rectangle to push</param>
+            <param name="rectangleB">bounds to push inside of</param>
+            <returns>true if a push was necessary</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2DExtensions.PushYRangeInside(Zenseless.Geometry.Box2D,Zenseless.Geometry.IReadOnlyBox2D)">
+            <summary>
+            Pushes rectangleA inside rectangleB, but only in regards to the y-direction
+            </summary>
+            <param name="rectangleA">rectangle to push</param>
+            <param name="rectangleB">bounds to push inside of</param>
+            <returns>true if a push was necessary</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2DExtensions.Overlap(Zenseless.Geometry.IReadOnlyBox2D,Zenseless.Geometry.IReadOnlyBox2D)">
+            <summary>
+            Calculates the overlap Box
+            Returns null if no overlap
+            </summary>
+            <param name="rectangleA"></param>
+            <param name="rectangleB"></param>
+            <returns>AABR in the overlap</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2DExtensions.TransformCenter(Zenseless.Geometry.Box2D,System.Numerics.Matrix3x2@)">
+            <summary>
+            Transforms the center of a rectangle by a matrix
+            </summary>
+            <param name="rectangle">to transform</param>
+            <param name="M">transformation matrix to apply</param>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2DExtensions.TransformCenter(Zenseless.Geometry.Box2D,Zenseless.Geometry.Transformation@)">
+            <summary>
+            Transforms the center of a rectangle
+            </summary>
+            <param name="rectangle">The rectangle to transform.</param>
+            <param name="transformation">Transformation to apply.</param>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2DExtensions.UndoOverlap(Zenseless.Geometry.Box2D,Zenseless.Geometry.IReadOnlyBox2D)">
+            <summary>
+            If an intersection with the frame occurs do the minimal translation to undo the overlap
+            </summary>
+            <param name="rectangleA">The rectangle that will be moved to avoid intersection</param>
+            <param name="rectangleB">The rectangle to check for intersection</param>
+        </member>
+        <member name="M:Zenseless.Geometry.Box2DExtensions.CreateContainingBox(System.Single,System.Single,System.Single)">
+            <summary>
+            Create a box that is at least size with x height, but has aspect ratio newWidth2heigth
+            </summary>
+            <param name="width">minimal width</param>
+            <param name="height">minimal height</param>
+            <param name="newWidth2heigth">new aspect ratio</param>
+            <returns>A box that is at least size with x height, but has aspect ratio newWidth2heigth</returns>
+        </member>
+        <member name="T:Zenseless.Geometry.IntersectionExtensions">
+            <summary>
+            Class with extension methods for intersection tests of different objects
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.IntersectionExtensions.Intersects(Zenseless.Geometry.IReadOnlyBox2D,Zenseless.Geometry.IReadOnlyCircle)">
+            <summary>
+            Test for intersection of the specified box and circle (excluding borders).
+            </summary>
+            <param name="box">The box.</param>
+            <param name="circle">The circle.</param>
+            <returns>True if the two objects overlap.</returns>
+        </member>
+        <member name="T:Zenseless.Geometry.CubicHermiteSpline">
+            <summary>
+            In numerical analysis, a cubic Hermite spline or cubic Hermite interpolator is a spline where each piece 
+            is a third-degree polynomial specified in Hermite form that is, by its values and first derivatives 
+            at the end points of the corresponding domain interval (Wikipedia).
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.CubicHermiteSpline.EvaluateSegment(System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Evaluates a cubic Hermite spline segment given by two control points and tangents at parametric position t.
+            </summary>
+            <param name="point0">The first control point.</param>
+            <param name="point1">The second control point.</param>
+            <param name="tangent0">The tangent at the first control point.</param>
+            <param name="tangent1">The tangent at the second control point.</param>
+            <param name="t">The parametric position on the spline segment t e [0, 1].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.CubicHermiteSpline.EvaluateSegment(System.Numerics.Vector2@,System.Numerics.Vector2@,System.Numerics.Vector2@,System.Numerics.Vector2@,System.Single)">
+            <summary>
+            Evaluates a cubic Hermite spline segment given by two control points and tangents at parametric position t.
+            </summary>
+            <param name="point0">The first control point.</param>
+            <param name="point1">The second control point.</param>
+            <param name="tangent0">The tangent at the first control point.</param>
+            <param name="tangent1">The tangent at the second control point.</param>
+            <param name="t">The parametric position on the spline segment t e [0, 1].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.CubicHermiteSpline.EvaluateSegment(System.Numerics.Vector3@,System.Numerics.Vector3@,System.Numerics.Vector3@,System.Numerics.Vector3@,System.Single)">
+            <summary>
+            Evaluates a cubic Hermite spline segment given by two control points and tangents at parametric position t.
+            </summary>
+            <param name="point0">The first control point.</param>
+            <param name="point1">The second control point.</param>
+            <param name="tangent0">The tangent at the first control point.</param>
+            <param name="tangent1">The tangent at the second control point.</param>
+            <param name="t">The parametric position on the spline segment t e [0, 1].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.CubicHermiteSpline.EvaluateAt(System.Collections.Generic.IReadOnlyList{System.Numerics.Vector2},System.Collections.Generic.IReadOnlyList{System.Numerics.Vector2},System.Single)">
+            <summary>
+            Evaluates a cubic Hermite spline given by the specified points and tangents at parametric position t.
+            </summary>
+            <param name="points">The control points.</param>
+            <param name="tangents">The tangents at the control points.</param>
+            <param name="t">The parametric position on the spline t e [0, pointCount - 1].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.CubicHermiteSpline.CatmullRomSpline(System.Collections.Generic.IReadOnlyList{System.Numerics.Vector2},System.Single)">
+            <summary>
+            Calculates the position on the Catmull Rom Spline at parametric position t.
+            </summary>
+            <param name="points">The control points.</param>
+            <param name="t">The parametric position on the spline t.</param>
+            <returns>The position on the spline.</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.CubicHermiteSpline.CatmullRomSplineLoop(System.Collections.Generic.IReadOnlyList{System.Numerics.Vector2},System.Single)">
+            <summary>
+            Calculates the position on the Catmull Rom Spline loop at parametric position t.
+            </summary>
+            <param name="points">The control point loop.</param>
+            <param name="t">The parametric position on the spline t.</param>
+            <returns>The position on the spline.</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.CubicHermiteSpline.FindSegment(System.Single,System.Int32)">
+            <summary>
+            Finds the current segment (given by t) for a list of control points.
+            </summary>
+            <param name="t">The parameter t. Starts at 0 and increases by 1 for each control point.</param>
+            <param name="pointCount">The point count.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Zenseless.Geometry.Circle">
+            <summary>
+            Represents a circle
+            </summary>
+            <seealso cref="T:System.IEquatable`1" />
+        </member>
+        <member name="M:Zenseless.Geometry.Circle.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Circle"/> class.
+            </summary>
+            <param name="centerX">The center x.</param>
+            <param name="centerY">The center y.</param>
+            <param name="radius">The radius.</param>
+        </member>
+        <member name="P:Zenseless.Geometry.Circle.Center">
+            <summary>
+            Gets the center.
+            </summary>
+            <value>
+            The center.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Circle.CenterX">
+            <summary>
+            Gets or sets the center x.
+            </summary>
+            <value>
+            The center x.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Circle.CenterY">
+            <summary>
+            Gets or sets the center y.
+            </summary>
+            <value>
+            The center y.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Circle.Radius">
+            <summary>
+            Gets or sets the radius.
+            </summary>
+            <value>
+            The radius.
+            </value>
+        </member>
+        <member name="M:Zenseless.Geometry.Circle.op_Equality(Zenseless.Geometry.Circle,Zenseless.Geometry.Circle)">
+            <summary>
+            Implements the operator ==.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Circle.op_Inequality(Zenseless.Geometry.Circle,Zenseless.Geometry.Circle)">
+            <summary>
+            Implements the operator !=.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Circle.Equals(Zenseless.Geometry.IReadOnlyCircle)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+            true if the current object is equal to the <paramref name="other" /> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Circle.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" />, is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:System.Object" /> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Circle.GetHashCode">
+            <summary>
+            A hash code produced out of hash codes of Radius and center.
+            </summary>
+            <returns>
+            A hash code produced out of hash codes of Radius and center.
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Circle.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Zenseless.Geometry.CircleExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.CircleExtensions.CreateFromBox(Zenseless.Geometry.IReadOnlyBox2D)">
+            <summary>
+            Creates from box.
+            </summary>
+            <param name="box">The box.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.CircleExtensions.CreateFromMinMax(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates from minimum maximum.
+            </summary>
+            <param name="minX">The minimum x.</param>
+            <param name="minY">The minimum y.</param>
+            <param name="maxX">The maximum x.</param>
+            <param name="maxY">The maximum y.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.CircleExtensions.PushXRangeInside(Zenseless.Geometry.Circle,System.Single,System.Single)">
+            <summary>
+            Pushes the x range inside.
+            </summary>
+            <param name="circle">The circle.</param>
+            <param name="minX">The minimum x.</param>
+            <param name="maxX">The maximum x.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.CircleExtensions.PushYRangeInside(Zenseless.Geometry.Circle,System.Single,System.Single)">
+            <summary>
+            Pushes the y range inside.
+            </summary>
+            <param name="circle">The circle.</param>
+            <param name="minY">The minimum y.</param>
+            <param name="maxY">The maximum y.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.CircleExtensions.UndoOverlap(Zenseless.Geometry.Circle,Zenseless.Geometry.IReadOnlyCircle)">
+            <summary>
+            Undoes the overlap.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+        </member>
+        <member name="T:Zenseless.Geometry.ControlPoints`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="T:System.Collections.Generic.IEnumerable`1" />
+        </member>
+        <member name="M:Zenseless.Geometry.ControlPoints`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.ControlPoints`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.ControlPoints`1.#ctor(System.Collections.Generic.IEnumerable{System.Single},System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.ControlPoints`1"/> class and
+            initializes it with the given keys and values.
+            </summary>
+            <param name="keys">The array of keys.</param>
+            <param name="values">The array of values.</param>
+        </member>
+        <member name="M:Zenseless.Geometry.ControlPoints`1.AddUpdate(System.Single,`0)">
+            <summary>
+            Adds the update.
+            </summary>
+            <param name="t">The t.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Zenseless.Geometry.ControlPoints`1.Clear">
+            <summary>
+            Clears this instance.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.ControlPoints`1.Count">
+            <summary>
+            Gets the count.
+            </summary>
+            <value>
+            The count.
+            </value>
+        </member>
+        <member name="M:Zenseless.Geometry.ControlPoints`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            An enumerator that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.ControlPoints`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.ControlPoints`1.FindInfimum(System.Single)">
+            <summary>
+            Returns the infimum.
+            </summary>
+            <param name="t">The time for which to find the infimum.</param>
+            <returns>the <code>KeyValuePair</code></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.ControlPoints`1.FindPair(System.Single,System.Single)">
+            <summary>
+            Finds the pair.
+            </summary>
+            <param name="t">The t.</param>
+            <param name="epsilon">The epsilon.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">No control points to interpolate!</exception>
+        </member>
+        <member name="M:Zenseless.Geometry.ControlPoints`1.FindSupremum(System.Single)">
+            <summary>
+            Returns the supremum.
+            </summary>
+            <param name="t">The time for which to find the supremum.</param>
+            <returns>the <code>KeyValuePair</code></returns>
+        </member>
+        <member name="F:Zenseless.Geometry.ControlPoints`1.controlPoints">
+            <summary>
+            The control points
+            </summary>
+        </member>
+        <member name="T:Zenseless.Geometry.DefaultMesh">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Zenseless.Geometry.Mesh" />
+        </member>
+        <member name="F:Zenseless.Geometry.DefaultMesh.PositionName">
+            <summary>
+            The position name
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.DefaultMesh.NormalName">
+            <summary>
+            The normal name
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.DefaultMesh.TexCoordName">
+            <summary>
+            The tex coord name
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.DefaultMesh.Position">
+            <summary>
+            Gets the position.
+            </summary>
+            <value>
+            The position.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.DefaultMesh.Normal">
+            <summary>
+            Gets the normal.
+            </summary>
+            <value>
+            The normal.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.DefaultMesh.TexCoord">
+            <summary>
+            Gets the tex coord.
+            </summary>
+            <value>
+            The tex coord.
+            </value>
+        </member>
+        <member name="M:Zenseless.Geometry.DefaultMesh.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.DefaultMesh"/> class.
+            </summary>
+        </member>
+        <member name="T:Zenseless.Geometry.IReadOnlyCircle">
+            <summary>
+            A read only interface to a circle
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.IReadOnlyCircle.Center">
+            <summary>
+            Gets the center.
+            </summary>
+            <value>
+            The center.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.IReadOnlyCircle.CenterX">
+            <summary>
+            Gets the center x-coordinate.
+            </summary>
+            <value>
+            The center x-coordinate.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.IReadOnlyCircle.CenterY">
+            <summary>
+            Gets the center y-coordinate.
+            </summary>
+            <value>
+            The center y-coordinate.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.IReadOnlyCircle.Radius">
+            <summary>
+            Gets the radius.
+            </summary>
+            <value>
+            The radius.
+            </value>
+        </member>
+        <member name="T:Zenseless.Geometry.IReadOnlyBox2D">
+            <summary>
+            Represents a read-only interface to an 2D axis aligned bounding box. 
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.IReadOnlyBox2D.CenterX">
+            <summary>
+            Center of the rectangle in x-direction.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.IReadOnlyBox2D.CenterY">
+            <summary>
+            Center of the rectangle in x-direction.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.IReadOnlyBox2D.MaxX">
+            <summary>
+            Maximal x-coordinate.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.IReadOnlyBox2D.MaxY">
+            <summary>
+            Maximal y-coordinate.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.IReadOnlyBox2D.MinX">
+            <summary>
+            Minimal x-coordinate.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.IReadOnlyBox2D.MinY">
+            <summary>
+            Minimal y-coordinate.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.IReadOnlyBox2D.SizeX">
+            <summary>
+            Size of the box in x-direction.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.IReadOnlyBox2D.SizeY">
+            <summary>
+            Size of the box in y-direction.
+            </summary>
+        </member>
+        <member name="T:Zenseless.Geometry.IReadOnlyCircleExtensions">
+            <summary>
+            static class of <seealso cref="T:Zenseless.Geometry.IReadOnlyCircle"/> extension methods
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.IReadOnlyCircleExtensions.Contains(Zenseless.Geometry.IReadOnlyCircle,System.Numerics.Vector2)">
+            <summary>
+            Determines whether the circle contains the specified point.
+            </summary>
+            <param name="circle">The circle to test.</param>
+            <param name="point">The point to test.</param>
+            <returns>
+              <c>true</c> if the circle contains the specified point; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.IReadOnlyCircleExtensions.Intersects(Zenseless.Geometry.IReadOnlyCircle,Zenseless.Geometry.IReadOnlyCircle)">
+            <summary>
+            Test the specified circles for intersection.
+            </summary>
+            <param name="circleA">The first circle.</param>
+            <param name="circleB">The second circle.</param>
+            <returns><c>true</c> if the circles overlap; otherwise, <c>false</c></returns>
+        </member>
+        <member name="T:Zenseless.Geometry.IReadOnlyMesh">
+            <summary>
+            A Mesh is a collection of attributes, like positions, normals and texture coordinates
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.IReadOnlyMesh.AttributeNames">
+            <summary>
+            Gets the list of attribute names.
+            </summary>
+            <value>
+            The attribute names.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.IReadOnlyMesh.IDs">
+            <summary>
+            Gets the list of ids.
+            </summary>
+            <value>
+            The ids.
+            </value>
+        </member>
+        <member name="M:Zenseless.Geometry.IReadOnlyMesh.Contains(System.String)">
+            <summary>
+            Determines whether the mesh contains the attribute with the specified name.
+            </summary>
+            <param name="name">The name.</param>
+            <returns>
+              <c>true</c> if the mesh contains the attribute with the specified name; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.IReadOnlyMesh.Get``1(System.String)">
+            <summary>
+            Gets the attribute with the specified name.
+            </summary>
+            <typeparam name="ELEMENT_TYPE">The type of the element.</typeparam>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Zenseless.Geometry.MathHelper">
+            <summary>
+            Contains static/extension methods for System.Math and System.Numerics for more mathematical operations, 
+            often overloaded for Vector types.
+            Operations include Clamp, Round, Lerp, Floor, Mod
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.MathHelper.PI">
+            <summary>
+            The mathematical constant PI
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.MathHelper.TWO_PI">
+            <summary>
+            2 * PI
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Ceiling(System.Numerics.Vector2@)">
+            <summary>
+            Returns for each component the smallest integer bigger than or equal to the specified floating-point number.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.CeilingF(System.Single)">
+            <summary>
+            Returns the smallest integer bigger than or equal to the specified floating-point number.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Clamp(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Clamp the input value x in between min and max. 
+            If x smaller min return min; 
+            if x bigger max return max; 
+            else return x unchanged
+            </summary>
+            <param name="x">input value that will be clamped</param>
+            <param name="min">lower limit</param>
+            <param name="max">upper limit</param>
+            <returns>clamped version of x</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Clamp(System.Single,System.Single,System.Single)">
+            <summary>
+            Clamp the input value x in between min and max. 
+            If x smaller min return min; 
+            if x bigger max return max; 
+            else return x unchanged
+            </summary>
+            <param name="x">input value that will be clamped</param>
+            <param name="min">lower limit</param>
+            <param name="max">upper limit</param>
+            <returns>clamped version of x</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Clamp(System.Double,System.Double,System.Double)">
+            <summary>
+            Clamp the input value x in between min and max. 
+            If x smaller min return min; 
+            if x bigger max return max; 
+            else return x unchanged
+            </summary>
+            <param name="x">input value that will be clamped</param>
+            <param name="min">lower limit</param>
+            <param name="max">upper limit</param>
+            <returns>clamped version of x</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Clamp(System.Numerics.Vector2@,System.Single,System.Single)">
+            <summary>
+            Clamp each component of the input vector v in between min and max. 
+            </summary>
+            <param name="v">input vector that will be clamped component-wise</param>
+            <param name="min">lower limit</param>
+            <param name="max">upper limit</param>
+            <returns>clamped version of v</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Clamp(System.Numerics.Vector2@,System.Numerics.Vector2@,System.Numerics.Vector2@)">
+            <summary>
+            Clamp each component of the input vector v in between min and max. 
+            </summary>
+            <param name="v">input vector that will be clamped component-wise</param>
+            <param name="min">lower limit</param>
+            <param name="max">upper limit</param>
+            <returns>clamped version of v</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Clamp(System.Numerics.Vector3@,System.Single,System.Single)">
+            <summary>
+            Clamp each component of the input vector v in between min and max. 
+            </summary>
+            <param name="v">input vector that will be clamped component-wise</param>
+            <param name="min">lower limit</param>
+            <param name="max">upper limit</param>
+            <returns>clamped version of v</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Clamp(System.Numerics.Vector4@,System.Single,System.Single)">
+            <summary>
+            Clamp each component of the input vector v in between min and max. 
+            </summary>
+            <param name="v">input vector that will be clamped component-wise</param>
+            <param name="min">lower limit</param>
+            <param name="max">upper limit</param>
+            <returns>clamped version of v</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.CreateRotation(System.Single,Zenseless.Geometry.Axis)">
+            <summary>
+            Creates a rotation matrix.
+            </summary>
+            <param name="degrees">The angle of rotation in degrees.</param>
+            <param name="axis">The axis of rotation.</param>
+            <returns>The <seealso cref="T:System.Numerics.Matrix4x4"/></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Determinant(System.Numerics.Vector2@,System.Numerics.Vector2@)">
+            <summary>
+            Calculates the determinant of the two vectors.
+            </summary>
+            <param name="a">Vector a.</param>
+            <param name="b">Vector b.</param>
+            <returns>The determinant</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.MipMapLevels(System.Int32,System.Int32)">
+            <summary>
+            Returns the number of mipmap levels required for mipmapped filtering of an image.
+            </summary>
+            <param name="width">The image width in pixels.</param>
+            <param name="height">The image height in pixels.</param>
+            <returns>Number of mipmap levels</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.CwNormalTo(System.Numerics.Vector2@)">
+            <summary>
+            Clock-wise normal to input vector.
+            </summary>
+            <param name="v">The input vector.</param>
+            <returns>A vector normal to the input vector</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.CcwNormalTo(System.Numerics.Vector2@)">
+            <summary>
+            Counter-clock-wise normal to input vector.
+            </summary>
+            <param name="v">The input vector.</param>
+            <returns>A vector normal to the input vector</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Normalize(System.UInt32)">
+            <summary>
+            Convert input uint from range [0,255] into float in range [0,1]
+            </summary>
+            <param name="v">input in range [0,255]</param>
+            <returns>range [0,1]</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Normalize(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Normalizes each input uint from range [0,255] into float in range [0,1]
+            </summary>
+            <param name="x">input in range [0,255]</param>
+            <param name="y">input in range [0,255]</param>
+            <param name="z">input in range [0,255]</param>
+            <param name="w">input in range [0,255]</param>
+            <returns>vector with each component in range [0,1]</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.DegreesToRadians(System.Single)">
+            <summary>
+            Converts degrees to radians
+            </summary>
+            <param name="angle">input angle in degrees</param>
+            <returns>input angle converted to radians</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.RadiansToDegrees(System.Single)">
+            <summary>
+            Converts radians to degrees
+            </summary>
+            <param name="angle">input angle in radians</param>
+            <returns>input angle converted to degrees</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Lerp(System.Single,System.Single,System.Single)">
+            <summary>
+            Linear interpolation of two known values a and b according to weight
+            </summary>
+            <param name="a">First value</param>
+            <param name="b">Second value</param>
+            <param name="weight">Interpolation weight</param>
+            <returns>Linearly interpolated value</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Lerp(System.Double,System.Double,System.Double)">
+            <summary>
+            Linear interpolation of two known values a and b according to weight
+            </summary>
+            <param name="a">First value</param>
+            <param name="b">Second value</param>
+            <param name="weight">Interpolation weight</param>
+            <returns>Linearly interpolated value</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Lerp(System.Numerics.Vector3@,System.Numerics.Vector3@,System.Single)">
+            <summary>
+            Linear interpolation of two points values a and b according to weight
+            </summary>
+            <param name="a">First point</param>
+            <param name="b">Second point</param>
+            <param name="weight">Interpolation weight</param>
+            <returns>Linearly interpolated point</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.FastTruncate(System.Single)">
+            <summary>
+            Returns the integer part of the specified floating-point number. 
+            Works not for constructs like <code>1f - float.epsilon</code> because this is outside of floating point precision
+            </summary>
+            <param name="x">Input floating-point number</param>
+            <returns>The integer part.</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Truncate(System.Numerics.Vector2@)">
+            <summary>
+            Returns for each component the integer part of the specified floating-point number. 
+            Works not for constructs like <code>1f - float.epsilon</code> because this is outside of floating point precision
+            </summary>
+            <param name="value">Input floating-point vector</param>
+            <returns>The integer parts.</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.FloorF(System.Single)">
+            <summary>
+            Returns the largest integer less than or equal to the specified floating-point number.
+            </summary>
+            <param name="x">Input floating-point number</param>
+            <returns>The largest integer less than or equal to x.</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Floor(System.Numerics.Vector3@)">
+            <summary>
+            For each component returns the largest integer less than or equal to the specified floating-point number.
+            </summary>
+            <param name="v">Input vector</param>
+            <returns>For each component returns the largest integer less than or equal to the specified floating-point number.</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Mod(System.Numerics.Vector3@,System.Single)">
+            <summary>
+            Returns the value of x modulo y. This is computed as x - y * floor(x/y). 
+            </summary>
+            <param name="x">Dividend</param>
+            <param name="y">Divisor</param>
+            <returns>Returns the value of x modulo y.</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.PackUnorm4x8(System.Numerics.Vector4@)">
+            <summary>
+            packs normalized floating-point values into an unsigned integer.  
+            </summary>
+            <param name="v">Input normalized floating-point vector. Will be clamped</param>
+            <returns>The first component of the vector will be written to the least significant bits of the output; 
+            the last component will be written to the most significant bits.</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.UnpackUnorm4x8(System.UInt32)">
+            <summary>
+            Unpacks normalized floating-point values from an unsigned integer.
+            </summary>
+            <param name="i">Specifies an unsigned integer containing packed floating-point values.</param>
+            <returns>The first component of the returned vector will be extracted from the least significant bits of the input; 
+            the last component will be extracted from the most significant bits. </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Round(System.Single)">
+            <summary>
+            Rounds a floating-point value to the nearest integral value.
+            </summary>
+            <param name="f">A floating-point number to be rounded.</param>
+            <returns>The integer nearest a. If the fractional component of a is halfway between two 
+            integers, one of which is even and the other odd, then the even number is returned.
+            Note that this method returns a System.Float instead of an integral type.</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Round(System.Numerics.Vector3@)">
+            <summary>
+            Rounds each component of a floating-point vector (using MathHelper.Round) to the nearest integral value.
+            </summary>
+            <param name="v">A floating-point vector to be rounded component-wise.</param>
+            <returns>Component-wise rounded vector</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.Round(System.Numerics.Vector4@)">
+            <summary>
+            Rounds each component of a floating-point vector (using MathHelper.Round) to the nearest integral value.
+            </summary>
+            <param name="v">A floating-point vector to be rounded component-wise.</param>
+            <returns>Component-wise rounded vector</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.PolarAngle(System.Numerics.Vector2@)">
+            <summary>
+            Converts given Cartesian coordinates into a polar angle.
+            Returns an angle [-PI, PI].
+            </summary>
+            <param name="cartesian">Cartesian input coordinates</param>
+            <returns>An angle [-PI, PI].</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.ToArray(System.Numerics.Quaternion@)">
+            <summary>
+            Converts a Vector to a array of float
+            </summary>
+            <param name="q">The input vector.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.ToArray(System.Numerics.Vector2@)">
+            <summary>
+            Converts a Vector to a array of float
+            </summary>
+            <param name="vector">The input vector.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.ToArray(System.Numerics.Vector3@)">
+            <summary>
+            Converts a Vector to a array of float
+            </summary>
+            <param name="vector">The input vector.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.ToArray(System.Numerics.Vector4@)">
+            <summary>
+            Converts a Vector to a array of float
+            </summary>
+            <param name="vector">The input vector.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.ToCartesian(System.Numerics.Vector2@)">
+            <summary>
+            Converts the given polar coordinates to Cartesian.
+            </summary>
+            <param name="polar">The polar coordinates. A vector with first component angle [-PI, PI] and second component radius.</param>
+            <returns>A Cartesian coordinate vector.</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.ToPolar(System.Numerics.Vector2@)">
+            <summary>
+            Converts given Cartesian coordinates into polar coordinates.
+            Returns a vector with first component angle [-PI, PI] and second component radius.
+            </summary>
+            <param name="cartesian">Cartesian input coordinates</param>
+            <returns>A vector with first component angle [-PI, PI] and second component radius.</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.XY(System.Numerics.Vector3@)">
+            <summary>
+            Returns the <seealso cref="T:System.Numerics.Vector2"/> that results when dropping the z component from <seealso cref="T:System.Numerics.Vector3"/>.
+            </summary>
+            <param name="vector">The <seealso cref="T:System.Numerics.Vector3"/></param>
+            <returns><seealso cref="T:System.Numerics.Vector2"/></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.XY(System.Numerics.Vector4@)">
+            <summary>
+            Returns the <seealso cref="T:System.Numerics.Vector2"/> that results when dropping the z and w component from <seealso cref="T:System.Numerics.Vector4"/>.
+            </summary>
+            <param name="vector">The <seealso cref="T:System.Numerics.Vector3"/></param>
+            <returns><seealso cref="T:System.Numerics.Vector2"/></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.MathHelper.XYZ(System.Numerics.Vector4@)">
+            <summary>
+            Returns the <seealso cref="T:System.Numerics.Vector3"/> that results when dropping the w component from <seealso cref="T:System.Numerics.Vector4"/>.
+            </summary>
+            <param name="vector">The <seealso cref="T:System.Numerics.Vector4"/>.</param>
+            <returns><seealso cref="T:System.Numerics.Vector3"/></returns>
+        </member>
+        <member name="T:Zenseless.Geometry.Mesh">
+            <summary>
+            A Mesh is a collection of attributes, like positions, normals and texture coordinates
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.Mesh.AttributeNames">
+            <summary>
+            Gets the list of attribute names.
+            </summary>
+            <value>
+            The attribute names.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Mesh.IDs">
+            <summary>
+            Gets the list of ids.
+            </summary>
+            <value>
+            The ids.
+            </value>
+        </member>
+        <member name="M:Zenseless.Geometry.Mesh.AddAttribute(System.String,Zenseless.Geometry.MeshAttribute)">
+            <summary>
+            Adds the attribute.
+            </summary>
+            <param name="name">The attribute name.</param>
+            <param name="attribute"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:Zenseless.Geometry.Mesh.Contains(System.String)">
+            <summary>
+            Determines whether the mesh contains the attribute with the specified name.
+            </summary>
+            <param name="name">The name.</param>
+            <returns>
+              <c>true</c> if the mesh contains the attribute with the specified name; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Mesh.GetAttribute(System.String)">
+            <summary>
+            Gets the attribute with the specified name.
+            </summary>
+            <param name="name">The attribute name.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:Zenseless.Geometry.Meshes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.Meshes.SetConstantUV(Zenseless.Geometry.DefaultMesh,System.Numerics.Vector2@)">
+            <summary>
+            Sets the constant uv.
+            </summary>
+            <param name="mesh">The mesh.</param>
+            <param name="uv">The uv.</param>
+        </member>
+        <member name="M:Zenseless.Geometry.Meshes.Add(Zenseless.Geometry.DefaultMesh,Zenseless.Geometry.DefaultMesh)">
+            <summary>
+            Adds the specified b.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <exception cref="T:System.ArgumentException">Original mesh has no normals, but added mesh has normals
+            or
+            Original mesh has no uvs, but added mesh has uvs</exception>
+        </member>
+        <member name="M:Zenseless.Geometry.Meshes.Transform(Zenseless.Geometry.DefaultMesh,Zenseless.Geometry.Transformation)">
+            <summary>
+            Transforms the mesh by the specified transform.
+            </summary>
+            <param name="mesh">The mesh to transform.</param>
+            <param name="transformation">The transformation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Meshes.SwitchHandedness(Zenseless.Geometry.DefaultMesh)">
+            <summary>
+            Switches the handedness.
+            </summary>
+            <param name="m">The m.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Meshes.FlipNormals(Zenseless.Geometry.DefaultMesh)">
+            <summary>
+            Flips the normals.
+            </summary>
+            <param name="m">The m.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Meshes.SwitchTriangleMeshWinding(Zenseless.Geometry.DefaultMesh)">
+            <summary>
+            Switches the triangle mesh winding.
+            </summary>
+            <param name="m">The m.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Meshes.CreateCornellBox(System.Single,System.Single,System.Single)">
+            <summary>
+            Creates the cornell box.
+            </summary>
+            <param name="roomSize">Size of the room.</param>
+            <param name="sphereRadius">The sphere radius.</param>
+            <param name="cubeSize">Size of the cube.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Zenseless.Geometry.Meshes.CornellBoxMaterial">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.Meshes.CornellBoxMaterial.color">
+            <summary>
+            The color
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.Meshes.CornellBoxMaterial.shininess">
+            <summary>
+            The shininess
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.Meshes.CreateCornellBoxMaterial">
+            <summary>
+            Creates the cornell box material.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Meshes.CreateCubeWithNormals(System.Single)">
+            <summary>
+            Creates a cube made up of pairs of triangles; stored as an indexed vertex array
+            </summary>
+            <param name="size">length of one side</param>
+            <returns>
+            Mesh with positions, ids, normals
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Meshes.CreateSphere(System.Single,System.UInt32)">
+            <summary>
+            creates a sphere made up of pairs of triangles; stored as an indexed vertex array
+            </summary>
+            <param name="radius">radius</param>
+            <param name="subdivision">subdivision count, each subdivision creates 4 times more faces</param>
+            <returns>
+            Mesh with positions, ids, normals
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Meshes.CreateIcosahedron(System.Single)">
+            <summary>
+            creates an icosahedron made up of pairs of triangles; stored as an indexed vertex array
+            </summary>
+            <param name="radius">radius</param>
+            <returns>
+            Mesh with positions, ids, normals
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Meshes.CreatePlane(System.Single,System.Single,System.UInt32,System.UInt32)">
+            <summary>
+            Creates a plane made up of pairs of triangles; stored as an indexed vertex array.
+            </summary>
+            <param name="sizeX">extent of the grid in the x-coordinate axis</param>
+            <param name="sizeZ">extent of the grid in the z-coordinate axis</param>
+            <param name="segmentsX">number of grid segments in the x-coordinate axis</param>
+            <param name="segmentsZ">number of grid segments in the z-coordinate axis</param>
+            <returns>
+            Mesh with positions, ids, normals, and uvs
+            </returns>
+        </member>
+        <member name="T:Zenseless.Geometry.Obj2Mesh">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Zenseless.Geometry.Obj2Mesh.VertexComparer">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:System.Collections.Generic.IEqualityComparer`1" />
+        </member>
+        <member name="M:Zenseless.Geometry.Obj2Mesh.VertexComparer.Equals(Zenseless.Geometry.ObjParser.Vertex,Zenseless.Geometry.ObjParser.Vertex)">
+            <summary>
+            Test if a and b are equal.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Obj2Mesh.VertexComparer.GetHashCode(Zenseless.Geometry.ObjParser.Vertex)">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Obj2Mesh.FromObj(System.Byte[])">
+            <summary>
+            Creates a <see cref="T:Zenseless.Geometry.DefaultMesh"/>from a byte array.
+            </summary>
+            <param name="objByteData">The byte data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Zenseless.Geometry.ObjParser">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Zenseless.Geometry.ObjParser.Vertex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.ObjParser.Vertex.idNormal">
+            <summary>
+            The identifier normal
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.ObjParser.Vertex.idPos">
+            <summary>
+            The identifier position
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.ObjParser.Vertex.idTexCoord">
+            <summary>
+            The identifier tex coord
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.ObjParser.Vertex.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.ObjParser.Vertex"/> class.
+            </summary>
+            <param name="idPos">The identifier position.</param>
+            <param name="idTexCoord">The identifier tex coord.</param>
+            <param name="idNormal">The identifier normal.</param>
+        </member>
+        <member name="F:Zenseless.Geometry.ObjParser.materialFileName">
+            <summary>
+            The material file name
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.ObjParser.position">
+            <summary>
+            The position
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.ObjParser.normals">
+            <summary>
+            The normals
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.ObjParser.texCoords">
+            <summary>
+            The tex coords
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.ObjParser.faces">
+            <summary>
+            The faces
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.ObjParser.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.ObjParser"/> class.
+            </summary>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:Zenseless.Geometry.ObjParser.ParseVertex(System.String)">
+            <summary>
+            Parses the vertex.
+            </summary>
+            <param name="faceParameter_">The face parameter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.ObjParser.ParseID(System.Collections.Generic.IList{System.String},System.Int32,System.Int32)">
+            <summary>
+            Parses the identifier.
+            </summary>
+            <param name="parameters_">The parameters.</param>
+            <param name="pos_">The position.</param>
+            <param name="idCount">The identifier count.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Zenseless.Geometry.IReadOnlyBox2Dextensions">
+            <summary>
+            static class of <seealso cref="T:Zenseless.Geometry.IReadOnlyBox2D"/> extension methods
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.IReadOnlyBox2Dextensions.CalcCornerPoints(Zenseless.Geometry.IReadOnlyBox2D)">
+            <summary>
+            Calculates the corner points of an axis aligned box.
+            </summary>
+            <param name="rectangle">The input rectangle.</param>
+            <returns>4 corner points</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.IReadOnlyBox2Dextensions.Contains(Zenseless.Geometry.IReadOnlyBox2D,System.Single,System.Single)">
+            <summary>
+            Checks if a point is inside a rectangle (including borders)
+            </summary>
+            <param name="rectangle">A rectangle</param>
+            <param name="x">The x-coordinate of point</param>
+            <param name="y">The y-coordinate of point</param>
+            <returns>true if point is inside the rectangle (including borders)</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.IReadOnlyBox2Dextensions.Contains(Zenseless.Geometry.IReadOnlyBox2D,System.Numerics.Vector2)">
+            <summary>
+            Checks if point is inside the rectangle (including borders)
+            </summary>
+            <param name="rectangle">Rectangle to check</param>
+            <param name="point">Coordinates of the point</param>
+            <returns>true if point is inside the rectangle (including borders)</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.IReadOnlyBox2Dextensions.Contains(Zenseless.Geometry.IReadOnlyBox2D,Zenseless.Geometry.IReadOnlyBox2D)">
+            <summary>
+            Checks if rectangle contains a second rectangle (including borders)
+            </summary>
+            <param name="a">container rectangle, will be tested if contains the other</param>
+            <param name="b">rectangle, will be tested if it is contained by the other</param>
+            <returns>true if rectangle contains a second rectangle (including borders)</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.IReadOnlyBox2Dextensions.GetCenter(Zenseless.Geometry.IReadOnlyBox2D)">
+            <summary>
+            Gets the center of the box.
+            </summary>
+            <param name="box">The box.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.IReadOnlyBox2Dextensions.Intersects(Zenseless.Geometry.IReadOnlyBox2D,Zenseless.Geometry.IReadOnlyBox2D)">
+            <summary>
+            Test for intersection of two rectangles (excluding borders)
+            </summary>
+            <param name="a">A rectangle</param>
+            <param name="b">A second rectangle</param>
+            <returns>true if the two rectangles overlap</returns>
+        </member>
+        <member name="T:Zenseless.Geometry.ShapeBuilder">
+            <summary>
+            static class that provides geometric shape builder methods
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.ShapeBuilder.Circle(System.Action{System.Single,System.Single},System.Single,System.Single,System.Single,System.Int32)">
+            <summary>
+            Creates a circle shape out of points on the circumference.
+            </summary>
+            <param name="createPosition">Callback for each position creation</param>
+            <param name="centerX">The circle center x-coordinate.</param>
+            <param name="centerY">The circle center y-coordinate.</param>
+            <param name="radius">The circle radius.</param>
+            <param name="count">Circumference point count</param>
+            <exception cref="T:System.ArgumentNullException">createPosition</exception>
+        </member>
+        <member name="M:Zenseless.Geometry.ShapeBuilder.Cube(System.Action{System.Single,System.Single,System.Single},System.Action{System.UInt32},System.Single,System.Action{System.Single,System.Single,System.Single})">
+            <summary>
+            Builds a cube made up of triangles
+            </summary>
+            <param name="createPosition">callback for each position creation</param>
+            <param name="createID">callback for each index creation</param>
+            <param name="size">length of one side</param>
+            <param name="createNormal">callback for each vertex normal creation</param>
+        </member>
+        <member name="M:Zenseless.Geometry.ShapeBuilder.Grid(System.Single,System.Single,System.Single,System.Single,System.UInt32,System.UInt32,System.Action{System.Single,System.Single},System.Action{System.UInt32},System.Action,System.Action{System.Single,System.Single})">
+            <summary>
+            creates a grid shape made up of pairs of triangles; stored as an indexed vertex array.
+            </summary>
+            <param name="startX">start coordinate of the grid in the first coordinate axis</param>
+            <param name="sizeX">extent of the grid in the first coordinate axis</param>
+            <param name="startY">start coordinate of the grid in the second coordinate axis</param>
+            <param name="sizeY">extent of the grid in the second coordinate axis</param>
+            <param name="segmentsX">number of grid segments in the first coordinate axis</param>
+            <param name="segmentsY">number of grid segments in the second coordinate axis</param>
+            <param name="createPosition">callback for each position creation</param>
+            <param name="createID">callback for each index creation</param>
+            <param name="createNormal">callback for each vertex normal creation</param>
+            <param name="createUV">callback for each vertex texture coordinate creation</param>
+        </member>
+        <member name="M:Zenseless.Geometry.ShapeBuilder.Sphere(System.Action{System.Single,System.Single,System.Single},System.Action{System.UInt32},System.Single,System.UInt32,System.Action{System.Single,System.Single,System.Single})">
+            <summary>
+            Builds a sphere made up of triangles
+            </summary>
+            <param name="createPosition">callback for each position creation</param>
+            <param name="createID">callback for each index creation</param>
+            <param name="radius_">radius of the sphere</param>
+            <param name="subdivision">subdivision count, each subdivision creates 4 times more faces</param>
+            <param name="createNormal">callback for each vertex normal creation</param>
+        </member>
+        <member name="T:Zenseless.Geometry.Axis">
+            <summary>
+            The 3D axis
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.Axis.X">
+            <summary>
+            The x-axis
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.Axis.Y">
+            <summary>
+            The y-axis
+            </summary>
+        </member>
+        <member name="F:Zenseless.Geometry.Axis.Z">
+            <summary>
+            The z-axis
+            </summary>
+        </member>
+        <member name="T:Zenseless.Geometry.INotifyingTransform">
+            <summary>
+            A transform that notifies on property changes
+            </summary>
+            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
+            <seealso cref="T:Zenseless.Geometry.ITransformation" />
+        </member>
+        <member name="T:Zenseless.Geometry.ITransformation">
+            <summary>
+            Interface for a transformation
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.ITransformation.Matrix">
+            <summary>
+            Gets the transformation matrix in row-major style.
+            </summary>
+            <value>
+            The matrix.
+            </value>
+        </member>
+        <member name="T:Zenseless.Geometry.FirstPerson">
+            <summary>
+            Implements a orbiting transformation
+            </summary>
+            <seealso cref="T:Zenseless.Geometry.ITransformation" />
+        </member>
+        <member name="M:Zenseless.Geometry.FirstPerson.#ctor(System.Numerics.Vector3,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.FirstPerson"/> class.
+            </summary>
+            <param name="position">The position of the camera.</param>
+            <param name="heading">The heading.</param>
+            <param name="tilt">The tilt.</param>
+        </member>
+        <member name="M:Zenseless.Geometry.FirstPerson.ApplyRotatedMovement(System.Numerics.Vector3@)">
+            <summary>
+            Applies the rotated movement vector to the position of the camera.
+            </summary>
+            <param name="movement">The movement vector.</param>
+        </member>
+        <member name="P:Zenseless.Geometry.FirstPerson.Heading">
+            <summary>
+            Gets or sets the heading.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.FirstPerson.Matrix">
+            <summary>
+            Gets the transformation matrix in row-major style.
+            </summary>
+            <value>
+            The matrix.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.FirstPerson.Position">
+            <summary>
+            Gets or sets the position, the point the camera is positioned at.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.FirstPerson.Tilt">
+            <summary>
+            Gets or sets the tilt.
+            </summary>
+        </member>
+        <member name="T:Zenseless.Geometry.Orbit">
+            <summary>
+            Implements a orbiting transformation
+            </summary>
+            <seealso cref="T:Zenseless.Geometry.ITransformation" />
+        </member>
+        <member name="M:Zenseless.Geometry.Orbit.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Orbit"/> class.
+            </summary>
+            <param name="distance">The distance to the target.</param>
+            <param name="azimuth">The azimuth or heading.</param>
+            <param name="elevation">The elevation or tilt.</param>
+        </member>
+        <member name="P:Zenseless.Geometry.Orbit.Azimuth">
+            <summary>
+            Gets or sets the azimuth or heading.
+            </summary>
+            <value>
+            The azimuth.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Orbit.Distance">
+            <summary>
+            Gets or sets the distance from the target.
+            </summary>
+            <value>
+            The distance.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Orbit.Elevation">
+            <summary>
+            Gets or sets the elevation or tilt.
+            </summary>
+            <value>
+            The elevation.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Orbit.Matrix">
+            <summary>
+            Gets the transformation matrix in row-major style.
+            </summary>
+            <value>
+            The matrix.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Orbit.Target">
+            <summary>
+            Gets or sets the target, the point the camera is looking at.
+            </summary>
+            <value>
+            The target.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Orbit.TargetX">
+            <summary>
+            Gets or sets the target x.
+            </summary>
+            <value>
+            The target x.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Orbit.TargetY">
+            <summary>
+            Gets or sets the target y.
+            </summary>
+            <value>
+            The target y.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Orbit.TargetZ">
+            <summary>
+            Gets or sets the target z.
+            </summary>
+            <value>
+            The target z.
+            </value>
+        </member>
+        <member name="M:Zenseless.Geometry.Orbit.CalcPosition">
+            <summary>
+            Calculates the camera position.
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.ArithmeticException">Could not invert matrix</exception>
+        </member>
+        <member name="T:Zenseless.Geometry.Perspective">
+            <summary>
+            Implements a Perspective transformation that allows incremental changes
+            </summary>
+            <seealso cref="T:Zenseless.Geometry.ITransformation" />
+        </member>
+        <member name="M:Zenseless.Geometry.Perspective.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Perspective"/> class.
+            </summary>
+            <param name="fieldOfViewY">The field-of-view in y-direction.</param>
+            <param name="aspect">The aspect ratio.</param>
+            <param name="nearClip">The near clip plane distance.</param>
+            <param name="farClip">The far clip plane distance.</param>
+        </member>
+        <member name="P:Zenseless.Geometry.Perspective.Aspect">
+            <summary>
+            Gets or sets the aspect ratio.
+            </summary>
+            <value>
+            The aspect ratio.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Perspective.FarClip">
+            <summary>
+            Gets or sets the far clipping plane distance.
+            </summary>
+            <value>
+            The far clipping plane distance.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Perspective.FieldOfViewY">
+            <summary>
+            Gets or sets the field-of-view y.
+            </summary>
+            <value>
+            The field-of-view y.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Perspective.Matrix">
+            <summary>
+            Gets the transformation matrix in row-major style.
+            </summary>
+            <value>
+            The matrix.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Perspective.NearClip">
+            <summary>
+            Gets or sets the near clipping plane distance.
+            </summary>
+            <value>
+            The near clipping plane distance.
+            </value>
+        </member>
+        <member name="T:Zenseless.Geometry.Rotation">
+            <summary>
+            A single axis rotation class that allows incremental changes
+            </summary>
+            <seealso cref="T:Zenseless.Geometry.ITransformation" />
+        </member>
+        <member name="M:Zenseless.Geometry.Rotation.#ctor(System.Single,Zenseless.Geometry.Axis)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Rotation"/> class.
+            </summary>
+            <param name="axis"></param>
+            <param name="degrees">The degrees.</param>
+        </member>
+        <member name="P:Zenseless.Geometry.Rotation.Axis">
+            <summary>
+            Gets the rotation axis.
+            </summary>
+            <value>
+            The rotation axis.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Rotation.Degrees">
+            <summary>
+            Gets or sets the rotation degrees.
+            </summary>
+            <value>
+            The rotation degrees.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Rotation.Matrix">
+            <summary>
+            Gets the transformation matrix in row-major style.
+            </summary>
+            <value>
+            The matrix.
+            </value>
+        </member>
+        <member name="T:Zenseless.Geometry.Scale">
+            <summary>
+            Implements a scale transformation that allows incremental changes
+            </summary>
+            <seealso cref="T:Zenseless.Geometry.ITransformation" />
+        </member>
+        <member name="M:Zenseless.Geometry.Scale.#ctor(System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Scale"/> class.
+            </summary>
+            <param name="uniformScale">The uniform scale factor.</param>
+        </member>
+        <member name="M:Zenseless.Geometry.Scale.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Scale"/> class.
+            </summary>
+            <param name="sx">The x.</param>
+            <param name="sy">The y.</param>
+            <param name="sz">The z.</param>
+        </member>
+        <member name="M:Zenseless.Geometry.Scale.#ctor(System.Numerics.Vector3@)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Scale"/> class.
+            </summary>
+            <param name="scaleVector">The scale vector.</param>
+        </member>
+        <member name="P:Zenseless.Geometry.Scale.Matrix">
+            <summary>
+            Gets the transformation matrix in row-major style.
+            </summary>
+            <value>
+            The matrix.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Scale.Sx">
+            <summary>
+            Gets or sets the x-coordinate.
+            </summary>
+            <value>
+            The x-coordinate.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Scale.Sy">
+            <summary>
+            Gets or sets the y-coordinate.
+            </summary>
+            <value>
+            The y-coordinate.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Scale.Sz">
+            <summary>
+            Gets or sets the z-coordinate.
+            </summary>
+            <value>
+            The z-coordinate.
+            </value>
+        </member>
+        <member name="T:Zenseless.Geometry.Transformation">
+            <summary>
+            Immutable transformation structure that is used to abstract from matrices. 
+            Do not use the parameterless default constructor because he initializes the transform not to the identity, but to the 0 transform.
+            Internally it uses row-major matrices (<seealso cref="T:System.Numerics.Matrix4x4"/>).
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.Transformation.#ctor(System.Numerics.Matrix4x4@)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Transformation" /> structure from a matrix.
+            </summary>
+            <param name="matrix">The matrix.</param>
+        </member>
+        <member name="M:Zenseless.Geometry.Transformation.#ctor(Zenseless.Geometry.ITransformation@)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Transformation" /> structure.
+            </summary>
+            <param name="transformation">The transformation.</param>
+        </member>
+        <member name="P:Zenseless.Geometry.Transformation.Matrix">
+            <summary>
+            Gets the local transformation matrix in row-major form.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Transformation.Combine(Zenseless.Geometry.Transformation@,Zenseless.Geometry.Transformation@)">
+            <summary>
+            Calculates the combined transformation that is equal to first applying the localTransform and afterwards the parent transform to input points.
+            </summary>
+            <param name="localTransform">The local transform.</param>
+            <param name="parentTransform">The parent transform.</param>
+            <returns>The combined transformation</returns>
+        </member>
+        <member name="P:Zenseless.Geometry.Transformation.Identity">
+            <summary>
+            Creates an identity transform.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Transformation.Invert(Zenseless.Geometry.Transformation@)">
+            <summary>
+            Inverts a transformation
+            </summary>
+            <param name="transform">The input transformation.</param>
+            <returns>Inverted transformation.</returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Transformation.Scale(System.Single)">
+            <summary>
+            Creates a scale transform.
+            </summary>
+            <param name="scale">The scale factor.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Transformation.Scale(System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a scale transform.
+            </summary>
+            <param name="sx">The scale factor in x-direction.</param>
+            <param name="sy">The scale factor in y-direction.</param>
+            <param name="sz">The scale factor in z-direction.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Transformation.Translation(System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a translation transform.
+            </summary>
+            <param name="tx">The translation in x-direction</param>
+            <param name="ty">The translation in y-direction</param>
+            <param name="tz">The translation in z-direction</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Transformation.Transform(System.Numerics.Vector2@)">
+            <summary>
+            Transforms the specified vector.
+            </summary>
+            <param name="position">The input position.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Transformation.Transform(System.Numerics.Vector3@)">
+            <summary>
+            Transforms the specified vector.
+            </summary>
+            <param name="position">The input position.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Transformation.Transform(System.Numerics.Vector4@)">
+            <summary>
+            Transforms the specified vector.
+            </summary>
+            <param name="vector">The input vector.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Transformation.Translation(System.Numerics.Vector3@)">
+            <summary>
+            Creates a translation transform.
+            </summary>
+            <param name="t">The translation vector</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Transformation.Rotation(System.Single,Zenseless.Geometry.Axis)">
+            <summary>
+            Creates a rotation transform.
+            </summary>
+            <param name="degrees">The rotation angle in degrees.</param>
+            <param name="axis">The axis of rotation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zenseless.Geometry.Transformation.RotationAround(System.Numerics.Vector3@,System.Single)">
+            <summary>
+            Creates a rotation transform that rotates around a given rotation center (pivot point)
+            </summary>
+            <param name="pivot">pivot point</param>
+            <param name="degrees">rotation in degrees</param>
+            <returns>A <see cref="T:Zenseless.Geometry.Transformation"/> that rotates around a given pivot point.</returns>
+        </member>
+        <member name="T:Zenseless.Geometry.Node">
+            <summary>
+            A scene-graph node that supports hierarchical transformations via parent relationships.
+            </summary>
+        </member>
+        <member name="M:Zenseless.Geometry.Node.#ctor(Zenseless.Geometry.Node)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Node"/> class.
+            </summary>
+            <param name="parent">The parent node.</param>
+        </member>
+        <member name="M:Zenseless.Geometry.Node.#ctor(Zenseless.Geometry.Transformation@,Zenseless.Geometry.Node)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Node"/> class.
+            </summary>
+            <param name="localTransformation">The node transformation.</param>
+            <param name="parent">The parent node.</param>
+        </member>
+        <member name="P:Zenseless.Geometry.Node.Children">
+            <summary>
+            Gets the children.
+            </summary>
+            <value>
+            The children.
+            </value>
+        </member>
+        <member name="M:Zenseless.Geometry.Node.Invalidate">
+            <summary>
+            Invalidates this instance and its children.
+            </summary>
+        </member>
+        <member name="P:Zenseless.Geometry.Node.LocalTransformation">
+            <summary>
+            Gets or sets the transformation.
+            </summary>
+            <value>
+            The transformation.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Node.GlobalTransformation">
+            <summary>
+            Gets the global transformation (local to world transformation). 
+            This includes the whole transformation chain with all parents.
+            </summary>
+            <value>
+            The global transformation.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Node.Parent">
+            <summary>
+            Gets or sets the parent transformation hierarchy node.
+            </summary>
+            <value>
+            The parent transformation.
+            </value>
+        </member>
+        <member name="T:Zenseless.Geometry.Translation">
+            <summary>
+            Implements a translation transformation that allows incremental changes
+            </summary>
+            <seealso cref="T:Zenseless.Geometry.ITransformation" />
+        </member>
+        <member name="M:Zenseless.Geometry.Translation.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Translation"/> class.
+            </summary>
+            <param name="x">The x-coordinate.</param>
+            <param name="y">The y-coordinate.</param>
+            <param name="z">The z-coordinate.</param>
+        </member>
+        <member name="M:Zenseless.Geometry.Translation.#ctor(System.Numerics.Vector3@)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Zenseless.Geometry.Translation"/> class.
+            </summary>
+            <param name="translation">The translation vector.</param>
+        </member>
+        <member name="P:Zenseless.Geometry.Translation.Matrix">
+            <summary>
+            Gets the transformation matrix in row-major style.
+            </summary>
+            <value>
+            The matrix.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Translation.Tx">
+            <summary>
+            Gets or sets the x-coordinate.
+            </summary>
+            <value>
+            The x-coordinate.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Translation.Ty">
+            <summary>
+            Gets or sets the y-coordinate.
+            </summary>
+            <value>
+            The y-coordinate.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Translation.Tz">
+            <summary>
+            Gets or sets the z-coordinate.
+            </summary>
+            <value>
+            The z-coordinate.
+            </value>
+        </member>
+        <member name="P:Zenseless.Geometry.Translation.Vector">
+            <summary>
+            Gets or sets the translation vector.
+            </summary>
+            <value>
+            The translation vector.
+            </value>
+        </member>
+    </members>
+</doc>

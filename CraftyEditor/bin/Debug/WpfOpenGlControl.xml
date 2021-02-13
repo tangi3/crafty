@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WpfOpenGlControl</name>
+    </assembly>
+    <members>
+        <member name="T:WpfOpenGlControl.WpfShaderControl">
+            <summary>
+            Interaction logic for WpfShaderControl.xaml
+            </summary>
+            <summary>
+            WpfShaderControl
+            </summary>
+        </member>
+        <member name="P:WpfOpenGlControl.WpfShaderControl.ViewportResolutionX">
+            <summary>
+            Resolution of the view port in x-direction
+            </summary>
+        </member>
+        <member name="P:WpfOpenGlControl.WpfShaderControl.ViewportResolutionY">
+            <summary>
+            Resolution of the view port in y-direction
+            </summary>
+        </member>
+        <member name="P:WpfOpenGlControl.WpfShaderControl.ShaderLog">
+            <summary>
+            Gets the shader log string.
+            </summary>
+            <value>
+            Contains the shader compile/link log if an error has occurred.
+            </value>
+        </member>
+        <member name="P:WpfOpenGlControl.WpfShaderControl.ShaderSourceCode">
+            <summary>
+            Gets or sets the shader source code string.
+            Setting it will trigger a redraw and a shader compile, link
+            </summary>
+            <value>
+            The shader source code string.
+            </value>
+        </member>
+        <member name="F:WpfOpenGlControl.WpfShaderControl.ShaderLogProperty">
+            <summary>
+            The shader log dependency property
+            </summary>
+        </member>
+        <member name="F:WpfOpenGlControl.WpfShaderControl.ShaderSourceCodeProperty">
+            <summary>
+            The shader source code dependency property
+            </summary>
+        </member>
+        <member name="M:WpfOpenGlControl.WpfShaderControl.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfOpenGlControl.WpfShaderControl"/> class.
+            </summary>
+        </member>
+        <member name="M:WpfOpenGlControl.WpfShaderControl.SetUniform(System.String,System.Single)">
+            <summary>
+            Sets a shader uniform.
+            </summary>
+            <param name="name">The name of the uniform.</param>
+            <param name="x">The value of the uniform</param>
+            <returns><code>true</code> if uniform name exists in the current shader</returns>
+        </member>
+        <member name="M:WpfOpenGlControl.WpfShaderControl.SetUniform(System.String,System.Int32)">
+            <summary>
+            Sets a shader uniform.
+            </summary>
+            <param name="name">The name of the uniform.</param>
+            <param name="i">The value of the uniform</param>
+            <returns><code>true</code> if uniform name exists in the current shader</returns>
+        </member>
+        <member name="M:WpfOpenGlControl.WpfShaderControl.SetUniform(System.String,System.Single,System.Single)">
+            <summary>
+            Sets a shader uniform.
+            </summary>
+            <param name="name">The name of the uniform.</param>
+            <param name="x">The x-value of the uniform</param>
+            <param name="y">The y-value of the uniform</param>
+            <returns><code>true</code> if uniform name exists in the current shader</returns>
+        </member>
+        <member name="M:WpfOpenGlControl.WpfShaderControl.SetUniform(System.String,System.Single,System.Single,System.Single)">
+            <summary>
+            Sets a shader uniform.
+            </summary>
+            <param name="name">The name of the uniform.</param>
+            <param name="x">The x-value of the uniform</param>
+            <param name="y">The y-value of the uniform</param>
+            <param name="z">The z-value of the uniform</param>
+            <returns><code>true</code> if uniform name exists in the current shader</returns>
+        </member>
+        <member name="M:WpfOpenGlControl.WpfShaderControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WpfOpenGlControl.WpfOpenGLControl">
+            <summary>
+            A WPF GL control. The render context is by default shared between the instances. It uses a OpenTk.GLControl internally
+            </summary>
+            <summary>
+            WpfOpenGLControl
+            </summary>
+        </member>
+        <member name="M:WpfOpenGlControl.WpfOpenGLControl.#ctor">
+            <summary>
+            Creates the internal glControl and attaches it to a WindowsFormsHost
+            </summary>
+        </member>
+        <member name="E:WpfOpenGlControl.WpfOpenGLControl.GlRender">
+            <summary>
+            Event is called each time the control has to be redrawn.
+            </summary>
+        </member>
+        <member name="P:WpfOpenGlControl.WpfOpenGLControl.IsRenderLoopActivated">
+            <summary>
+            Gets or sets a value indicating whether the render loop is activated.
+            </summary>
+            <value>
+              <c>true</c> if the render loop is activated; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:WpfOpenGlControl.WpfOpenGLControl.IsRenderLoopActivatedProperty">
+            <summary>
+            The render loop activated property
+            </summary>
+        </member>
+        <member name="P:WpfOpenGlControl.WpfOpenGLControl.HasSharedContext">
+            <summary>
+            Gets or sets a value indicating whether this instance has a shared rendering context.
+            </summary>
+            <value>
+              <c>true</c> if this instance has shared context; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:WpfOpenGlControl.WpfOpenGLControl.ViewportResolutionX">
+            <summary>
+            Resolution of the view port in x-direction
+            </summary>
+        </member>
+        <member name="P:WpfOpenGlControl.WpfOpenGLControl.ViewportResolutionY">
+            <summary>
+            Resolution of the view port in y-direction
+            </summary>
+        </member>
+        <member name="F:WpfOpenGlControl.WpfOpenGLControl.HasSharedContextProperty">
+            <summary>
+            The has a shared context property
+            </summary>
+        </member>
+        <member name="P:WpfOpenGlControl.WpfOpenGLControl.ValidOpenGLContext">
+            <summary>
+            Gets a value indicating whether the OpenGL context is valid.
+            </summary>
+            <value>
+              <c>true</c> if the OpenGL context is valid; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:WpfOpenGlControl.WpfOpenGLControl.Invalidate">
+            <summary>
+            Forces a redraw of this instance.
+            </summary>
+        </member>
+        <member name="M:WpfOpenGlControl.WpfOpenGLControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>
