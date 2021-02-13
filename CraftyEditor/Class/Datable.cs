@@ -27,10 +27,14 @@ namespace CraftyEditor.Class
             logged = false;
         }
 
-        public void connect()
+        public bool connect(string username, string password)
         {
-            //...
-            logged = true;
+            request("select * from users where username = \"" + username + "\" and password = \"" + password + "\"");
+
+            if (data.Rows.Count > 0) logged = true;
+            else logged = false;
+
+            return logged;
         }
 
         private void request(string query, string sortBy = "")
@@ -48,7 +52,5 @@ namespace CraftyEditor.Class
             }
             catch(MySqlException e) { MessageBox.Show(e.ToString()); }
         }
-
-        public ref DataTable fetch() { return ref data; }
     }
 }

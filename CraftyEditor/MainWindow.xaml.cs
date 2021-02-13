@@ -73,6 +73,6 @@ namespace CraftyEditor
 
         private void AddTile_Click(object sender, RoutedEventArgs e) { if (database.logged) OpenAddTile(); }
 
-        private void Login_Click(object sender, RoutedEventArgs e) { OpenLogin(); }
+        private void Login_Click(object sender, RoutedEventArgs e) { if (database.logged == false) OpenLogin(); }
     }
 }

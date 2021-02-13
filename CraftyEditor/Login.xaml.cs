@@ -13,8 +13,6 @@ namespace CraftyEditor
         {
             InitializeComponent();
 
-            /*Request(string host, string username, string password, string database, string query, string sortBy)*/
-
             this.Topmost = true;
             parent = prt;
         }
@@ -28,18 +26,17 @@ namespace CraftyEditor
 
         private void LoginConfirm_Click(object sender, RoutedEventArgs e)
         {
-            if (connexion())
+            if (connexion(username.Text, password.Text))
             {
                 parent.Visibility = Visibility.Visible;
                 this.Visibility = Visibility.Hidden;
             }
         }
 
-        private bool connexion()
+        private bool connexion(string username, string password)
         {
-            //...
-
-            return false;
+            if (database.connect(username, password)) this.Close();
+            return database.logged;
         }
     }
 }
