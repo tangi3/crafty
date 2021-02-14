@@ -1,2 +1,19 @@
-﻿  Ogame.cpp
+﻿  Game.cpp
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Editor\Ogame\Ogame.cpp(87,36): warning C4244: 'argument' : conversion de 'int' en 'GLclampf', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Editor\Ogame\Ogame.cpp(87,33): warning C4244: 'argument' : conversion de 'int' en 'GLclampf', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Editor\Ogame\Ogame.cpp(87,30): warning C4244: 'argument' : conversion de 'int' en 'GLclampf', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Editor\Ogame\Ogame.cpp(87,27): warning C4244: 'argument' : conversion de 'int' en 'GLclampf', perte possible de données
+  Ogame.cpp
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Editor\Ogame\Ogame.cpp(87,36): warning C4244: 'argument' : conversion de 'int' en 'GLclampf', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Editor\Ogame\Ogame.cpp(87,33): warning C4244: 'argument' : conversion de 'int' en 'GLclampf', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Editor\Ogame\Ogame.cpp(87,30): warning C4244: 'argument' : conversion de 'int' en 'GLclampf', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Editor\Ogame\Ogame.cpp(87,27): warning C4244: 'argument' : conversion de 'int' en 'GLclampf', perte possible de données
+  Main.cpp
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Editor\Ogame\Ogame.cpp(87,36): warning C4244: 'argument' : conversion de 'int' en 'GLclampf', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Editor\Ogame\Ogame.cpp(87,33): warning C4244: 'argument' : conversion de 'int' en 'GLclampf', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Editor\Ogame\Ogame.cpp(87,30): warning C4244: 'argument' : conversion de 'int' en 'GLclampf', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Editor\Ogame\Ogame.cpp(87,27): warning C4244: 'argument' : conversion de 'int' en 'GLclampf', perte possible de données
+  Génération de code en cours...
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Editor\Ogame\Ogame.cpp(57): warning C4715: 'Ogame::Initialize' : les chemins de contrôle ne retournent pas tous une valeur
+LINK : warning LNK4098: conflit entre la bibliothèque par défaut 'MSVCRT' et les autres bibliothèques ; utilisez /NODEFAULTLIB:library
   CraftyEditor.vcxproj -> C:\Users\tangi\Desktop\crafty\CraftyEditor\Debug\CraftyEditor.exe
