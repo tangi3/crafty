@@ -1,0 +1,2 @@
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Debug\CraftyEditor.exe
+C:\Users\tangi\Desktop\crafty\CraftyEditor\Debug\CraftyEditor.pdb
