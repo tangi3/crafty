@@ -30,13 +30,13 @@ class Color
 
 	public: Color(string hexa) { convert(hexa); }
 
-	public: int R() { return r; }
+	public: float R() { return (1.0f / 255) * r; }
 
-	public: int G() { return g; }
+	public: float G() { return (1.0f / 255) * g; }
 
-	public: int B() { return b; }
+	public: float B() { return (1.0f / 255) * b; }
 
-	public: int A() { return a; }
+	public: float A() { return (1.0f / 255) * a; }
 
 	public: int* get()
 	{

@@ -42,9 +42,10 @@ class Ogame
 	{
 		if (!glfwInit()) return -1;
 
-		glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+		setParameters();
 
 		window = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
+
 		setViewport();
 		
 		if (!window)
@@ -68,6 +69,8 @@ class Ogame
 		//...
 	}
 
+	//function draw() to draw image, part of an image, rectangles...
+
 	public: void Draw()
 	{
 		//...
@@ -80,13 +83,14 @@ class Ogame
 		glfwPollEvents();
 
 		Draw();
+
+		glfwSwapBuffers(window);
 	}
 
 	private: void Clear()
 	{
-		print(background);
 		glClearColor(background.R(), background.G(), background.B(), background.A());
-		glfwSwapBuffers(window);
+		glClear(GL_COLOR_BUFFER_BIT);
 	}
 
 	private: int Exit()
@@ -94,6 +98,12 @@ class Ogame
 		glfwTerminate();
 
 		return 0;
+	}
+
+	private: void setParameters()
+	{
+		glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+		glDisable(GL_BLEND);
 	}
 
 	private: void setViewport()
