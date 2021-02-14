@@ -1,11 +1,9 @@
-#include <GLFW/glfw3.h>
 #include <iostream>
+#include <GLFW/glfw3.h>
 using namespace std;
 
 class Ogame
 {
-	private: bool init;
-
 	private: string title;
 	private: int width, height;
 
@@ -14,46 +12,49 @@ class Ogame
 	public: Ogame(string screen_title, int screen_width, int screen_height)
 	{
 		title = screen_title;
+
 		width = screen_width;
 		height = screen_height;
-
-		init = false;
 	}
 
 	public: void Run()
 	{
+		Initialize();
+
 		while (!glfwWindowShouldClose(window))
 		{
-			if (init == false)
-			{
-				if (Initialize() == -1) EXIT_FAILURE;
-				init = true;
-			}
 			Update();
 			Render();
 		}
-		
+
 		Exit();
 	}
 
-	public: int Initialize()
+	private: int Initialize()
 	{
-		if (!glfwInit()) return -1;
+		if (!glfwInit())
+		{
+			cout << "OpenGL couldn't initialize\n" << endl;
+			return -1;
+		}
+
+		glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+		glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
 		window = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
 		
 		if (!window)
 		{
+			cout << "OpenGL couldn't create a window\n" << endl;
+
 			glfwTerminate();
 			return -1;
 		}
 
-		glfwMakeContextCurrent(window);
-
-		Load();
+		Init();
 	}
 
-	public: void Load()
+	public: void Init()
 	{
 		//...
 	}
@@ -68,7 +69,7 @@ class Ogame
 		//...
 	}
 
-	public: void Render()
+	private: void Render()
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 
@@ -79,8 +80,10 @@ class Ogame
 		Draw();
 	}
 
-	public: int Exit()
+	private: int Exit()
 	{
+		cout << "OpenGL closed safely" << endl;
+
 		glfwTerminate();
 
 		return 0;

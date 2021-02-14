@@ -7,12 +7,7 @@ class Game : public Ogame
 		//...
 	}
 
-	public: void Initialize()
-	{
-		//...
-	}
-
-	public: void Load()
+	public: void Init()
 	{
 		//...
 	}
