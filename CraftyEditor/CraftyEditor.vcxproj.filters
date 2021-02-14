@@ -4,5 +4,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Editor\Game.cpp" />
     <ClCompile Include="Editor\Ogame\Ogame.cpp" />
+    <ClCompile Include="Editor\Ogame\Color.cpp" />
+    <ClCompile Include="Editor\Ogame\Toolbox.cpp" />
   </ItemGroup>
 </Project>

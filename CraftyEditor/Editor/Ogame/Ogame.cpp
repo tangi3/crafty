@@ -1,6 +1,5 @@
-#include <iostream>
+#include "../Ogame/Toolbox.cpp"
 #include <GLFW/glfw3.h>
-using namespace std;
 
 class Ogame
 {
@@ -8,6 +7,8 @@ class Ogame
 
 	private: int width, height, editorViewX, editorViewY;
 	private: float ratio;
+
+	private: Color background;
 
 	private: GLFWwindow* window;
 
@@ -20,6 +21,8 @@ class Ogame
 
 		editorViewX = 0;
 		editorViewY = 0;
+
+		background = Color("#db970f");
 	}
 
 	public: void Run()
@@ -39,11 +42,10 @@ class Ogame
 	{
 		if (!glfwInit()) return -1;
 
-		//glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-		//glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+		glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
 		window = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
-		//setViewport();
+		setViewport();
 		
 		if (!window)
 		{
@@ -75,17 +77,16 @@ class Ogame
 	{
 		Clear();
 
-		glfwSwapBuffers(window);
-
 		glfwPollEvents();
 
 		Draw();
 	}
 
-	private: void Clear(int r = -1, int g = 0, int b = 0, int alpha = 255)
+	private: void Clear()
 	{
-		if(r > -1) glClearColor(r, g, b, alpha);
-		else glClear(GL_COLOR_BUFFER_BIT);
+		print(background);
+		glClearColor(background.R(), background.G(), background.B(), background.A());
+		glfwSwapBuffers(window);
 	}
 
 	private: int Exit()
