@@ -3,5 +3,5 @@
 int main(void)
 {
     Game game = Game("Editor", 1400, 800);
-    game.Run();
+    game.run();
 }

@@ -1,0 +1,7 @@
+class Job
+{
+	public: Job()
+	{
+		//...
+	}
+};

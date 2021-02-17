@@ -2,9 +2,20 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Editor\Game.cpp" />
+    <ClCompile Include="Editor\Ogame\ECS\Component.cpp" />
+    <ClCompile Include="Editor\Ogame\ECS\Headers.cpp" />
+    <ClCompile Include="Editor\Ogame\ECS\Job.cpp" />
+    <ClCompile Include="Editor\Ogame\ECS\System.cpp" />
+    <ClCompile Include="Editor\Ogame\Transforms\Transforms.cpp" />
+    <ClCompile Include="Editor\Ogame\Transforms\Position.cpp" />
+    <ClCompile Include="Editor\Ogame\Drawable\Drawable.cpp" />
+    <ClCompile Include="Editor\Ogame\Transforms\Size.cpp" />
+    <ClCompile Include="Editor\Ogame\Drawable\Rectangle.cpp" />
     <ClCompile Include="Editor\Ogame\Ogame.cpp" />
-    <ClCompile Include="Editor\Ogame\Color.cpp" />
-    <ClCompile Include="Editor\Ogame\Toolbox.cpp" />
+    <ClCompile Include="Editor\Ogame\Drawable\Window.cpp" />
+    <ClCompile Include="Editor\Ogame\Drawable\Game.cpp" />
+    <ClCompile Include="Editor\Ogame\Systems\Render.cpp" />
+    <ClCompile Include="Editor\Game.cpp" />
+    <ClCompile Include="Editor\Ogame\Drawable\Color.cpp" />
   </ItemGroup>
 </Project>

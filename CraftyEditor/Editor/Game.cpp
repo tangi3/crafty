@@ -1,24 +1,26 @@
+#pragma once
 #include "Ogame/Ogame.cpp"
 
 class Game : public Ogame
 {
-	public: Game(string title, int screen_width, int screen_height) : Ogame(title, screen_width, screen_height)
-	{
-		//...
-	}
+	private: Rectangle test;
 
-	public: void Init()
+	public: Game(string title, int width, int height): Ogame(title, width, height) { }
+
+	public: void Load()
 	{
+		test = Rectangle(200, 200, 100, 120, "#3486eb");
+
 		//...
 	}
 
 	public: void Update()
 	{
-		//...
+		//....
 	}
 
 	public: void Draw()
 	{
-		//...
+		render.draw(test);
 	}
 };
