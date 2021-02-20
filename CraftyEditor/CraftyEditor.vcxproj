@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f1c09ea3-0073-452f-84f2-8e0c60f46435}</ProjectGuid>
+    <ProjectGuid>{32803aa2-c1b3-425c-80ea-e34502b1b9b1}</ProjectGuid>
     <RootNamespace>CraftyEditor</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -72,9 +72,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <PublicIncludeDirectories>C:\Users\tangi\Desktop\SFML-2.5.1\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <PublicIncludeDirectories>C:\Users\tangi\Desktop\SFML-2.5.1\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -86,15 +88,15 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_DYNAMIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)opengl/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\tangi\Desktop\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)opengl/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\tangi\Desktop\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -105,12 +107,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\tangi\Desktop\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\tangi\Desktop\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -142,24 +147,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Editor\Game.cpp" />
-    <ClCompile Include="Editor\Ogame\Drawable\Color.cpp" />
-    <ClCompile Include="Editor\Ogame\Drawable\Drawable.cpp" />
-    <ClCompile Include="Editor\Ogame\Drawable\Game.cpp" />
-    <ClCompile Include="Editor\Ogame\Drawable\Rectangle.cpp" />
-    <ClCompile Include="Editor\Ogame\Drawable\Window.cpp" />
-    <ClCompile Include="Editor\Ogame\ECS\Component.cpp" />
-    <ClCompile Include="Editor\Ogame\ECS\Headers.cpp" />
-    <ClCompile Include="Editor\Ogame\ECS\Job.cpp" />
-    <ClCompile Include="Editor\Ogame\ECS\System.cpp" />
-    <ClCompile Include="Editor\Ogame\Ogame.cpp" />
-    <ClCompile Include="Editor\Ogame\Systems\Render.cpp" />
-    <ClCompile Include="Editor\Ogame\Transforms\Position.cpp" />
-    <ClCompile Include="Editor\Ogame\Transforms\Size.cpp" />
-    <ClCompile Include="Editor\Ogame\Transforms\Transforms.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug\openal32.dll" />
+    <None Include="Debug\sfml-audio-2.dll" />
+    <None Include="Debug\sfml-audio-d-2.dll" />
+    <None Include="Debug\sfml-graphics-2.dll" />
+    <None Include="Debug\sfml-graphics-d-2.dll" />
+    <None Include="Debug\sfml-network-2.dll" />
+    <None Include="Debug\sfml-network-d-2.dll" />
+    <None Include="Debug\sfml-system-2.dll" />
+    <None Include="Debug\sfml-system-d-2.dll" />
+    <None Include="Debug\sfml-window-2.dll" />
+    <None Include="Debug\sfml-window-d-2.dll" />
+    <None Include="dll\openal32.dll" />
+    <None Include="dll\sfml-audio-2.dll" />
+    <None Include="dll\sfml-audio-d-2.dll" />
+    <None Include="dll\sfml-graphics-2.dll" />
+    <None Include="dll\sfml-graphics-d-2.dll" />
+    <None Include="dll\sfml-network-2.dll" />
+    <None Include="dll\sfml-network-d-2.dll" />
+    <None Include="dll\sfml-system-2.dll" />
+    <None Include="dll\sfml-system-d-2.dll" />
+    <None Include="dll\sfml-window-2.dll" />
+    <None Include="dll\sfml-window-d-2.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>
