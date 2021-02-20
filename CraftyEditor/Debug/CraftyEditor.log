@@ -1,2 +1,15 @@
 ﻿  main.cpp
+  Component.cpp
+  Entity.cpp
+  headers.cpp
+  Job.cpp
+  System.cpp
+  Entity2D.cpp
+  GUI.cpp
+  Position.cpp
+  Size.cpp
+  Game.cpp
+  Unit.cpp
+  GraphicHandler.cpp
+  Génération de code en cours...
   CraftyEditor.vcxproj -> C:\Users\tangi\Desktop\crafty\CraftyEditor\Debug\CraftyEditor.exe

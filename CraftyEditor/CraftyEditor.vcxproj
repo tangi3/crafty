@@ -148,6 +148,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OGAME\base\Component.cpp" />
+    <ClCompile Include="OGAME\base\Entity.cpp" />
+    <ClCompile Include="OGAME\base\headers.cpp" />
+    <ClCompile Include="OGAME\base\Job.cpp" />
+    <ClCompile Include="OGAME\base\System.cpp" />
+    <ClCompile Include="OGAME\entities\Entity2D.cpp" />
+    <ClCompile Include="OGAME\entities\GUI.cpp" />
+    <ClCompile Include="OGAME\components\transforms\Position.cpp" />
+    <ClCompile Include="OGAME\components\transforms\Size.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="OGAME\entities\Unit.cpp" />
+    <ClCompile Include="OGAME\systems\GraphicHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug\openal32.dll" />
@@ -172,6 +184,9 @@
     <None Include="dll\sfml-system-d-2.dll" />
     <None Include="dll\sfml-window-2.dll" />
     <None Include="dll\sfml-window-d-2.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="OGAME\assets\tilesets\test.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
