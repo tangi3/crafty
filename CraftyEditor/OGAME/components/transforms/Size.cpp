@@ -4,13 +4,14 @@
 class Size : public Component
 {
 	public: int width, height;
-	public: float xOffset, yOffset;
+	public: int widthOffset, heightOffset;
 	
 	public: Size() : Component("size")
 	{
 		width = 1;
 		height = 1;
-		xOffset = 0;
-		yOffset = 0;
+
+		widthOffset = 0;
+		heightOffset = 0;
 	}
 };

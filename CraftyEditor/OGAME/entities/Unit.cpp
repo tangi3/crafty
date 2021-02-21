@@ -59,5 +59,6 @@ class Unit : public Entity2D
 	{
 		Entity2D::move(x, y);
 		sprite.setPosition(x, y);
+		rectangle.setPosition(x, y);
 	}
 };

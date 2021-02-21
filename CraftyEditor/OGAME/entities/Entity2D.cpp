@@ -6,6 +6,9 @@
 
 class Entity2D : public Entity
 {
+	public: RectangleShape rectangle;
+	public: Color color;
+
 	public: Position position;
 	public: Size size;
 	public: int pixels;
@@ -31,10 +34,25 @@ class Entity2D : public Entity
 		position.y = y;
 	}
 
+	public: void load(int width, int height, Color c)
+	{
+		fill(c);
+		resize(width, height);
+	}
+
+	public: void fill(Color c)
+	{
+		color = c;
+		rectangle.setFillColor(color);
+	}
+
 	public: void resize(int width, int height)
 	{
 		size.width = width;
 		size.height = height;
+
 		pixels = width * height;
+
+		rectangle.setSize(Vector2f(width, height));
 	}
 };

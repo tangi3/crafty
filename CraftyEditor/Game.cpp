@@ -1,19 +1,15 @@
 #pragma once
 #include "C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\systems\GraphicHandler.cpp"
-#include "OGAME/entities/Unit.cpp"
 
 class Game : public GraphicHandler
 {
-	public: Unit test;
-
 	public: Game(string title, int width, int height) : GraphicHandler(title, width, height) { }
 
 	public: void Initialize()
 	{
 		GraphicHandler::Initialize();
 
-		test = Unit("test");
-		load(test);
+		fill(Color(173, 168, 153));
 
 		//...
 	}
@@ -29,7 +25,6 @@ class Game : public GraphicHandler
 	{
 		GraphicHandler::Draw();
 
-		draw(test, 1, 300, 300);
 		//...
 	}
 };
