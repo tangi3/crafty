@@ -1,27 +1,27 @@
 #pragma once
-#include "OGAME/systems/GraphicHandler.cpp"
+#include "OGAME/Ogame.cpp"
 
-class Game : public GraphicHandler
+class Game : public Ogame
 {
-	public: Game() : GraphicHandler() { init("Crafty Editor", 1400, 800); }
+	public: Game() : Ogame() {}
 
 	public: void Load()
 	{
-		GraphicHandler::Load();
+		Ogame::Load();
 
 		//...
 	}
 
 	public: void Update()
 	{
-		GraphicHandler::Update();
+		Ogame::Update();
 
 		//...
 	}
 
 	public: void Draw()
 	{
-		GraphicHandler::Draw();
+		Ogame::Draw();
 
 		//...
 	}

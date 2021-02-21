@@ -1,0 +1,7 @@
+class BaseComponent
+{
+	public: BaseComponent()
+	{
+		//...
+	}
+};

@@ -21,43 +21,31 @@
     <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="OGAME\Headers.cpp">
+    <ClCompile Include="OGAME\View\Components\Body.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="OGAME\base\Component.cpp">
+    <ClCompile Include="OGAME\View\Components\Visual.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="OGAME\base\Entity.cpp">
+    <ClCompile Include="OGAME\base\BaseView.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="OGAME\base\System.cpp">
+    <ClCompile Include="OGAME\base\BaseController.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="OGAME\base\Job.cpp">
+    <ClCompile Include="OGAME\base\BaseComponent.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="OGAME\components\physics\Position.cpp">
+    <ClCompile Include="OGAME\Controller\GraphicController.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="OGAME\components\physics\Size.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="OGAME\components\physics\Body.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="OGAME\components\physics\Offset.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="OGAME\components\display\View.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="OGAME\entities\UI.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="OGAME\systems\GraphicHandler.cpp">
+    <ClCompile Include="OGAME\Ogame.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OGAME\View\GraphicView.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

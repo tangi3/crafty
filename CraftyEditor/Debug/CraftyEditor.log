@@ -1,16 +1,16 @@
 ﻿  main.cpp
-  Component.cpp
-  Entity.cpp
-  Job.cpp
-  System.cpp
-  View.cpp
-  Body.cpp
-  Offset.cpp
-  Position.cpp
-  Size.cpp
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Controller\GraphicController.cpp(37,7): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
+  BaseComponent.cpp
+  BaseController.cpp
+  BaseView.cpp
+  GraphicController.cpp
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Controller\GraphicController.cpp(37,7): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
   Game.cpp
-  GraphicHandler.cpp
-  UI.cpp
-  Headers.cpp
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Controller\GraphicController.cpp(37,7): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
+  Ogame.cpp
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Controller\GraphicController.cpp(37,7): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
+  Body.cpp
+  Visual.cpp
+  GraphicView.cpp
   Génération de code en cours...
   CraftyEditor.vcxproj -> C:\Users\tangi\Desktop\crafty\CraftyEditor\Debug\CraftyEditor.exe
