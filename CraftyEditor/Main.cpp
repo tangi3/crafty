@@ -4,6 +4,6 @@
 
 int main()
 {
-    Game game = Game("CraftyEditor", 1400, 800);
+    Game game("CraftyEditor", 1400, 800);
     game.Run();
 }

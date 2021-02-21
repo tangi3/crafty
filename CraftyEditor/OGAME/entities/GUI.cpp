@@ -3,18 +3,19 @@
 
 class GUI : public Entity2D
 {
-	public:  RenderWindow* data;
+	public:  RenderWindow data;
 
 	public: GUI() : Entity2D("Window") {}
 
-	public: GUI(string title, int w, int h) : Entity2D()
+	public: void set(string title, int w, int h)
 	{
+		data.create(VideoMode(w, h), title);
+
 		key = title;
 		size.width = w;
 		size.height = h;
 
-		data = new RenderWindow(VideoMode(w, h), title);
 		auto desktop = sf::VideoMode::getDesktopMode();
-		data->setPosition(Vector2i(desktop.width / 2 - data->getSize().x / 2, desktop.height / 2 - data->getSize().y / 2));
+		data.setPosition(Vector2i(desktop.width / 2 - data.getSize().x / 2, desktop.height / 2 - data.getSize().y / 2));
 	}
 };

@@ -11,30 +11,29 @@ class GraphicHandler : public System
 
 	public: GraphicHandler(string title, int width, int height) : System()
 	{
-		window = GUI("CraftyEditor", width, height);
+		window.set(title, width, height);
 		initiliazed = false;
 		Initialize();
 	}
 
-	public: void load(Unit unit)
+	public: void load(Unit& unit)
 	{
 		unit.texture.loadFromFile(unit.path);
 		unit.sprite.setTexture(unit.texture);
 		unit.sprite.setPosition(unit.position.x, unit.position.y);
-		unit.sprite.scale(1, unit.scale);
 	}
 
-	public: void draw(Unit unit, int frame) { window.data->draw(unit.sprite); }
+	public: void draw(Unit& unit, int frame) { window.data.draw(unit.sprite); }
 
 	public: void Run()
 	{
-		while (window.data->isOpen())
+		while (window.data.isOpen())
 		{
 			if (initiliazed == false) Initialize();
 			initiliazed = true;
 			Update();
 			Draw();
-			window.data->display();
+			window.data.display();
 		}
 	}
 
@@ -43,13 +42,13 @@ class GraphicHandler : public System
 	public: virtual void Update()
 	{
 		Event event;
-		while (window.data->pollEvent(event))
+		while (window.data.pollEvent(event))
 		{
 			if (event.type == Event::Closed)
-				window.data->close();
+				window.data.close();
 		}
 
-		window.data->clear(sf::Color::Black);
+		window.data.clear(sf::Color::Black);
 	}
 
 	public: virtual void Draw() {}
