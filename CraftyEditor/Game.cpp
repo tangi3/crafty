@@ -29,7 +29,7 @@ class Game : public GraphicHandler
 	{
 		GraphicHandler::Draw();
 
-		draw(test, 0);
+		draw(test, 1, 300, 300);
 		//...
 	}
 };

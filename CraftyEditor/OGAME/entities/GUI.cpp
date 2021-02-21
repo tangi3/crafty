@@ -9,7 +9,7 @@ class GUI : public Entity2D
 
 	public: void set(string title, int w, int h)
 	{
-		data.create(VideoMode(w, h), title);
+		data.create(VideoMode(w, h), title, Style::Titlebar | Style::Close);
 
 		key = title;
 		size.width = w;

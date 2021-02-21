@@ -19,11 +19,28 @@ class GraphicHandler : public System
 	public: void load(Unit& unit)
 	{
 		unit.texture.loadFromFile(unit.path);
+		unit.size.width = unit.texture.getSize().x;
+		unit.size.height = unit.texture.getSize().y;
+
 		unit.sprite.setTexture(unit.texture);
 		unit.sprite.setPosition(unit.position.x, unit.position.y);
+		unit.loadTiles();
 	}
 
-	public: void draw(Unit& unit, int frame) { window.data.draw(unit.sprite); }
+	public: void draw(Unit& unit) { window.data.draw(unit.sprite); }
+
+	public: void draw(Unit& unit, int index)
+	{
+		unit.setTile(index);
+		window.data.draw(unit.sprite);
+	}
+
+	public: void draw(Unit& unit, int index, float x, float y)
+	{
+		unit.setTile(index);
+		unit.move(x, y);
+		window.data.draw(unit.sprite);
+	}
 
 	public: void Run()
 	{
