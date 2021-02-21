@@ -1,10 +1,10 @@
-#include "headers.cpp"
+#pragma once
+#include "../../OGAME/Headers.cpp"
 
 class Entity
 {
-	public: string key;
-
-	public: Entity() { key = ""; }
-
-	public: Entity(string id) { key = id; }
+	public: Entity()
+	{
+		//...
+	}
 };

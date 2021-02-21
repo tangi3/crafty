@@ -1,15 +1,13 @@
 #pragma once
-#include "C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\systems\GraphicHandler.cpp"
+#include "OGAME/systems/GraphicHandler.cpp"
 
 class Game : public GraphicHandler
 {
-	public: Game(string title, int width, int height) : GraphicHandler(title, width, height) { }
+	public: Game() : GraphicHandler() { init("Crafty Editor", 1400, 800); }
 
-	public: void Initialize()
+	public: void Load()
 	{
-		GraphicHandler::Initialize();
-
-		fill(Color(173, 168, 153));
+		GraphicHandler::Load();
 
 		//...
 	}

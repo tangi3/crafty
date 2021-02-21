@@ -1,7 +1,10 @@
 #pragma once
-#include "headers.cpp"
+#include "../../OGAME/Headers.cpp"
 
 class System
 {
-	public: System() {}
+	public: System()
+	{
+		//...
+	}
 };

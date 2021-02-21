@@ -1,11 +1,10 @@
 #pragma once
-#include "headers.cpp"
+#include "../../OGAME/Headers.cpp"
 
 class Component
 {
-	public: string key;
-
-	public: Component() { key = ""; }
-
-	public: Component(string id) { key = id; }
+	public: Component()
+	{
+		//...
+	}
 };

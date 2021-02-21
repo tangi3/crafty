@@ -150,18 +150,17 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OGAME\base\Component.cpp" />
     <ClCompile Include="OGAME\base\Entity.cpp" />
-    <ClCompile Include="OGAME\base\headers.cpp" />
     <ClCompile Include="OGAME\base\Job.cpp" />
     <ClCompile Include="OGAME\base\System.cpp" />
-    <ClCompile Include="OGAME\entities\UI\Clickable.cpp" />
-    <ClCompile Include="OGAME\entities\Entity2D.cpp" />
-    <ClCompile Include="OGAME\entities\UI\GUI.cpp" />
-    <ClCompile Include="OGAME\components\transforms\Position.cpp" />
-    <ClCompile Include="OGAME\components\transforms\Size.cpp" />
+    <ClCompile Include="OGAME\components\display\View.cpp" />
+    <ClCompile Include="OGAME\components\physics\Body.cpp" />
+    <ClCompile Include="OGAME\components\physics\Offset.cpp" />
+    <ClCompile Include="OGAME\components\physics\Position.cpp" />
+    <ClCompile Include="OGAME\components\physics\Size.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="OGAME\entities\UI\UIContainer.cpp" />
-    <ClCompile Include="OGAME\entities\Unit.cpp" />
     <ClCompile Include="OGAME\systems\GraphicHandler.cpp" />
+    <ClCompile Include="OGAME\entities\UI.cpp" />
+    <ClCompile Include="OGAME\Headers.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug\openal32.dll" />
