@@ -1,7 +1,0 @@
-class BaseView
-{
-	public: BaseView()
-	{
-		//...
-	}
-};

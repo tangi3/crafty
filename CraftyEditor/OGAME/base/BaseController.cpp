@@ -1,7 +1,0 @@
-class BaseController
-{
-	public: BaseController()
-	{
-		//...
-	}
-};
