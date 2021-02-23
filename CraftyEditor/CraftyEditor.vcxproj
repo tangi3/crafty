@@ -148,6 +148,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OGAME\base\Component.cpp" />
+    <ClCompile Include="OGAME\base\Entity.cpp" />
+    <ClCompile Include="OGAME\base\Jobs.cpp" />
+    <ClCompile Include="OGAME\base\System.cpp" />
+    <ClCompile Include="OGAME\components\Position.cpp" />
+    <ClCompile Include="OGAME\components\Size.cpp" />
+    <ClCompile Include="OGAME\components\Visual.cpp" />
+    <ClCompile Include="OGAME\entities\Entity2D.cpp" />
+    <ClCompile Include="OGAME\entities\GUI.cpp" />
+    <ClCompile Include="Game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug\openal32.dll" />

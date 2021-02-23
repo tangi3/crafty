@@ -1,2 +1,73 @@
 ﻿  main.cpp
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(41,81): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(41,70): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(47,7): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(74,69): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(76,70): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(78,140): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(80,144): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+  Component.cpp
+  Entity.cpp
+  Jobs.cpp
+  System.cpp
+  Position.cpp
+  Size.cpp
+  Visual.cpp
+  Entity2D.cpp
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(41,81): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(41,70): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(47,7): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(74,69): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(76,70): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(78,140): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(80,144): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+  GUI.cpp
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(41,81): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(41,70): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(47,7): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(74,69): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(76,70): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(78,140): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(80,144): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+  Game.cpp
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(41,81): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(41,70): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(47,7): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(74,69): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(76,70): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(78,140): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(80,144): warning C4244: 'return' : conversion de 'int' en 'float', perte possible de données
+  Génération de code en cours...
   CraftyEditor.vcxproj -> C:\Users\tangi\Desktop\crafty\CraftyEditor\Debug\CraftyEditor.exe
