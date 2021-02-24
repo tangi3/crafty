@@ -1,39 +1,34 @@
 #pragma once
-#include "OGAME/GUI.cpp"
+#include "OGAME/Renderer.cpp"
 #include <iostream>
-#include "OGAME/entities/Entity2D.cpp"
+#include "OGAME/entities/Map.cpp"
 
-class Game : public GUI
+class Game : public Renderer
 {
-	public: Entity2D test;
+	public: Map map;
 
-	public: Game() : GUI() {}
+	public: Game() : Renderer() {}
 
 	public: void Initialize()
 	{
-		GUI::Initialize();
+		Renderer::Initialize();
 
-		test = Entity2D();
-		test.loadFromFile("tilesets/test", 32, 32);
-
-		//...
+		map = Map();
+		map.loadTileset("test", 32);
+		map.loadChunkFrom(0, 0);
 	}
 
 	public: void Update()
 	{
-		GUI::Update();
+		Renderer::Update();
 
-		//...
+		update(map);
 	}
 
 	public: void Draw()
 	{
-		GUI::Draw();
+		Renderer::Draw();
 
-		blit(test, 0, 32, 32);
-		blit(test, 0, 64, 32);
-		blit(test, 0, 96, 32);
-		blit(test, 0, 128, 32);
-		blit(test, 0, 160, 32);
+		draw(map);
 	}
 };

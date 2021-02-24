@@ -20,16 +20,19 @@ C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(107,107):
           [
               T=float
           ]
-C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\GUI.cpp(25,34): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(26,34): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\GUI.cpp(25,31): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(26,31): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(70,21): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(72,170): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(72,80): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
   Component.cpp
   Entity.cpp
   Jobs.cpp
@@ -56,17 +59,21 @@ C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(107,107):
           [
               T=float
           ]
-C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\GUI.cpp(25,34): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(26,34): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\GUI.cpp(25,31): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(26,31): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(70,21): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(72,170): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(72,80): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
   Body.cpp
+  Camera.cpp
   Visual.cpp
   Entity2D.cpp
 C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(71,7): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
@@ -90,7 +97,7 @@ C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(107,107):
           [
               T=float
           ]
-  GUI.cpp
+  Map.cpp
 C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(71,7): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
 C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(97,151): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
@@ -112,15 +119,40 @@ C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(107,107):
           [
               T=float
           ]
-C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\GUI.cpp(25,34): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+  Renderer.cpp
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(71,7): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(97,151): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\GUI.cpp(25,31): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(97,106): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(107,152): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\entities\Entity2D.cpp(107,107): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(26,34): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(26,31): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(70,21): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(72,170): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+C:\Users\tangi\Desktop\crafty\CraftyEditor\OGAME\Renderer.cpp(72,80): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
   Génération de code en cours...
   CraftyEditor.vcxproj -> C:\Users\tangi\Desktop\crafty\CraftyEditor\Debug\CraftyEditor.exe

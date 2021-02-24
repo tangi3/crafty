@@ -1,8 +1,10 @@
 c:\users\tangi\desktop\crafty\craftyeditor\debug\vc142.pdb
 c:\users\tangi\desktop\crafty\craftyeditor\debug\vc142.idb
-c:\users\tangi\desktop\crafty\craftyeditor\debug\gui.obj
+c:\users\tangi\desktop\crafty\craftyeditor\debug\renderer.obj
+c:\users\tangi\desktop\crafty\craftyeditor\debug\map.obj
 c:\users\tangi\desktop\crafty\craftyeditor\debug\entity2d.obj
 c:\users\tangi\desktop\crafty\craftyeditor\debug\visual.obj
+c:\users\tangi\desktop\crafty\craftyeditor\debug\camera.obj
 c:\users\tangi\desktop\crafty\craftyeditor\debug\body.obj
 c:\users\tangi\desktop\crafty\craftyeditor\debug\game.obj
 c:\users\tangi\desktop\crafty\craftyeditor\debug\system.obj

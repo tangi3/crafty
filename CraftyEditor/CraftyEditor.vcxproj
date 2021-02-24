@@ -154,9 +154,11 @@
     <ClCompile Include="OGAME\base\System.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="OGAME\components\Body.cpp" />
+    <ClCompile Include="OGAME\components\Camera.cpp" />
     <ClCompile Include="OGAME\components\Visual.cpp" />
     <ClCompile Include="OGAME\entities\Entity2D.cpp" />
-    <ClCompile Include="OGAME\GUI.cpp" />
+    <ClCompile Include="OGAME\entities\Map.cpp" />
+    <ClCompile Include="OGAME\Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug\openal32.dll" />
