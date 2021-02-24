@@ -6,15 +6,11 @@ using namespace std;
 #pragma once
 #include "Component.cpp"
 
-class Entity : Component
+class Entity
 {
 	private: map<string, Component*> components;
 
-	public: Entity() : Component() { components = map<string, Component*>(); }
-
-	public: Entity(string id) : Component(id) { components = map<string, Component*>(); }
-
-	private: virtual void init_components() { }
+	public: Entity() { components = map<string, Component*>(); }
 
 	public: void add(Component* component) { components.insert(pair<string, Component*>(component->key, component)); }
 

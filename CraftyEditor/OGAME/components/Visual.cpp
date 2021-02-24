@@ -11,6 +11,8 @@ class Visual : public Component
 	public: Sprite sprite;
 	public: Texture texture;
 	public: Color color;
+	public: int r, g, b, a;
+	public: vector<IntRect> frames;
 
-	public: Visual() : Component("view") {}
+	public: Visual() : Component("view") { frames = vector<IntRect>(); }
 };

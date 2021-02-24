@@ -8,6 +8,6 @@ using namespace std;
 int main()
 {
 	Game game;
-	game.load("CraftyEditor", 1400, 800);
+	game.load("CraftyEditor", 1600, 800);
 	game.run();
 }

@@ -1,6 +1,7 @@
 #pragma once
-#include "OGAME/entities/GUI.cpp"
+#include "OGAME/GUI.cpp"
 #include <iostream>
+#include "OGAME/entities/Entity2D.cpp"
 
 class Game : public GUI
 {
@@ -8,17 +9,12 @@ class Game : public GUI
 
 	public: Game() : GUI() {}
 
-	public: void Initilize()
+	public: void Initialize()
 	{
 		GUI::Initialize();
 
 		test = Entity2D();
-
-		test.move(20, 100);
-		test.resize(32, 32);
-		test.fill("#692e2e");
-
-		cout << "test" << endl;
+		test.loadFromFile("tilesets/test", 32, 32);
 
 		//...
 	}
@@ -34,7 +30,10 @@ class Game : public GUI
 	{
 		GUI::Draw();
 
-		draw(test.sprite());
-		//...
+		blit(test, 0, 32, 32);
+		blit(test, 0, 64, 32);
+		blit(test, 0, 96, 32);
+		blit(test, 0, 128, 32);
+		blit(test, 0, 160, 32);
 	}
 };
