@@ -1,8 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "entities/Entity2D.cpp"
 #include "entities/Map.cpp"
+#include "components/Camera.cpp"
 using namespace sf;
 using namespace std;
 
@@ -11,6 +11,8 @@ class Renderer
 	public: RenderWindow data;
 	public: bool initiliazed;
 	public: Event event;
+
+	public: int width, height;
 
 	public: View view;
 
@@ -25,16 +27,19 @@ class Renderer
 
 		view = View(FloatRect(0, 0, w, h));
 		data.setView(view);
+
+		width = w;
+		height = h;
 	}
 
-	public: void run()
+	public: void Run(Camera& camera, Map& map)
 	{
 		while (data.isOpen())
 		{
 			if (!initiliazed) Initialize();
 			initiliazed = true;
 
-			Update();
+			Update(camera, map);
 			Draw();
 
 			data.display();
@@ -43,7 +48,7 @@ class Renderer
 
 	public: virtual void Initialize() { }
 
-	public: virtual void Update()
+	public: virtual void Update(Camera& camera, Map& map)
 	{
 		event = Event();
 
@@ -51,10 +56,23 @@ class Renderer
 		{
 			if (event.type == Event::Closed) data.close();
 
+			if (event.type == Event::KeyPressed)
+			{
+				switch (event.key.code)
+				{
+					case sf::Keyboard::Left: camera.move(map, -1, 0); break;
+					case sf::Keyboard::Right: camera.move(map, 1, 0); break;
+					case sf::Keyboard::Up: camera.move(map, 0, -1); break;
+					case sf::Keyboard::Down: camera.move(map, 0, 1); break;
+				}
+			}
 			//...
 		}
 
 		data.clear(Color::Black);
+
+
+		updateMap(camera, map);
 	}
 
 	public: virtual void Draw() { }
@@ -67,20 +85,45 @@ class Renderer
 
 	public: void draw(Map& map)
 	{
-		for (int t = 0; t < map.getChunk(0).tiles.size(); t++)
-		{
-			blit(map, map.getChunk(0).tiles[t].frame, map.getChunk(0).tiles[t].coords.i * reinterpret_cast<Body*>(map.get("body"))->unit_width, map.getChunk(0).tiles[t].coords.j * reinterpret_cast<Body*>(map.get("body"))->unit_height);
-		}
+		data.draw(map.data);
 	}
 
-	public: void update(Map& map)
+	private: void updateMap(Camera& camera, Map& map)
 	{
-		//...
+		if (map.changes)
+		{
+			map.data.setPosition(Vector2f(0, 0));
+			map.renderTexture.clear(sf::Color::Red);
+
+			map.renderTexture.create((map.chunks.size() * map.chunck_width) * map.tile_size, (map.chunks.size() * map.chunk_height) * map.tile_size);
+			map.update();
+			
+			for (int t = 0; t < map.tiles.size(); t++)
+			{ blit(map, map.tiles[t].frame, map.tiles[t].coords.i * reinterpret_cast<Body*>(map.get("body"))->unit_width,
+				map.tiles[t].coords.j * reinterpret_cast<Body*>(map.get("body"))->unit_height); }
+
+			if (map.grid)
+			{ for (int t = 0; t < map.tiles.size(); t++)
+				{ blit(map, 1, map.tiles[t].coords.i * reinterpret_cast<Body*>(map.get("body"))->unit_width,
+						map.tiles[t].coords.j * reinterpret_cast<Body*>(map.get("body"))->unit_height); } }
+
+			map.renderTexture.display();
+
+			map.data = Sprite(map.renderTexture.getTexture());
+
+			map.changes = false;
+		}
 	}
 
 	public: void blit(Entity2D& entity, int frame, float x, float y)
 	{
 		entity.move(frame, x, y);
 		data.draw(entity.sprite());
+	}
+
+	public: void blit(Map& map, int frame, float x, float y)
+	{
+		map.move(frame, x, y);
+		map.renderTexture.draw(map.sprite());
 	}
 };
