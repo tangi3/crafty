@@ -13,6 +13,8 @@ class Renderer
 	public: Event event;
 
 	public: int width, height;
+	public: Vector2f mouse;
+	public: Vector2f mouseTile;
 
 	public: View view;
 
@@ -42,6 +44,9 @@ class Renderer
 			Update(camera, map);
 			Draw();
 
+			//cursor
+			blitTile(map, 2, mouseTile.x, mouseTile.y);
+
 			data.display();
 		}
 	}
@@ -54,6 +59,10 @@ class Renderer
 
 		while (data.pollEvent(event))
 		{
+			mouse = data.mapPixelToCoords(sf::Mouse::getPosition(data));
+			mouseTile.x = floor(mouse.x / map.tile_size) * map.tile_size;
+			mouseTile.y = floor(mouse.y / map.tile_size) * map.tile_size;
+
 			if (event.type == Event::Closed) data.close();
 
 			if (event.type == Event::KeyPressed)
@@ -70,7 +79,6 @@ class Renderer
 		}
 
 		data.clear(Color::Black);
-
 
 		updateMap(camera, map);
 	}
@@ -125,5 +133,11 @@ class Renderer
 	{
 		map.move(frame, x, y);
 		map.renderTexture.draw(map.sprite());
+	}
+
+	public: void blitTile(Map& map, int frame, float x, float y)
+	{
+		map.move(frame, x, y);
+		data.draw(map.sprite());
 	}
 };
