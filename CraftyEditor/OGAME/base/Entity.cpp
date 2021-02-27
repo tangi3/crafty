@@ -6,13 +6,20 @@ using namespace std;
 #pragma once
 #include "Component.cpp"
 
-class Entity
+namespace Ogame
 {
-	private: map<string, Component*> components;
+	class Entity : public Component
+	{
+		friend class Component;
 
-	public: Entity() { components = map<string, Component*>(); }
+		private: map<string, Component*> components;
 
-	public: void add(Component* component) { components.insert(pair<string, Component*>(component->key, component)); }
+		public: Entity() : Component() { components = map<string, Component*>(); }
 
-	public: Component* get(string id) { return components[id]; }
-};
+		public: Entity(string id) : Component(id) { components = map<string, Component*>(); }
+
+		public: void add(Component* component) { components.insert(pair<string, Component*>(component->key, component)); }
+
+		public: Component* get(string id) { return components[id]; }
+	};
+}

@@ -1,7 +1,10 @@
-class Job
+namespace Ogame
 {
-	public: Job()
+	class Job
 	{
-		//...
-	}
-};
+		public: Job()
+		{
+			//...
+		}
+	};
+}

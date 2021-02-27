@@ -152,13 +152,15 @@
     <ClCompile Include="OGAME\base\Entity.cpp" />
     <ClCompile Include="OGAME\base\Jobs.cpp" />
     <ClCompile Include="OGAME\base\System.cpp" />
-    <ClCompile Include="Game.cpp" />
     <ClCompile Include="OGAME\components\Body.cpp" />
-    <ClCompile Include="OGAME\components\Camera.cpp" />
-    <ClCompile Include="OGAME\components\Visual.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="OGAME\components\Mouse.cpp" />
+    <ClCompile Include="OGAME\components\RenderView.cpp" />
+    <ClCompile Include="OGAME\components\SFMLView.cpp" />
+    <ClCompile Include="OGAME\components\View.cpp" />
     <ClCompile Include="OGAME\entities\Entity2D.cpp" />
     <ClCompile Include="OGAME\entities\Map.cpp" />
-    <ClCompile Include="OGAME\Renderer.cpp" />
+    <ClCompile Include="OGAME\entities\SFMLWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug\openal32.dll" />
@@ -185,6 +187,7 @@
     <None Include="dll\sfml-window-d-2.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="OGAME\assets\tilesets\cursor.png" />
     <Image Include="OGAME\assets\tilesets\test.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

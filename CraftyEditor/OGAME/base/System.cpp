@@ -1,7 +1,10 @@
-class System
+namespace Ogame
 {
-	public: System()
+	class System
 	{
-		//...
-	}
-};
+		public: System()
+		{
+			//...
+		}
+	};
+}

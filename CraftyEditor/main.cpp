@@ -1,13 +1,7 @@
-#pragma once
-#include <iostream>
-using namespace std;
-
-#pragma once
 #include "Game.cpp"
 
 int main()
 {
-	Game game;
-	game.load("CraftyEditor", 1280, 800);
-	game.run();
+	Game game("CraftyEditor", 1280, 800, 32);
+	game.Run();
 }

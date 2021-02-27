@@ -1,81 +1,92 @@
 #pragma once
 #include "Entity2D.cpp"
+#include "SFMLWindow.cpp"
+#include "../components/RenderView.cpp"
+#include <iostream>
 
-struct coord { int i, j; };
-struct tile { coord coords; int frame, z; };
-struct chunk { vector<tile> tiles; };
+using namespace Ogame;
 
-class Map : public Entity2D
+namespace Ogame
 {
-	friend class Entity2D;
-
-	public: int tile_size;
-	public: chunk chunk_buffer;
-	public: tile tile_buffer;
-	public: vector<chunk> chunks;
-	public: vector<tile> tiles;
-	public: int chunck_width, chunk_height;
-	private: int w, h;
-
-	public: bool changes;
-
-	public: RenderTexture renderTexture;
-	public: Sprite data;
-
-	public: bool grid = true;
-
-	public: Map()
+	class Map : public Entity2D
 	{
-		chunks = vector<chunk>();
+		friend class Entity2D;
 
-		chunck_width = 16;
-		chunk_height = 16;
+		private: int tile_size, screen_width, screen_height;
+		private: int nbTiles, nbRows, nbChunkPerRow, nbTilesPerRow, nbRowPerChunk, chunkOffset;
 
-		tile_size = 32;
-
-		changes = false;
-	}
-
-	public: void loadTileset(string path, int unit_size) { loadFromFile("tilesets/" + path, unit_size, unit_size); }
-
-	public: void loadChunkFrom(int i, int j, int unit_size, int screen_width, int screen_height)
-	{
-		chunk_buffer.tiles = vector<tile>();
-		chunks.push_back(chunk_buffer);
-
-		w, h;
-
-		for (h = 0; h < chunk_height; h++)
+		public: Map() : Entity2D()
 		{
-			for (w = 0; w < chunck_width; w++)
-			{
-				tile_buffer.coords.i = i + w + (((screen_width / 2) - unit_size) / unit_size);
-				tile_buffer.coords.j = j + h + (((screen_height / 2) - unit_size) / unit_size);
-				tile_buffer.frame = 0;
-				tile_buffer.z = 0;
-
-				chunks[chunks.size() - 1].tiles.push_back(tile_buffer);
-			}
+			add(reinterpret_cast<RenderView::Component*>(new RenderView("grid")));
 		}
 
-		changes = true;
-	}
+		public: void load(string name, int tileSize, int screenWidth, int screenHeight)
+		{
+			loadFromFile("tileset", name);
+			loadTiles(tileSize);
 
-	public: void update()
-	{
-		tiles = vector<tile>();
+			tile_size = tileSize;
+			screen_width = screenWidth;
+			screen_height = screenHeight;
 
-		for (int c = 0; c < chunks.size(); c++) {
-			for (int t = 0; t < getChunk(c).tiles.size(); t++) {
-				tile_buffer = getChunk(c).tiles[t];
-				tiles.push_back(tile_buffer);}}
+			//.......................... WIP ..............................................
+			/*
+			nbRows = 3;
+			nbChunkPerRow = 3;
+			nbTiles = (screenWidth / tileSize) * (screenHeight / tileSize);
+			nbTilesPerRow = (screenWidth / tileSize) / nbChunkPerRow;
+			nbRowPerChunk = (screenHeight / tileSize) / nbRows;
+			chunkOffset = 2;
 
-		chunks.clear();
-	}
+			for (int c = 0; c < (nbRows + chunkOffset) * (nbChunkPerRow + chunkOffset); c++)
+			{
+				add(reinterpret_cast<RenderView::Component*>(new RenderView("ground_chunk_" + c)));
 
-	public: void unloadChunk(int id) { chunks.erase(chunks.begin() + id); }
+				ground(c)->texture.create(screen_width, screen_height);
+				ground(c)->texture.clear();
 
-	public: void unloadLastChunk() { unloadChunk(chunks.size() - 1); }
+				for (int j = 0; j < nbRowPerChunk; j++)
+				{
+					for (int i = 0; i < nbTilesPerRow; j++)
+					{
+						move((c * nbTilesPerRow) + i, (c * nbRowPerChunk) + j);
+						setFrame(0);
+						update(tile_size);
+						ground(c)->texture.draw(view()->sprite);
+					}
+				}
 
-	public: chunk& getChunk(int i) { return chunks[i]; }
-};
+				ground(c)->texture.display();
+				ground(c)->sprite.setTexture(ground(c)->texture.getTexture());
+			}
+			*/
+			//..............................................................................................
+
+			Grid()->texture.create(screen_width, screen_height);
+			Grid()->texture.clear();
+
+			for (int j = 0; j < screen_height / tile_size; j++)
+			{ for (int i = 0; i < screen_width / tile_size; i++) {
+				move(i, j);
+				setFrame(1);
+				update(tile_size);
+				Grid()->texture.draw(view()->sprite);}}
+
+			Grid()->texture.display();
+			Grid()->sprite.setTexture(Grid()->texture.getTexture());
+		}
+
+		public: Sprite& grid() { return Grid()->sprite; }
+
+		public: void blit(RenderWindow& window, int f, int i, int j)
+		{
+			move(i, j);
+			setFrame(f);
+			window.draw(view()->sprite);
+		}
+
+		private: RenderView* Grid() { return reinterpret_cast<RenderView*>(get("grid")); }
+
+		private: RenderView* ground(int c) { return reinterpret_cast<RenderView*>(get("ground_chunk_" + c)); }
+	};
+}

@@ -1,39 +1,49 @@
 #pragma once
-#include "OGAME/Renderer.cpp"
-#include <iostream>
+#include "OGAME/entities/Map.cpp"
+using namespace Ogame;
 
-class Game : public Renderer
+class Game : public SFMLWindow
 {
+	public: Entity2D cursor;
 	public: Map map;
-	public: Camera camera;
+		 
+	public: bool grid;
 
-	public: Game() : Renderer() {}
+	public: Game(string caption, int w, int h, int tileSize) : SFMLWindow() { load(caption, w, h, tileSize); }
 
 	public: void Initialize()
 	{
-		Renderer::Initialize();
+		SFMLWindow::Initialize();
 
-		map.loadTileset("test", map.tile_size);
-		camera = Camera(map, width, height, map.tile_size);
+		map.load("test", tile_size, width, height);
+
+		grid = true;
+
+		cursor.loadFromFile("tileset", "cursor");
+		cursor.loadTiles(tile_size);
+		cursor.setFrame(cursor_state);
+
+		//...
 	}
-
 	public: void Update()
 	{
-		Renderer::Update(camera, map);
+		SFMLWindow::Update();
+
+		if (mouse()->changedTile) cursor.move(mouse()->tile.x, mouse()->tile.y);
+		if (cursor.frame != cursor_state) cursor.setFrame(cursor_state);
+
+		cursor.update(tile_size);
 
 		//...
 	}
 
 	public: void Draw()
 	{
-		Renderer::Draw();
+		SFMLWindow::Draw();
 
-		draw(map);
-	}
+		if (grid) window().draw(map.grid());
 
-	public: void run()
-	{
-		Renderer::Run(camera, map);
+		window().draw(cursor.sprite());
 
 		//...
 	}

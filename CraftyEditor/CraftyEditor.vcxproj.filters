@@ -33,25 +33,31 @@
     <ClCompile Include="OGAME\base\Jobs.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="OGAME\components\Body.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="OGAME\components\Visual.cpp">
+    <ClCompile Include="OGAME\components\View.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="OGAME\entities\Entity2D.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="OGAME\Renderer.cpp">
+    <ClCompile Include="OGAME\components\SFMLView.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OGAME\components\RenderView.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OGAME\entities\SFMLWindow.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OGAME\components\Mouse.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="OGAME\entities\Map.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="OGAME\components\Camera.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -125,6 +131,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="OGAME\assets\tilesets\test.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="OGAME\assets\tilesets\cursor.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
   </ItemGroup>

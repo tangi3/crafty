@@ -1,124 +1,131 @@
 #pragma once
 #include "../../OGAME/base/Entity.cpp"
 #include "../../OGAME/components/Body.cpp"
-#include "../../OGAME/components/Visual.cpp"
-#include <iostream>
+#include "../../OGAME/components/View.cpp"
 
-class Entity2D : public Entity
+using namespace Ogame;
+
+namespace Ogame
 {
-	friend class Entity;
-
-	public: Entity2D() : Entity()
+	class Entity2D : public Entity
 	{
-		add(reinterpret_cast<Body::Component*>(new Body()));
-		add(reinterpret_cast<Visual::Component*>(new Visual()));
-	}
+		friend class Entity;
 
-	public: void resize(int w, int h)
-	{
-		if (w != reinterpret_cast<Body*>(get("body"))->previous_width || h != reinterpret_cast<Body*>(get("body"))->previous_height)
+		public: string path;
+
+		public: vector<IntRect> tiles;
+		public: int frame;
+
+		public: IntRect intrect_buffer;
+		public: Vector2f vector2f_buffer;
+
+		public: bool changes, coordsChanged, sizeChanged;
+
+		public: Entity2D() : Entity()
 		{
-			reinterpret_cast<Body*>(get("body"))->previous_width = w;
-			reinterpret_cast<Body*>(get("body"))->previous_height = h;
+			add(reinterpret_cast<Body::Component*>(new Body()));
+			add(reinterpret_cast<View::Component*>(new View()));
 
-			reinterpret_cast<Body*>(get("body"))->width = w;
-			reinterpret_cast<Body*>(get("body"))->height = h;
-			update();
-		}
-	}
+			changes = false;
+			coordsChanged = false;
+			sizeChanged = false;
 
-	public: void move(float nx, float ny)
-	{
-		if (nx != reinterpret_cast<Body*>(get("body"))->previous_x || ny != reinterpret_cast<Body*>(get("body"))->previous_y)
-		{
-			reinterpret_cast<Body*>(get("body"))->previous_x = nx;
-			reinterpret_cast<Body*>(get("body"))->previous_y = ny;
+			intrect_buffer = IntRect(0, 0, 0, 0);
+			vector2f_buffer = Vector2f(0, 0);
 
-			reinterpret_cast<Body*>(get("body"))->x = nx;
-			reinterpret_cast<Body*>(get("body"))->y = ny;
-			update();
-		}
-	}
-
-	public: void move(int f, float nx, float ny)
-	{
-		reinterpret_cast<Body*>(get("body"))->previous_x = reinterpret_cast<Body*>(get("body"))->x;
-		reinterpret_cast<Body*>(get("body"))->previous_y = reinterpret_cast<Body*>(get("body"))->y;
-
-		reinterpret_cast<Body*>(get("body"))->x = nx;
-		reinterpret_cast<Body*>(get("body"))->y = ny;
-
-		reinterpret_cast<Visual*>(get("view"))->sprite.setPosition(Vector2f(reinterpret_cast<Body*>(get("body"))->x, reinterpret_cast<Body*>(get("body"))->y));
-	
-		setFrame(f);
-	}
-
-	public: void fill(Color color)
-	{
-		reinterpret_cast<Visual*>(get("view"))->color = color;
-		reinterpret_cast<Visual*>(get("view"))->rectangle.setFillColor(reinterpret_cast<Visual*>(get("view"))->color);
-	}
-
-	public: void fill(int r, int g, int b, int a)
-	{
-		reinterpret_cast<Visual*>(get("view"))->color = Color(r, g, b, a);
-		reinterpret_cast<Visual*>(get("view"))->rectangle.setFillColor(reinterpret_cast<Visual*>(get("view"))->color);
-	}
-
-	public: void fill(string hexa)
-	{
-		reinterpret_cast<Visual*>(get("view"))->a = 255;
-		hexa.substr(1);
-		hexa.replace(0, 1, "");
-		sscanf_s(hexa.c_str(), "%02x%02x%02x", &reinterpret_cast<Visual*>(get("view"))->r, &reinterpret_cast<Visual*>(get("view"))->g, &reinterpret_cast<Visual*>(get("view"))->b);
-		reinterpret_cast<Visual*>(get("view"))->color = Color(reinterpret_cast<Visual*>(get("view"))->r, reinterpret_cast<Visual*>(get("view"))->g, reinterpret_cast<Visual*>(get("view"))->b, reinterpret_cast<Visual*>(get("view"))->a);
-		reinterpret_cast<Visual*>(get("view"))->rectangle.setFillColor(reinterpret_cast<Visual*>(get("view"))->color);
-	}
-
-	public: void loadFromFile(string path, int uw = -1, int uh = -1)
-	{
-		reinterpret_cast<Visual*>(get("view"))->texture.loadFromFile("C:/Users/tangi/Desktop/crafty/CraftyEditor/OGAME/assets/" + path + ".png");
-		reinterpret_cast<Visual*>(get("view"))->sprite.setTexture(reinterpret_cast<Visual*>(get("view"))->texture);
-		update(uw, uh, true);
-	}
-
-	public: void setFrame(int f)
-	{
-		reinterpret_cast<Body*>(get("body"))->previous_frame = reinterpret_cast<Body*>(get("body"))->frame;
-		reinterpret_cast<Body*>(get("body"))->frame = f;
-		reinterpret_cast<Visual*>(get("view"))->sprite.setTextureRect(reinterpret_cast<Visual*>(get("view"))->frames[reinterpret_cast<Body*>(get("body"))->frame]);
-	}
-
-	private: void update(int uw = -1, int uh = -1, bool loading = false)
-	{
-		reinterpret_cast<Visual*>(get("view"))->rectangle.setPosition(Vector2f(reinterpret_cast<Body*>(get("body"))->x, reinterpret_cast<Body*>(get("body"))->y));
-		reinterpret_cast<Visual*>(get("view"))->sprite.setPosition(Vector2f(reinterpret_cast<Body*>(get("body"))->x, reinterpret_cast<Body*>(get("body"))->y));
-	
-		reinterpret_cast<Visual*>(get("view"))->rectangle.setSize(Vector2f(reinterpret_cast<Body*>(get("body"))->width, reinterpret_cast<Body*>(get("body"))->height));
-
-		reinterpret_cast<Body*>(get("body"))->texture_width = reinterpret_cast<Visual*>(get("view"))->texture.getSize().x;
-		reinterpret_cast<Body*>(get("body"))->texture_height = reinterpret_cast<Visual*>(get("view"))->texture.getSize().y;
-
-		if (loading)
-		{
-			reinterpret_cast<Body*>(get("body"))->width = reinterpret_cast<Body*>(get("body"))->texture_width;
-			reinterpret_cast<Body*>(get("body"))->height = reinterpret_cast<Body*>(get("body"))->texture_height;
-
-			reinterpret_cast<Visual*>(get("view"))->rectangle.setSize(Vector2f(reinterpret_cast<Body*>(get("body"))->width, reinterpret_cast<Body*>(get("body"))->height));
+			frame = 0;
 		}
 
-		if (uw != 1 && uh != -1 || reinterpret_cast<Visual*>(get("view"))->frames.size() > 0)
+		public: Entity2D(string id) : Entity(id)
 		{
-			reinterpret_cast<Body*>(get("body"))->unit_width = uw;
-			reinterpret_cast<Body*>(get("body"))->unit_height = uh;
-			
-			for (int j = 0; j < (reinterpret_cast<Body*>(get("body"))->texture_height / uh); j++)
-			{ for (int i = 0; i < (reinterpret_cast<Body*>(get("body"))->texture_width / uw); i++)
-					{ reinterpret_cast<Visual*>(get("view"))->frames.push_back(IntRect(i * uw, j * uh, uw, uh)); } }
+			add(reinterpret_cast<Body::Component*>(new Body()));
+			add(reinterpret_cast<View::Component*>(new View()));
+
+			changes = false;
+			coordsChanged = false;
+			sizeChanged = false;
+
+			intrect_buffer = IntRect(0, 0, 0, 0);
+			vector2f_buffer = Vector2f(0, 0);
+
+			frame = 0;
 		}
-	}
 
-	public: Sprite& sprite() { return reinterpret_cast<Visual*>(get("view"))->sprite; }
+		public: void loadFromFile(string type, string name)
+		{
+			path = "C:/Users/tangi/Desktop/crafty/CraftyEditor/OGAME/assets/" + type + "s/" + name + ".png";
+			view()->texture.loadFromFile(path);
+			view()->sprite.setTexture(view()->texture);
+		}
 
-	public: RectangleShape& rectangle() { return reinterpret_cast<Visual*>(get("view"))->rectangle; }
-};
+		public: void setFrame(int f) { frame = f; view()->sprite.setTextureRect(tiles[frame]); }
+
+		public: void loadTiles(int tile_size)
+		{
+			tiles = vector<IntRect>();
+
+			for (int j = 0; j < view()->texture.getSize().y / tile_size; j++)
+			{
+				for (int i = 0; i < view()->texture.getSize().x / tile_size; i++)
+				{
+					intrect_buffer.left = i * tile_size;
+					intrect_buffer.top = j * tile_size;
+					intrect_buffer.width = tile_size;
+					intrect_buffer.height = tile_size;
+
+					tiles.push_back(intrect_buffer);
+				}
+			}
+		}
+
+		public: void move(int i, int j)
+		{
+			body()->coord.i = i;
+			body()->coord.j = j;
+
+			changes = true;
+			coordsChanged = true;
+		}
+
+		public: void resize(int i, int j, int tile_size)
+		{
+			body()->size.i = i;
+			body()->size.j = j;
+
+			changes = true;
+			sizeChanged = true;
+		}
+
+		public: void update(int tile_size)
+		{
+			if (changes)
+			{
+				if (sizeChanged)
+				{
+					vector2f_buffer.x = body()->size.i * tile_size;
+					vector2f_buffer.y = body()->size.j * tile_size;
+
+					sizeChanged = false;
+				}
+
+				if (coordsChanged)
+				{
+					vector2f_buffer.x = body()->coord.i * tile_size;
+					vector2f_buffer.y = body()->coord.j * tile_size;
+
+					view()->sprite.setPosition(vector2f_buffer);
+
+					coordsChanged = false;
+				}
+
+				changes = false;
+			}
+		}
+
+		private: Body* body() { return reinterpret_cast<Body*>(get("body")); }
+
+		public: View* view() { return reinterpret_cast<View*>(get("view")); }
+
+		public: Sprite& sprite(){ return view()->sprite; }
+	};
+}

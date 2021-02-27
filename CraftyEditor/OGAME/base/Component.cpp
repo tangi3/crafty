@@ -2,13 +2,16 @@
 #include <string>
 using namespace std;
 
-class Component
+namespace Ogame
 {
-	public: string key;
+	class Component
+	{
+		public: string key;
 
-	public: Component() { }
+		public: Component() { }
 
-	public: Component(string id) { key = id; }
+		public: Component(string id) { key = id; }
 
-	public: virtual ~Component() { }
-};
+		public: virtual ~Component() { }
+	};
+}
